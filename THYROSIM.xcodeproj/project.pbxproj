@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		843863D419F71DC00095E6BB /* MathComputations.m in Sources */ = {isa = PBXBuildFile; fileRef = 843863D319F71DC00095E6BB /* MathComputations.m */; };
+		843863D719F7216A0095E6BB /* StoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 843863D619F7216A0095E6BB /* StoreData.m */; };
+		84D4469D1A04407A00F277BE /* MathSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D4469B1A04407A00F277BE /* MathSolver.cpp */; };
+		84D91E1019F5A7FD007A2172 /* Inputs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D91E0F19F5A7FD007A2172 /* Inputs.m */; };
+		84ECB42319E9C39E00D5F795 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB42219E9C39E00D5F795 /* main.m */; };
+		84ECB42619E9C39E00D5F795 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB42519E9C39E00D5F795 /* AppDelegate.m */; };
+		84ECB42E19E9C39E00D5F795 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB42D19E9C39E00D5F795 /* Images.xcassets */; };
+		84ECB43119E9C39E00D5F795 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB42F19E9C39E00D5F795 /* LaunchScreen.xib */; };
+		84ECB43D19E9C39E00D5F795 /* THYROSIMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB43C19E9C39E00D5F795 /* THYROSIMTests.m */; };
+		84ECB44919E9C77C00D5F795 /* QuickStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB44719E9C77C00D5F795 /* QuickStartViewController.m */; };
+		84ECB44A19E9C77C00D5F795 /* QuickStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB44819E9C77C00D5F795 /* QuickStartViewController.xib */; };
+		84ECB44E19E9C80800D5F795 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB44C19E9C80800D5F795 /* TabBarViewController.m */; };
+		84ECB44F19E9C80800D5F795 /* TabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB44D19E9C80800D5F795 /* TabBarViewController.xib */; };
+		84ECB45319E9C92300D5F795 /* PageOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB45119E9C92300D5F795 /* PageOneViewController.m */; };
+		84ECB45419E9C92300D5F795 /* PageOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB45219E9C92300D5F795 /* PageOneViewController.xib */; };
+		84ECB45819E9C93400D5F795 /* PageTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB45619E9C93400D5F795 /* PageTwoViewController.m */; };
+		84ECB45919E9C93400D5F795 /* PageTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB45719E9C93400D5F795 /* PageTwoViewController.xib */; };
+		84ECB46219E9C96800D5F795 /* RunSimulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB46019E9C96800D5F795 /* RunSimulationViewController.m */; };
+		84ECB46319E9C96800D5F795 /* RunSimulationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB46119E9C96800D5F795 /* RunSimulationViewController.xib */; };
+		84ECB46719E9C98A00D5F795 /* PageOneInputs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB46619E9C98A00D5F795 /* PageOneInputs.m */; };
+		84ECB46A19E9C99700D5F795 /* PageTwoInputs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB46919E9C99700D5F795 /* PageTwoInputs.m */; };
+		84ECB46D19E9C9A300D5F795 /* GraphDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB46C19E9C9A300D5F795 /* GraphDrawer.m */; };
+		84ECB46F19E9CE9100D5F795 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB46E19E9CE9100D5F795 /* Default-568h@2x.png */; };
+		84ECB47419E9E71900D5F795 /* SwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB47219E9E71900D5F795 /* SwitchTableViewCell.m */; };
+		84ECB47519E9E71900D5F795 /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB47319E9E71900D5F795 /* SwitchTableViewCell.xib */; };
+		84ECB47919E9E72D00D5F795 /* TextInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB47719E9E72D00D5F795 /* TextInputTableViewCell.m */; };
+		84ECB47A19E9E72D00D5F795 /* TextInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB47819E9E72D00D5F795 /* TextInputTableViewCell.xib */; };
+		84ECB47D19E9E90900D5F795 /* DataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB47C19E9E90900D5F795 /* DataWrapper.m */; };
+		84ECB48219E9FB1400D5F795 /* PageTwoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB48019E9FB1400D5F795 /* PageTwoTableViewCell.m */; };
+		84ECB48319E9FB1400D5F795 /* PageTwoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB48119E9FB1400D5F795 /* PageTwoTableViewCell.xib */; };
+		84ECB48719E9FD3800D5F795 /* InfusionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB48519E9FD3800D5F795 /* InfusionTableViewCell.m */; };
+		84ECB48819E9FD3800D5F795 /* InfusionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB48619E9FD3800D5F795 /* InfusionTableViewCell.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84ECB43719E9C39E00D5F795 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84ECB41519E9C39E00D5F795 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84ECB41C19E9C39E00D5F795;
+			remoteInfo = THYROSIM;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		843863D219F71DC00095E6BB /* MathComputations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathComputations.h; sourceTree = "<group>"; };
+		843863D319F71DC00095E6BB /* MathComputations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathComputations.m; sourceTree = "<group>"; };
+		843863D519F7216A0095E6BB /* StoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreData.h; sourceTree = "<group>"; };
+		843863D619F7216A0095E6BB /* StoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreData.m; sourceTree = "<group>"; };
+		84D4469B1A04407A00F277BE /* MathSolver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathSolver.cpp; sourceTree = "<group>"; };
+		84D4469C1A04407A00F277BE /* MathSolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathSolver.h; sourceTree = "<group>"; };
+		84D91E0E19F5A7FC007A2172 /* Inputs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inputs.h; sourceTree = "<group>"; };
+		84D91E0F19F5A7FD007A2172 /* Inputs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inputs.m; sourceTree = "<group>"; };
+		84ECB41D19E9C39E00D5F795 /* THYROSIM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THYROSIM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84ECB42119E9C39E00D5F795 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84ECB42219E9C39E00D5F795 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		84ECB42419E9C39E00D5F795 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		84ECB42519E9C39E00D5F795 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		84ECB42D19E9C39E00D5F795 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		84ECB43019E9C39E00D5F795 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		84ECB43619E9C39E00D5F795 /* THYROSIMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = THYROSIMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84ECB43B19E9C39E00D5F795 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84ECB43C19E9C39E00D5F795 /* THYROSIMTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THYROSIMTests.m; sourceTree = "<group>"; };
+		84ECB44619E9C77C00D5F795 /* QuickStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickStartViewController.h; sourceTree = "<group>"; };
+		84ECB44719E9C77C00D5F795 /* QuickStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickStartViewController.m; sourceTree = "<group>"; };
+		84ECB44819E9C77C00D5F795 /* QuickStartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuickStartViewController.xib; sourceTree = "<group>"; };
+		84ECB44B19E9C80800D5F795 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		84ECB44C19E9C80800D5F795 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		84ECB44D19E9C80800D5F795 /* TabBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBarViewController.xib; sourceTree = "<group>"; };
+		84ECB45019E9C92300D5F795 /* PageOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageOneViewController.h; sourceTree = "<group>"; };
+		84ECB45119E9C92300D5F795 /* PageOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageOneViewController.m; sourceTree = "<group>"; };
+		84ECB45219E9C92300D5F795 /* PageOneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageOneViewController.xib; sourceTree = "<group>"; };
+		84ECB45519E9C93400D5F795 /* PageTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTwoViewController.h; sourceTree = "<group>"; };
+		84ECB45619E9C93400D5F795 /* PageTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTwoViewController.m; sourceTree = "<group>"; };
+		84ECB45719E9C93400D5F795 /* PageTwoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageTwoViewController.xib; sourceTree = "<group>"; };
+		84ECB45F19E9C96800D5F795 /* RunSimulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunSimulationViewController.h; sourceTree = "<group>"; };
+		84ECB46019E9C96800D5F795 /* RunSimulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunSimulationViewController.m; sourceTree = "<group>"; };
+		84ECB46119E9C96800D5F795 /* RunSimulationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RunSimulationViewController.xib; sourceTree = "<group>"; };
+		84ECB46519E9C98A00D5F795 /* PageOneInputs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageOneInputs.h; sourceTree = "<group>"; };
+		84ECB46619E9C98A00D5F795 /* PageOneInputs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageOneInputs.m; sourceTree = "<group>"; };
+		84ECB46819E9C99700D5F795 /* PageTwoInputs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTwoInputs.h; sourceTree = "<group>"; };
+		84ECB46919E9C99700D5F795 /* PageTwoInputs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTwoInputs.m; sourceTree = "<group>"; };
+		84ECB46B19E9C9A300D5F795 /* GraphDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphDrawer.h; sourceTree = "<group>"; };
+		84ECB46C19E9C9A300D5F795 /* GraphDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphDrawer.m; sourceTree = "<group>"; };
+		84ECB46E19E9CE9100D5F795 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		84ECB47119E9E71900D5F795 /* SwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchTableViewCell.h; sourceTree = "<group>"; };
+		84ECB47219E9E71900D5F795 /* SwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchTableViewCell.m; sourceTree = "<group>"; };
+		84ECB47319E9E71900D5F795 /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
+		84ECB47619E9E72D00D5F795 /* TextInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextInputTableViewCell.h; sourceTree = "<group>"; };
+		84ECB47719E9E72D00D5F795 /* TextInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextInputTableViewCell.m; sourceTree = "<group>"; };
+		84ECB47819E9E72D00D5F795 /* TextInputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputTableViewCell.xib; sourceTree = "<group>"; };
+		84ECB47B19E9E90900D5F795 /* DataWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataWrapper.h; sourceTree = "<group>"; };
+		84ECB47C19E9E90900D5F795 /* DataWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataWrapper.m; sourceTree = "<group>"; };
+		84ECB47F19E9FB1400D5F795 /* PageTwoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTwoTableViewCell.h; sourceTree = "<group>"; };
+		84ECB48019E9FB1400D5F795 /* PageTwoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTwoTableViewCell.m; sourceTree = "<group>"; };
+		84ECB48119E9FB1400D5F795 /* PageTwoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageTwoTableViewCell.xib; sourceTree = "<group>"; };
+		84ECB48419E9FD3800D5F795 /* InfusionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfusionTableViewCell.h; sourceTree = "<group>"; };
+		84ECB48519E9FD3800D5F795 /* InfusionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfusionTableViewCell.m; sourceTree = "<group>"; };
+		84ECB48619E9FD3800D5F795 /* InfusionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfusionTableViewCell.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84ECB41A19E9C39E00D5F795 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84ECB43319E9C39E00D5F795 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		843863D119F71DAC0095E6BB /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				843863D219F71DC00095E6BB /* MathComputations.h */,
+				843863D319F71DC00095E6BB /* MathComputations.m */,
+				843863D519F7216A0095E6BB /* StoreData.h */,
+				843863D619F7216A0095E6BB /* StoreData.m */,
+				84D4469B1A04407A00F277BE /* MathSolver.cpp */,
+				84D4469C1A04407A00F277BE /* MathSolver.h */,
+			);
+			name = Math;
+			sourceTree = "<group>";
+		};
+		84ECB41419E9C39E00D5F795 = {
+			isa = PBXGroup;
+			children = (
+				84ECB46E19E9CE9100D5F795 /* Default-568h@2x.png */,
+				84ECB41F19E9C39E00D5F795 /* THYROSIM */,
+				84ECB43919E9C39E00D5F795 /* THYROSIMTests */,
+				84ECB41E19E9C39E00D5F795 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		84ECB41E19E9C39E00D5F795 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84ECB41D19E9C39E00D5F795 /* THYROSIM.app */,
+				84ECB43619E9C39E00D5F795 /* THYROSIMTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84ECB41F19E9C39E00D5F795 /* THYROSIM */ = {
+			isa = PBXGroup;
+			children = (
+				843863D119F71DAC0095E6BB /* Math */,
+				84ECB47E19E9F7A900D5F795 /* PageTwo Cells */,
+				84ECB47019E9E39D00D5F795 /* PageOne Cells */,
+				84ECB46419E9C96E00D5F795 /* Data Model */,
+				84ECB42419E9C39E00D5F795 /* AppDelegate.h */,
+				84ECB42519E9C39E00D5F795 /* AppDelegate.m */,
+				84ECB42D19E9C39E00D5F795 /* Images.xcassets */,
+				84ECB42F19E9C39E00D5F795 /* LaunchScreen.xib */,
+				84ECB42019E9C39E00D5F795 /* Supporting Files */,
+				84ECB44619E9C77C00D5F795 /* QuickStartViewController.h */,
+				84ECB44719E9C77C00D5F795 /* QuickStartViewController.m */,
+				84ECB44819E9C77C00D5F795 /* QuickStartViewController.xib */,
+				84ECB44B19E9C80800D5F795 /* TabBarViewController.h */,
+				84ECB44C19E9C80800D5F795 /* TabBarViewController.m */,
+				84ECB44D19E9C80800D5F795 /* TabBarViewController.xib */,
+				84ECB45019E9C92300D5F795 /* PageOneViewController.h */,
+				84ECB45119E9C92300D5F795 /* PageOneViewController.m */,
+				84ECB45219E9C92300D5F795 /* PageOneViewController.xib */,
+				84ECB45519E9C93400D5F795 /* PageTwoViewController.h */,
+				84ECB45619E9C93400D5F795 /* PageTwoViewController.m */,
+				84ECB45719E9C93400D5F795 /* PageTwoViewController.xib */,
+				84ECB45F19E9C96800D5F795 /* RunSimulationViewController.h */,
+				84ECB46019E9C96800D5F795 /* RunSimulationViewController.m */,
+				84ECB46119E9C96800D5F795 /* RunSimulationViewController.xib */,
+			);
+			path = THYROSIM;
+			sourceTree = "<group>";
+		};
+		84ECB42019E9C39E00D5F795 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84ECB42119E9C39E00D5F795 /* Info.plist */,
+				84ECB42219E9C39E00D5F795 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84ECB43919E9C39E00D5F795 /* THYROSIMTests */ = {
+			isa = PBXGroup;
+			children = (
+				84ECB43C19E9C39E00D5F795 /* THYROSIMTests.m */,
+				84ECB43A19E9C39E00D5F795 /* Supporting Files */,
+			);
+			path = THYROSIMTests;
+			sourceTree = "<group>";
+		};
+		84ECB43A19E9C39E00D5F795 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84ECB43B19E9C39E00D5F795 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84ECB46419E9C96E00D5F795 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				84ECB46519E9C98A00D5F795 /* PageOneInputs.h */,
+				84ECB46619E9C98A00D5F795 /* PageOneInputs.m */,
+				84ECB46819E9C99700D5F795 /* PageTwoInputs.h */,
+				84ECB46919E9C99700D5F795 /* PageTwoInputs.m */,
+				84ECB46B19E9C9A300D5F795 /* GraphDrawer.h */,
+				84ECB46C19E9C9A300D5F795 /* GraphDrawer.m */,
+				84ECB47B19E9E90900D5F795 /* DataWrapper.h */,
+				84ECB47C19E9E90900D5F795 /* DataWrapper.m */,
+				84D91E0E19F5A7FC007A2172 /* Inputs.h */,
+				84D91E0F19F5A7FD007A2172 /* Inputs.m */,
+			);
+			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		84ECB47019E9E39D00D5F795 /* PageOne Cells */ = {
+			isa = PBXGroup;
+			children = (
+				84ECB47119E9E71900D5F795 /* SwitchTableViewCell.h */,
+				84ECB47219E9E71900D5F795 /* SwitchTableViewCell.m */,
+				84ECB47319E9E71900D5F795 /* SwitchTableViewCell.xib */,
+				84ECB47619E9E72D00D5F795 /* TextInputTableViewCell.h */,
+				84ECB47719E9E72D00D5F795 /* TextInputTableViewCell.m */,
+				84ECB47819E9E72D00D5F795 /* TextInputTableViewCell.xib */,
+			);
+			name = "PageOne Cells";
+			sourceTree = "<group>";
+		};
+		84ECB47E19E9F7A900D5F795 /* PageTwo Cells */ = {
+			isa = PBXGroup;
+			children = (
+				84ECB47F19E9FB1400D5F795 /* PageTwoTableViewCell.h */,
+				84ECB48019E9FB1400D5F795 /* PageTwoTableViewCell.m */,
+				84ECB48119E9FB1400D5F795 /* PageTwoTableViewCell.xib */,
+				84ECB48419E9FD3800D5F795 /* InfusionTableViewCell.h */,
+				84ECB48519E9FD3800D5F795 /* InfusionTableViewCell.m */,
+				84ECB48619E9FD3800D5F795 /* InfusionTableViewCell.xib */,
+			);
+			name = "PageTwo Cells";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84ECB41C19E9C39E00D5F795 /* THYROSIM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84ECB44019E9C39E00D5F795 /* Build configuration list for PBXNativeTarget "THYROSIM" */;
+			buildPhases = (
+				84ECB41919E9C39E00D5F795 /* Sources */,
+				84ECB41A19E9C39E00D5F795 /* Frameworks */,
+				84ECB41B19E9C39E00D5F795 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = THYROSIM;
+			productName = THYROSIM;
+			productReference = 84ECB41D19E9C39E00D5F795 /* THYROSIM.app */;
+			productType = "com.apple.product-type.application";
+		};
+		84ECB43519E9C39E00D5F795 /* THYROSIMTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84ECB44319E9C39E00D5F795 /* Build configuration list for PBXNativeTarget "THYROSIMTests" */;
+			buildPhases = (
+				84ECB43219E9C39E00D5F795 /* Sources */,
+				84ECB43319E9C39E00D5F795 /* Frameworks */,
+				84ECB43419E9C39E00D5F795 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84ECB43819E9C39E00D5F795 /* PBXTargetDependency */,
+			);
+			name = THYROSIMTests;
+			productName = THYROSIMTests;
+			productReference = 84ECB43619E9C39E00D5F795 /* THYROSIMTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84ECB41519E9C39E00D5F795 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "William Gu";
+				TargetAttributes = {
+					84ECB41C19E9C39E00D5F795 = {
+						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = X8C323275L;
+					};
+					84ECB43519E9C39E00D5F795 = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = 84ECB41C19E9C39E00D5F795;
+					};
+				};
+			};
+			buildConfigurationList = 84ECB41819E9C39E00D5F795 /* Build configuration list for PBXProject "THYROSIM" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84ECB41419E9C39E00D5F795;
+			productRefGroup = 84ECB41E19E9C39E00D5F795 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84ECB41C19E9C39E00D5F795 /* THYROSIM */,
+				84ECB43519E9C39E00D5F795 /* THYROSIMTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84ECB41B19E9C39E00D5F795 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84ECB48819E9FD3800D5F795 /* InfusionTableViewCell.xib in Resources */,
+				84ECB45919E9C93400D5F795 /* PageTwoViewController.xib in Resources */,
+				84ECB47A19E9E72D00D5F795 /* TextInputTableViewCell.xib in Resources */,
+				84ECB44F19E9C80800D5F795 /* TabBarViewController.xib in Resources */,
+				84ECB44A19E9C77C00D5F795 /* QuickStartViewController.xib in Resources */,
+				84ECB43119E9C39E00D5F795 /* LaunchScreen.xib in Resources */,
+				84ECB46319E9C96800D5F795 /* RunSimulationViewController.xib in Resources */,
+				84ECB46F19E9CE9100D5F795 /* Default-568h@2x.png in Resources */,
+				84ECB48319E9FB1400D5F795 /* PageTwoTableViewCell.xib in Resources */,
+				84ECB47519E9E71900D5F795 /* SwitchTableViewCell.xib in Resources */,
+				84ECB42E19E9C39E00D5F795 /* Images.xcassets in Resources */,
+				84ECB45419E9C92300D5F795 /* PageOneViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84ECB43419E9C39E00D5F795 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84ECB41919E9C39E00D5F795 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84ECB48719E9FD3800D5F795 /* InfusionTableViewCell.m in Sources */,
+				84ECB46219E9C96800D5F795 /* RunSimulationViewController.m in Sources */,
+				84ECB44E19E9C80800D5F795 /* TabBarViewController.m in Sources */,
+				84ECB42619E9C39E00D5F795 /* AppDelegate.m in Sources */,
+				84ECB47919E9E72D00D5F795 /* TextInputTableViewCell.m in Sources */,
+				84ECB47D19E9E90900D5F795 /* DataWrapper.m in Sources */,
+				84D91E1019F5A7FD007A2172 /* Inputs.m in Sources */,
+				84ECB48219E9FB1400D5F795 /* PageTwoTableViewCell.m in Sources */,
+				84ECB42319E9C39E00D5F795 /* main.m in Sources */,
+				843863D719F7216A0095E6BB /* StoreData.m in Sources */,
+				84ECB47419E9E71900D5F795 /* SwitchTableViewCell.m in Sources */,
+				84ECB46719E9C98A00D5F795 /* PageOneInputs.m in Sources */,
+				84ECB44919E9C77C00D5F795 /* QuickStartViewController.m in Sources */,
+				84ECB45819E9C93400D5F795 /* PageTwoViewController.m in Sources */,
+				84ECB46D19E9C9A300D5F795 /* GraphDrawer.m in Sources */,
+				84ECB46A19E9C99700D5F795 /* PageTwoInputs.m in Sources */,
+				84D4469D1A04407A00F277BE /* MathSolver.cpp in Sources */,
+				84ECB45319E9C92300D5F795 /* PageOneViewController.m in Sources */,
+				843863D419F71DC00095E6BB /* MathComputations.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84ECB43219E9C39E00D5F795 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84ECB43D19E9C39E00D5F795 /* THYROSIMTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84ECB43819E9C39E00D5F795 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84ECB41C19E9C39E00D5F795 /* THYROSIM */;
+			targetProxy = 84ECB43719E9C39E00D5F795 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		84ECB42F19E9C39E00D5F795 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84ECB43019E9C39E00D5F795 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84ECB43E19E9C39E00D5F795 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		84ECB43F19E9C39E00D5F795 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84ECB44119E9C39E00D5F795 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = THYROSIM/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		84ECB44219E9C39E00D5F795 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = THYROSIM/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		84ECB44419E9C39E00D5F795 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = THYROSIMTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/THYROSIM.app/THYROSIM";
+			};
+			name = Debug;
+		};
+		84ECB44519E9C39E00D5F795 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = THYROSIMTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/THYROSIM.app/THYROSIM";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84ECB41819E9C39E00D5F795 /* Build configuration list for PBXProject "THYROSIM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84ECB43E19E9C39E00D5F795 /* Debug */,
+				84ECB43F19E9C39E00D5F795 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84ECB44019E9C39E00D5F795 /* Build configuration list for PBXNativeTarget "THYROSIM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84ECB44119E9C39E00D5F795 /* Debug */,
+				84ECB44219E9C39E00D5F795 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84ECB44319E9C39E00D5F795 /* Build configuration list for PBXNativeTarget "THYROSIMTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84ECB44419E9C39E00D5F795 /* Debug */,
+				84ECB44519E9C39E00D5F795 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84ECB41519E9C39E00D5F795 /* Project object */;
+}
