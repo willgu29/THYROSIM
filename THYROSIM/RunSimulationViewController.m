@@ -9,6 +9,7 @@
 #import "RunSimulationViewController.h"
 #import "AppDelegate.h"
 #import "MathComputations.h"
+#import "ScatterPlotViewController.h"
 
 @interface RunSimulationViewController ()
 
@@ -44,6 +45,9 @@
     NSLog(@"%d", 10);
     NSLog(@"%f", 10.111);
     NSLog(@"%d",myMathObject.myNumber);
+    ScatterPlotViewController *scatterVC = [[ScatterPlotViewController alloc ]init];
+//    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:scatterVC];
+    [self presentViewController:scatterVC animated:YES completion:nil];
 }
 
 /*
