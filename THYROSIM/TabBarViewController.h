@@ -11,3 +11,4 @@
 @interface TabBarViewController : UITabBarController
 
 @end
+__deprecated_msg("Not using this class");
