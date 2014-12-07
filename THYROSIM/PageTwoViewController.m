@@ -116,9 +116,19 @@
 //        cell.inputField1.delegate = self;
 //        cell.inputField2.delegate = self;
 //        cell.inputField3.delegate = self;
+        
+        
         cell.deleteButton.tag = indexPath.row;
         cell.tag = indexPath.row;
         cell.label.text = [self inputName:[delegate.dataObject.pageTwoData.inputArray objectAtIndex:indexPath.row]];
+        
+        
+        Inputs *inputs = [delegate.dataObject.pageTwoData.filledArray objectAtIndex:indexPath.row];
+        
+        cell.inputField1.text = [NSString stringWithFormat:@"%d",inputs.doseAmount];
+        cell.inputField2.text = [NSString stringWithFormat:@"%d",inputs.startTime];
+        cell.inputField3.text = [NSString stringWithFormat:@"%d",inputs.endTime];
+        
         return cell;
         
     }
@@ -137,12 +147,22 @@
         cell.deleteButton.tag = indexPath.row;
         cell.tag = indexPath.row;
         cell.label.text = [self inputName:[delegate.dataObject.pageTwoData.inputArray objectAtIndex:indexPath.row]];
+        
+        Inputs *inputs = [delegate.dataObject.pageTwoData.filledArray objectAtIndex:indexPath.row];
+        
+        cell.inputField1.text = [NSString stringWithFormat:@"%d",inputs.doseAmount];
+        cell.inputField2.text = [NSString stringWithFormat:@"%d",inputs.doseInterval];
+        cell.inputField3.text = [NSString stringWithFormat:@"%d",inputs.startTime];
+        cell.inputField4.text = [NSString stringWithFormat:@"%d",inputs.endTime];
+
 
         return cell;
     }
     
     
 }
+
+
 
 -(NSString *)inputName:(NSNumber*)type
 {
@@ -187,7 +207,7 @@
 
 -(void)moveVC
 {
-    [self.view setFrame:CGRectMake(0, -100, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.view setFrame:CGRectMake(0, -150, self.view.frame.size.width, self.view.frame.size.height)];
 }
 
 -(void)revertVC

@@ -39,15 +39,14 @@
     [pageOneData logAllData];
     [pageTwoData logAllData];
     
-    NSArray *pageTwoArray = delegate.dataObject.pageTwoData.filledArray;
     
+    //TODO: Error check here
+    
+    //TODO: Math computations
     MathComputations *myMathObject = [[MathComputations alloc] init];
-    NSInteger myDividedNumber = [myMathObject divide:10];
-    NSInteger myNumber = [myMathObject add:2 numberTwo:3];
+
+    //TODO: Pass in Data Objects for all graphs
     
-    NSLog(@"%d", 10);
-    NSLog(@"%f", 10.111);
-    NSLog(@"%d",myMathObject.myNumber);
     
     
     
