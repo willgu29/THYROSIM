@@ -15,7 +15,6 @@
 		849224B71A34D804006BEBF6 /* ScatterPlot2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849224B51A34D804006BEBF6 /* ScatterPlot2ViewController.xib */; };
 		849224BB1A34D818006BEBF6 /* ScatterPlot3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849224B91A34D818006BEBF6 /* ScatterPlot3ViewController.m */; };
 		849224BC1A34D818006BEBF6 /* ScatterPlot3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849224BA1A34D818006BEBF6 /* ScatterPlot3ViewController.xib */; };
-		84D4469D1A04407A00F277BE /* MathSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D4469B1A04407A00F277BE /* MathSolver.cpp */; };
 		84D7B0FC1A13D28F0024DCE5 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D7B0FB1A13D28F0024DCE5 /* libCorePlot-CocoaTouch.a */; };
 		84D7B14C1A13D4410024DCE5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D7B14B1A13D4410024DCE5 /* QuartzCore.framework */; };
 		84D7B1511A13DF110024DCE5 /* ScatterPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D7B14F1A13DF110024DCE5 /* ScatterPlotViewController.m */; };
@@ -50,6 +49,8 @@
 		84ECB48319E9FB1400D5F795 /* PageTwoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB48119E9FB1400D5F795 /* PageTwoTableViewCell.xib */; };
 		84ECB48719E9FD3800D5F795 /* InfusionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB48519E9FD3800D5F795 /* InfusionTableViewCell.m */; };
 		84ECB48819E9FD3800D5F795 /* InfusionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB48619E9FD3800D5F795 /* InfusionTableViewCell.xib */; };
+		BC03F6D81A4623B20088F303 /* MathSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC03F6D61A4623B20088F303 /* MathSolver.cpp */; };
+		BCF1E9391A61DE7600CEDD9B /* rk45.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF1E9371A61DE7600CEDD9B /* rk45.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,8 +77,6 @@
 		849224B81A34D818006BEBF6 /* ScatterPlot3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScatterPlot3ViewController.h; sourceTree = "<group>"; };
 		849224B91A34D818006BEBF6 /* ScatterPlot3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScatterPlot3ViewController.m; sourceTree = "<group>"; };
 		849224BA1A34D818006BEBF6 /* ScatterPlot3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScatterPlot3ViewController.xib; sourceTree = "<group>"; };
-		84D4469B1A04407A00F277BE /* MathSolver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathSolver.cpp; sourceTree = "<group>"; };
-		84D4469C1A04407A00F277BE /* MathSolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathSolver.h; sourceTree = "<group>"; };
 		84D7B0FB1A13D28F0024DCE5 /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
 		84D7B0FD1A13D2B10024DCE5 /* CorePlot-CocoaTouch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CorePlot-CocoaTouch.h"; sourceTree = "<group>"; };
 		84D7B0FE1A13D2B10024DCE5 /* CPTAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPTAnimation.h; sourceTree = "<group>"; };
@@ -210,6 +209,10 @@
 		84ECB48419E9FD3800D5F795 /* InfusionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfusionTableViewCell.h; sourceTree = "<group>"; };
 		84ECB48519E9FD3800D5F795 /* InfusionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfusionTableViewCell.m; sourceTree = "<group>"; };
 		84ECB48619E9FD3800D5F795 /* InfusionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfusionTableViewCell.xib; sourceTree = "<group>"; };
+		BC03F6D61A4623B20088F303 /* MathSolver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathSolver.cpp; sourceTree = "<group>"; };
+		BC03F6D71A4623B20088F303 /* MathSolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathSolver.h; sourceTree = "<group>"; };
+		BCF1E9371A61DE7600CEDD9B /* rk45.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rk45.cpp; sourceTree = "<group>"; };
+		BCF1E9381A61DE7600CEDD9B /* rk45.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rk45.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,8 +243,10 @@
 				843863D319F71DC00095E6BB /* MathComputations.m */,
 				843863D519F7216A0095E6BB /* StoreData.h */,
 				843863D619F7216A0095E6BB /* StoreData.m */,
-				84D4469B1A04407A00F277BE /* MathSolver.cpp */,
-				84D4469C1A04407A00F277BE /* MathSolver.h */,
+				BC03F6D71A4623B20088F303 /* MathSolver.h */,
+				BC03F6D61A4623B20088F303 /* MathSolver.cpp */,
+				BCF1E9371A61DE7600CEDD9B /* rk45.cpp */,
+				BCF1E9381A61DE7600CEDD9B /* rk45.h */,
 			);
 			name = Math;
 			sourceTree = "<group>";
@@ -598,6 +603,7 @@
 			files = (
 				84ECB48719E9FD3800D5F795 /* InfusionTableViewCell.m in Sources */,
 				84ECB46219E9C96800D5F795 /* RunSimulationViewController.m in Sources */,
+				BC03F6D81A4623B20088F303 /* MathSolver.cpp in Sources */,
 				84ECB44E19E9C80800D5F795 /* TabBarViewController.m in Sources */,
 				84ECB42619E9C39E00D5F795 /* AppDelegate.m in Sources */,
 				84ECB47919E9E72D00D5F795 /* TextInputTableViewCell.m in Sources */,
@@ -608,13 +614,13 @@
 				84ECB42319E9C39E00D5F795 /* main.m in Sources */,
 				843863D719F7216A0095E6BB /* StoreData.m in Sources */,
 				84ECB47419E9E71900D5F795 /* SwitchTableViewCell.m in Sources */,
+				BCF1E9391A61DE7600CEDD9B /* rk45.cpp in Sources */,
 				84ECB46719E9C98A00D5F795 /* PageOneInputs.m in Sources */,
 				84ECB44919E9C77C00D5F795 /* QuickStartViewController.m in Sources */,
 				849224B61A34D804006BEBF6 /* ScatterPlot2ViewController.m in Sources */,
 				84ECB45819E9C93400D5F795 /* PageTwoViewController.m in Sources */,
 				84ECB46D19E9C9A300D5F795 /* GraphDrawer.m in Sources */,
 				84ECB46A19E9C99700D5F795 /* PageTwoInputs.m in Sources */,
-				84D4469D1A04407A00F277BE /* MathSolver.cpp in Sources */,
 				84ECB45319E9C92300D5F795 /* PageOneViewController.m in Sources */,
 				849224B11A34D70D006BEBF6 /* TabGraphViewController.m in Sources */,
 				84D7B1511A13DF110024DCE5 /* ScatterPlotViewController.m in Sources */,
