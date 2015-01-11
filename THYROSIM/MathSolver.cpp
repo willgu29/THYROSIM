@@ -6,21 +6,23 @@
 //  Copyright (c) 2014 William Gu. All rights reserved.
 //
 
-#include "MathSolver.h"
+#include "MathSolver.hpp"
 #include <math.h>
 #include <map>
 
-
 float ODE::p1, ODE::p2, ODE::p3, ODE::p4, ODE::p5, ODE::p6, ODE::p7, ODE::p8, ODE::p9, ODE::p10, ODE::p11, ODE::p12, ODE::p13, ODE::p14, ODE::p15, ODE::p16;
 float ODE::p17, ODE::p18, ODE::p19, ODE::p20, ODE::p21, ODE::p22, ODE::p23, ODE::p24, ODE::p25, ODE::p26, ODE::p27, ODE::p28, ODE::p29, ODE::p30, ODE::p31, ODE::p32;
-float p33, ODE::p34, ODE::p35, ODE::p36, ODE::p37, ODE::p38, ODE::p39, ODE::p40, ODE::p41, ODE::p42, ODE::p43, ODE::p44, ODE::p45, ODE::p46;
+float ODE::p33, ODE::p34, ODE::p35, ODE::p36, ODE::p37, ODE::p38, ODE::p39, ODE::p40, ODE::p41, ODE::p42, ODE::p43, ODE::p44, ODE::p45, ODE::p46;
 float ODE::p47;
 float ODE::p48;
-float ODE::d1, ODE::d2, ODE::d3, ODE::d4, ODE::u1, ODE::u4, ODE::kdelay;
+float ODE::d1, ODE::d2, ODE::d3, ODE::d4, ODE::u1, ODE::u4, ODE::kdelay; 
 
+class Inputs;
 
-void getTheNumbers(float t1, float t2, float T4S, float T4A, float T3S, float T3A)
+void getTheNumbers(float simulTime, float T4S, float T4A, float T3S, float T3A,  float *myInputArray, int count)
 {
+    int t1 = 0;
+    int t2 = 24*simulTime;
     //Initial State
     float *q =  new float[NUM_EQUATIONS];
     q[0] = IC1;

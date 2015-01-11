@@ -11,6 +11,7 @@
 @interface Inputs : NSObject
 
 @property (nonatomic, strong) NSString *inputName;
+@property (nonatomic) NSInteger inputID;
 @property (nonatomic) NSInteger doseAmount;
 @property (nonatomic) NSInteger startTime;
 @property (nonatomic) NSInteger endTime;

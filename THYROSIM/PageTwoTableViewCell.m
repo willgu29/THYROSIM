@@ -65,6 +65,7 @@
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     Inputs *inputs = [delegate.dataObject.pageTwoData.filledArray objectAtIndex:row];
     [inputs setInputName:self.label.text];
+    [inputs setInputID:[self mapLabelText:self.label.text]];
     if (textField.tag == 0)
     {
         [inputs setDoseAmount:textField.text.integerValue];
@@ -84,6 +85,35 @@
         [inputs setEndTime:textField.text.integerValue];
     }
 
+}
+
+-(NSInteger)mapLabelText:(NSString *)stringText
+{
+    if ([stringText isEqualToString:@"T3-ORAL DOSE"])
+    {
+        return 1;
+    }
+    else if ([stringText isEqualToString:@"T4-ORAL DOSE"])
+    {
+        return 2;
+    }
+    else if ([stringText isEqualToString:@"T3-IV DOSE"])
+    {
+        return 3;
+    }
+    else if ([stringText isEqualToString:@"T4-IV DOSE"])
+    {
+        return 4;
+    }
+    else if ([stringText isEqualToString:@"T3 INFUSION"])
+    {
+        return 5;
+    }
+    else if ([stringText isEqualToString:@"T4 INFUSION"])
+    {
+        return 6;
+    }
+    return -1;
 }
 
 @end

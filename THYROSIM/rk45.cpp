@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 William Gu. All rights reserved.
 //
 
-#include "rk45.h"
+#include "rk45.hpp"
 # include <cstdlib>
 # include <iostream>
 # include <iomanip>
@@ -15,7 +15,7 @@
 
 using namespace std;
 
-# include "rk45.h"
+# include "rk45.hpp"
 
 //****************************************************************************80
 

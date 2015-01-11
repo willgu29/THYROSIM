@@ -42,13 +42,14 @@
     
     //TODO: Error check here
     
+    
     //TODO: Math computations
     MathComputations *myMathObject = [[MathComputations alloc] init];
 
     //TODO: Pass in Data Objects for all graphs
     
     
-    
+    //Set a timer... if runs for more than 30seconds or so just cancel the operation
     
     ScatterPlotViewController *scatterVC = [[ScatterPlotViewController alloc ]init];
     ScatterPlot2ViewController *scatter2VC = [[ScatterPlot2ViewController alloc ]init];

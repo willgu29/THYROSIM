@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		843863D419F71DC00095E6BB /* MathComputations.m in Sources */ = {isa = PBXBuildFile; fileRef = 843863D319F71DC00095E6BB /* MathComputations.m */; };
+		843863D419F71DC00095E6BB /* MathComputations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 843863D319F71DC00095E6BB /* MathComputations.mm */; };
 		843863D719F7216A0095E6BB /* StoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 843863D619F7216A0095E6BB /* StoreData.m */; };
 		849224B11A34D70D006BEBF6 /* TabGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849224AF1A34D70D006BEBF6 /* TabGraphViewController.m */; };
 		849224B21A34D70D006BEBF6 /* TabGraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849224B01A34D70D006BEBF6 /* TabGraphViewController.xib */; };
@@ -65,7 +65,7 @@
 
 /* Begin PBXFileReference section */
 		843863D219F71DC00095E6BB /* MathComputations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathComputations.h; sourceTree = "<group>"; };
-		843863D319F71DC00095E6BB /* MathComputations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathComputations.m; sourceTree = "<group>"; };
+		843863D319F71DC00095E6BB /* MathComputations.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = MathComputations.mm; sourceTree = "<group>"; };
 		843863D519F7216A0095E6BB /* StoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreData.h; sourceTree = "<group>"; };
 		843863D619F7216A0095E6BB /* StoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreData.m; sourceTree = "<group>"; };
 		849224AE1A34D70D006BEBF6 /* TabGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabGraphViewController.h; sourceTree = "<group>"; };
@@ -209,10 +209,10 @@
 		84ECB48419E9FD3800D5F795 /* InfusionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfusionTableViewCell.h; sourceTree = "<group>"; };
 		84ECB48519E9FD3800D5F795 /* InfusionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfusionTableViewCell.m; sourceTree = "<group>"; };
 		84ECB48619E9FD3800D5F795 /* InfusionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfusionTableViewCell.xib; sourceTree = "<group>"; };
-		BC03F6D61A4623B20088F303 /* MathSolver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathSolver.cpp; sourceTree = "<group>"; };
-		BC03F6D71A4623B20088F303 /* MathSolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathSolver.h; sourceTree = "<group>"; };
+		BC03F6D61A4623B20088F303 /* MathSolver.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = MathSolver.cpp; sourceTree = "<group>"; };
+		BC03F6D71A4623B20088F303 /* MathSolver.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = MathSolver.hpp; sourceTree = "<group>"; };
 		BCF1E9371A61DE7600CEDD9B /* rk45.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rk45.cpp; sourceTree = "<group>"; };
-		BCF1E9381A61DE7600CEDD9B /* rk45.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rk45.h; sourceTree = "<group>"; };
+		BCF1E9381A61DE7600CEDD9B /* rk45.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rk45.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,13 +240,13 @@
 			isa = PBXGroup;
 			children = (
 				843863D219F71DC00095E6BB /* MathComputations.h */,
-				843863D319F71DC00095E6BB /* MathComputations.m */,
+				843863D319F71DC00095E6BB /* MathComputations.mm */,
 				843863D519F7216A0095E6BB /* StoreData.h */,
 				843863D619F7216A0095E6BB /* StoreData.m */,
-				BC03F6D71A4623B20088F303 /* MathSolver.h */,
+				BC03F6D71A4623B20088F303 /* MathSolver.hpp */,
 				BC03F6D61A4623B20088F303 /* MathSolver.cpp */,
 				BCF1E9371A61DE7600CEDD9B /* rk45.cpp */,
-				BCF1E9381A61DE7600CEDD9B /* rk45.h */,
+				BCF1E9381A61DE7600CEDD9B /* rk45.hpp */,
 			);
 			name = Math;
 			sourceTree = "<group>";
@@ -624,7 +624,7 @@
 				84ECB45319E9C92300D5F795 /* PageOneViewController.m in Sources */,
 				849224B11A34D70D006BEBF6 /* TabGraphViewController.m in Sources */,
 				84D7B1511A13DF110024DCE5 /* ScatterPlotViewController.m in Sources */,
-				843863D419F71DC00095E6BB /* MathComputations.m in Sources */,
+				843863D419F71DC00095E6BB /* MathComputations.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

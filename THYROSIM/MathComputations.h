@@ -9,15 +9,20 @@
 #import <Foundation/Foundation.h>
 #import "StoreData.h"
 
+struct Opaque;
+
 @interface MathComputations : NSObject
+{
+    struct Opaque* opaque;
+}
+
 
 @property (nonatomic, strong) StoreData *outputData;
 @property (nonatomic) int myNumber;
 
 -(void)example;
 -(void)addEverything:(NSInteger)numberGraph andNumber:(NSInteger)number;
--(NSInteger)divide:(NSInteger)myNumber;
--(NSInteger)add:(NSInteger)digitOne numberTwo:(NSInteger)digitTwo;
+
 
 -(instancetype)init;
 

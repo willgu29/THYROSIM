@@ -11,10 +11,9 @@
 #define __THYROSIM__DifferentialEquationSetUp__
 
 #include <stdio.h>
-#include "rk45.h"
+#include "rk45.hpp"
 
-
-using namespace std;
+//using namespace std;
 //Global Variables to use in equation set up
 
 /***    Initial Conditions  ***/
@@ -54,7 +53,9 @@ public:
     
     void resetDose(float *q, float dose, int eventId);
     
-    void getTheNumbers();
+//    void getTheNumbers();
+//    void getTheNumbers(float simulTime, float T4S, float T4A, float T3S, float T3A);
+
     
     //Private Variables to be used by manipulated in the creation of the 19 equations
 
@@ -64,10 +65,10 @@ public:
       static float p47;
       static float p48;
      static float d1, d2, d3, d4, u1, u4, kdelay;
-
 };
 
-void getTheNumbers();
+
+void getTheNumbers(float simulTime, float T4S, float T4A, float T3S, float T3A, float *myInputArray, int count);
 
 
 
