@@ -9,20 +9,30 @@
 #include "MathSolver.hpp"
 #include <math.h>
 #include <map>
+#include <vector>
 
 float ODE::p1, ODE::p2, ODE::p3, ODE::p4, ODE::p5, ODE::p6, ODE::p7, ODE::p8, ODE::p9, ODE::p10, ODE::p11, ODE::p12, ODE::p13, ODE::p14, ODE::p15, ODE::p16;
 float ODE::p17, ODE::p18, ODE::p19, ODE::p20, ODE::p21, ODE::p22, ODE::p23, ODE::p24, ODE::p25, ODE::p26, ODE::p27, ODE::p28, ODE::p29, ODE::p30, ODE::p31, ODE::p32;
 float ODE::p33, ODE::p34, ODE::p35, ODE::p36, ODE::p37, ODE::p38, ODE::p39, ODE::p40, ODE::p41, ODE::p42, ODE::p43, ODE::p44, ODE::p45, ODE::p46;
 float ODE::p47;
 float ODE::p48;
-float ODE::d1, ODE::d2, ODE::d3, ODE::d4, ODE::u1, ODE::u4, ODE::kdelay; 
+float ODE::d1, ODE::d2, ODE::d3, ODE::d4, ODE::u1, ODE::u4, ODE::kdelay;
 
-class Inputs;
-
-void getTheNumbers(float simulTime, float T4S, float T4A, float T3S, float T3A,  float *myInputArray, int count)
+storeData::storeData(float simulTime, float T4S, float T4A, float T3S, float T3A )
 {
+    ODE_cur = new ODE(T4S, T4A, T3S, T3A);
+    num_hours = (int) simulTime * 24;
+}
+
+//Stores final three array values!
+//myInputArray is in form
+//   ID, dose, dose_interval, start_time, end_time, ID, dose, dose_interval, start_time, end_time,.....,
+void storeData::getTheNumbers(float *myInputArray, int count)
+{
+    //Time 1 and time 2 initialized, as start and ending hours
     int t1 = 0;
-    int t2 = 24*simulTime;
+    int t2 = num_hours;
+    
     //Initial State
     float *q =  new float[NUM_EQUATIONS];
     q[0] = IC1;
@@ -47,29 +57,83 @@ void getTheNumbers(float simulTime, float T4S, float T4A, float T3S, float T3A, 
     
     float *qDot = new float[NUM_EQUATIONS];
     
-    //Initial ODE Object
-    ODE* ODE_cur = new ODE(T4S, T4A, T3S, T3A);
-    
+    //Now qDot has the derivatives of the initial q array
     ODE_cur->computeDerivatives(t1, q, qDot);
+    
+    //Here is where the map is initialized
+    std::map <int, std::vector<InputEvent>> map;
+    
+    //For loop which maps every hour (int) to a list of input events
+    for (int i = 0; i < count; i+=5)
+    {
+        switch ((int)myInputArray[i])
+        {
+                //ORAL LIST
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            {
+                //Iterates between the start time and end time of each input event, in intervals denoted by dose interval
+                for (double time = myInputArray[i+3]; time <= myInputArray[i+4]; time += myInputArray[i+2])
+                {
+                    int hour = (int) round(time*24);
+                    map[hour].push_back(InputEvent(hour, (int)myInputArray[i],myInputArray[i+1]));
+                }
+            }
+                break;
+                
+                //Infusion List
+            case 5:
+            case 6:
+            {
+                int hour_start = (int) round(myInputArray[i+3]*24);
+                int hour_end = (int) round(myInputArray[i+4]*24);
+                map[hour_start].push_back(InputEvent(hour_start, (int)myInputArray[i],myInputArray[i+1] ));
+                map[hour_end].push_back(InputEvent(hour_end, (int)myInputArray[i]+2,myInputArray[i+1] ));
+            }
+                break;
+            default:
+                break;
+        }
+    }
     
     float relative_error = 1;
     float absolute_error = 2;
     
-    float *T4 = new float[(int)t2 - (int)t1 + 1];
-    float *T3 = new float[(int)t2 - (int)t1 + 1];
-    float *TSH = new float[(int)t2 - (int)t1 + 1];
+    T4 = new float[(int)t2 - (int)t1 + 1];
+    T3 = new float[(int)t2 - (int)t1 + 1];
+    TSH = new float[(int)t2 - (int)t1 + 1];
     
     
     for (int i = t1; i <= t2; i++)
     {
+        //add input events
+        
+        //Search the map to see if the current hour is contained as a key
+        std::map <int, std::vector<InputEvent>>::iterator map_iterator = map.find(i);
+        
+        //If it is then..
+        if (map_iterator != map.end())
+        {
+            
+            //For each InputEvent in its vector value
+            for (std::vector<InputEvent>::iterator vector_iterator = map[i].begin(); vector_iterator != map[i].end(); vector_iterator++)
+            {
+                //Reset the Dose-> affecting the q array
+                ODE_cur->resetDose(q, vector_iterator->dose, vector_iterator->eventID);
+            }
+        }
+        
         float x = (float) i;
         float y = x + 1;
         // converting mols to units
-        T4[i] = round(q[0] * 777 / ODE_cur->p47 * 1000) / 1000.0;
-        T3[i] = round(q[3] * 651 / ODE_cur->p47 * 1000) / 1000.0;
-        TSH[i] = round(q[6] * 5.6 / ODE_cur->p48 * 1000) / 1000.0;
+        T4[i] = round(q[0] * 777 / ODE_cur->getp47() * 1000) / 1000.0;
+        T3[i] = round(q[3] * 651 / ODE_cur->getp47() * 1000) / 1000.0;
+        TSH[i] = round(q[6] * 5.6 / ODE_cur->getp48() * 1000) / 1000.0;
         r4_rkf45(&ODE::computeDerivatives, NUM_EQUATIONS, q, qDot, &x, y, &relative_error, absolute_error, 1);
     }
+    
 }
 
 //Constructor for ODE class which initializes the variables according to T4S, T4A, T3S, T3A as defined by the user
@@ -132,7 +196,7 @@ ODE::ODE(float dial1, float dial2, float dial3, float dial4)
     p44 = 0.12 * d2; // k4excrete; originally 0.119
     p45 = 1.78; // k3dissolve
     p46 = 0.12 * d4; // k3excrete; originally 0.118
-    // p47 and p48 are only used in converting mols to units. 
+    // p47 and p48 are only used in converting mols to units.
     p47 = 3.2; // Vp
     p48 = 4.3; // VTSH
 }

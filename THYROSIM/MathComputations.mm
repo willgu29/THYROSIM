@@ -29,7 +29,7 @@ const NSInteger DIVISOR = 10;
 
 struct Opaque
 {
-    ODE myODE;
+    storeData *storeDataInstance;
 };
 
 
@@ -45,7 +45,7 @@ struct Opaque
     return self;
 }
 
--(void)pageOneInputs
+-(storeData*)initOpaque
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     float t4S = delegate.dataObject.pageOneData.t4Secretion;
@@ -53,12 +53,41 @@ struct Opaque
     float t3S = delegate.dataObject.pageOneData.t3Secretion;
     float t3A = delegate.dataObject.pageOneData.t3Absorption;
     float simulTime = delegate.dataObject.pageOneData.simulationTimeDays;
+    Opaque  opaque;
+    opaque.storeDataInstance = new storeData(simulTime, t4S, t4A, t3S, t3A);
+    return opaque.storeDataInstance;
+}
+
+-(void)getShitDone //I.E. get graph results
+{
+//    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+//    float t4S = delegate.dataObject.pageOneData.t4Secretion;
+//    float t4A = delegate.dataObject.pageOneData.t4Absorption;
+//    float t3S = delegate.dataObject.pageOneData.t3Secretion;
+//    float t3A = delegate.dataObject.pageOneData.t3Absorption;
+//    float simulTime = delegate.dataObject.pageOneData.simulationTimeDays;
 //    [self convertToPrimitive];
   
+    storeData* storeDataInstance = [self initOpaque];
+    storeDataInstance->getTheNumbers([self convertToPrimitive], countValue);
     
+    for (int i = 0; i< storeDataInstance->getnum_hours(); i++)
+    {
+        NSLog(@"%f", storeDataInstance->getT4()[i]);
+        NSLog(@"%f", storeDataInstance->getT3()[i]);
+        NSLog(@"%f", storeDataInstance->getTSH()[i]);
+    }
+//    opaque->storeDataInstance = new storeData(simulTime, t4S, t4A, t3S, t3A);
+//    opaque->storeDataInstance->getTheNumbers([self convertToPrimitive], countValue);
+ 
     
-    getTheNumbers(simulTime, t4S, t4A, t3S, t3A, [self convertToPrimitive], countValue);
-    
+//    
+//    for (int i = 0; i< opaque->storeDataInstance->getnum_hours(); i++)
+//    {
+//        NSLog(@"%f", opaque->storeDataInstance->getT4()[i]);
+//        NSLog(@"%f", opaque->storeDataInstance->getT3()[i]);
+//        NSLog(@"%f", opaque->storeDataInstance->getTSH()[i]);
+//    }
 }
 
 -(float *)convertToPrimitive

@@ -12,9 +12,9 @@
 struct Opaque;
 
 @interface MathComputations : NSObject
-{
-    struct Opaque* opaque;
-}
+//{
+//    struct Opaque* opaque;
+//}
 
 
 @property (nonatomic, strong) StoreData *outputData;
@@ -22,7 +22,7 @@ struct Opaque;
 
 -(void)example;
 -(void)addEverything:(NSInteger)numberGraph andNumber:(NSInteger)number;
-
+-(void)getShitDone;
 
 -(instancetype)init;
 

@@ -43,9 +43,13 @@
     //TODO: Error check here
     
     
+    
     //TODO: Math computations
     MathComputations *myMathObject = [[MathComputations alloc] init];
 
+    [myMathObject getShitDone];
+    
+    
     //TODO: Pass in Data Objects for all graphs
     
     

@@ -17,7 +17,7 @@
 //Global Variables to use in equation set up
 
 /***    Initial Conditions  ***/
- 
+
 static float IC1 = 0.322114215761171;
 static float IC2 = 0.201296960359917;
 static float IC3 = 0.638967411907560;
@@ -49,26 +49,85 @@ public:
     //Constructor which takes in our parameters from user input -> T4S, T4A, T3S, T3A
     ODE(float dial1, float dial2, float dial3, float dial4);
     
-     static void computeDerivatives(float t, float q[], float qDot[]);
+    static void computeDerivatives(float t, float q[], float qDot[]);
     
     void resetDose(float *q, float dose, int eventId);
     
-//    void getTheNumbers();
-//    void getTheNumbers(float simulTime, float T4S, float T4A, float T3S, float T3A);
-
+    //Accessors
+    static float getp47()
+    {
+        return p47;
+    }
     
-    //Private Variables to be used by manipulated in the creation of the 19 equations
+    static float getp48()
+    {
+        return p48;
+    }
+    
+private:
+    //Variables to be used by manipulated in the creation of the 19 equations
+    static float p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16;
+    static float p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32;
+    static float p33, p34, p35, p36, p37, p38, p39, p40, p41, p42, p43, p44, p45, p46;
+    static float p47;
+    static float p48;
+    static float d1, d2, d3, d4, u1, u4, kdelay;
+};
 
-     static float p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16;
-     static float p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32;
-     static float p33, p34, p35, p36, p37, p38, p39, p40, p41, p42, p43, p44, p45, p46;
-      static float p47;
-      static float p48;
-     static float d1, d2, d3, d4, u1, u4, kdelay;
+//Structure which stores input events for dose resets
+struct InputEvent
+{
+    InputEvent(int a, int b, float c)
+    {
+        hour = a;
+        eventID = b;
+        dose = c ;
+    }
+    
+    int hour;
+    int eventID;
+    float dose;
+};
+
+class storeData
+{
+    
+public:
+    storeData(float simulTime, float T4S, float T4A, float T3S, float T3A );
+    void getTheNumbers(float *myInputArray, int count);
+    
+    /* Accessors*/
+    float *getT4()
+    {
+        return T4;
+    }
+    
+    float *getT3()
+    {
+        return T3;
+    }
+    
+    float *getTSH()
+    {
+        return TSH;
+    }
+    
+    int getnum_hours()
+    {
+        return num_hours;
+    }
+    
+private:
+    ODE *ODE_cur;
+    float *T4;
+    float *T3;
+    float *TSH;
+    int num_hours;
+    
+    
 };
 
 
-void getTheNumbers(float simulTime, float T4S, float T4A, float T3S, float T3A, float *myInputArray, int count);
 
 
 

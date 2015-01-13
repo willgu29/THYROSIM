@@ -87,6 +87,7 @@
     cell.inputField.delegate = self;
     cell.name.text = [_tableViewRowNames objectAtIndex:indexPath.row];
     cell.textLabel.tag = indexPath.row;
+    cell.inputField.tag = indexPath.row;
     cell.tag = indexPath.row;
     
     return cell;
