@@ -14,6 +14,17 @@
 
 @implementation ScatterPlot2ViewController
 
+-(instancetype)init
+{
+    self = [super init];
+    if (self)
+    {
+        
+    }
+    return self;
+
+}
+
 -(IBAction)backButton:(UIButton *)sender
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
@@ -63,7 +74,7 @@
     [graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];
     self.hostView.hostedGraph = graph;
     // 2 - Set graph title
-    NSString *title = @"Portfolio Prices: April 2012";
+    NSString *title = @"T3 Values";
     graph.title = title;
     // 3 - Create and set text style
     CPTMutableTextStyle *titleStyle = [CPTMutableTextStyle textStyle];
@@ -90,20 +101,11 @@
     CPTScatterPlot *aaplPlot = [[CPTScatterPlot alloc] init];
     aaplPlot.dataSource = self;
     aaplPlot.identifier = @"APPL";
-    CPTColor *aaplColor = [CPTColor redColor];
+    CPTColor *aaplColor = [CPTColor blueColor];
     [graph addPlot:aaplPlot toPlotSpace:plotSpace];
-    CPTScatterPlot *googPlot = [[CPTScatterPlot alloc] init];
-    googPlot.dataSource = self;
-    googPlot.identifier = @"GOOG";
-    CPTColor *googColor = [CPTColor greenColor];
-    [graph addPlot:googPlot toPlotSpace:plotSpace];
-    CPTScatterPlot *msftPlot = [[CPTScatterPlot alloc] init];
-    msftPlot.dataSource = self;
-    msftPlot.identifier = @"MSF";
-    CPTColor *msftColor = [CPTColor blueColor];
-    [graph addPlot:msftPlot toPlotSpace:plotSpace];
+    
     // 3 - Set up plot space
-    [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:aaplPlot, googPlot, msftPlot, nil]];
+    [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:aaplPlot, nil]];
     CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
     [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
     plotSpace.xRange = xRange;
@@ -112,7 +114,7 @@
     plotSpace.yRange = yRange;
     // 4 - Create styles and symbols
     CPTMutableLineStyle *aaplLineStyle = [aaplPlot.dataLineStyle mutableCopy];
-    aaplLineStyle.lineWidth = 2.5;
+    aaplLineStyle.lineWidth = 2.0;
     aaplLineStyle.lineColor = aaplColor;
     aaplPlot.dataLineStyle = aaplLineStyle;
     CPTMutableLineStyle *aaplSymbolLineStyle = [CPTMutableLineStyle lineStyle];
@@ -122,28 +124,7 @@
     aaplSymbol.lineStyle = aaplSymbolLineStyle;
     aaplSymbol.size = CGSizeMake(6.0f, 6.0f);
     aaplPlot.plotSymbol = aaplSymbol;
-    CPTMutableLineStyle *googLineStyle = [googPlot.dataLineStyle mutableCopy];
-    googLineStyle.lineWidth = 1.0;
-    googLineStyle.lineColor = googColor;
-    googPlot.dataLineStyle = googLineStyle;
-    CPTMutableLineStyle *googSymbolLineStyle = [CPTMutableLineStyle lineStyle];
-    googSymbolLineStyle.lineColor = googColor;
-    CPTPlotSymbol *googSymbol = [CPTPlotSymbol starPlotSymbol];
-    googSymbol.fill = [CPTFill fillWithColor:googColor];
-    googSymbol.lineStyle = googSymbolLineStyle;
-    googSymbol.size = CGSizeMake(6.0f, 6.0f);
-    googPlot.plotSymbol = googSymbol;
-    CPTMutableLineStyle *msftLineStyle = [msftPlot.dataLineStyle mutableCopy];
-    msftLineStyle.lineWidth = 2.0;
-    msftLineStyle.lineColor = msftColor;
-    msftPlot.dataLineStyle = msftLineStyle;
-    CPTMutableLineStyle *msftSymbolLineStyle = [CPTMutableLineStyle lineStyle];
-    msftSymbolLineStyle.lineColor = msftColor;
-    CPTPlotSymbol *msftSymbol = [CPTPlotSymbol diamondPlotSymbol];
-    msftSymbol.fill = [CPTFill fillWithColor:msftColor];
-    msftSymbol.lineStyle = msftSymbolLineStyle;
-    msftSymbol.size = CGSizeMake(6.0f, 6.0f);
-    msftPlot.plotSymbol = msftSymbol;
+   
 }
 
 -(void)configureAxes
@@ -243,7 +224,7 @@
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
-    return 0; //replace with data count
+    return _intervalHours;
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)idx
@@ -251,15 +232,16 @@
     switch (fieldEnum) {
         case CPTScatterPlotFieldX:
             //place x data
+            return [NSNumber numberWithInteger:idx];
             
         case CPTScatterPlotFieldY:
             //place y data
+            return [self.T3Values objectAtIndex:idx];
             break;
     }
     return [NSDecimalNumber zero];
     
 }
-
 
 /*
 #pragma mark - Navigation

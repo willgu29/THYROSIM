@@ -14,6 +14,16 @@
 
 @implementation ScatterPlot3ViewController
 
+-(instancetype)init
+{
+    self = [super init];
+    if (self)
+    {
+        
+    }
+    return self;
+}
+
 -(IBAction)backButton:(UIButton *)sender
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
@@ -244,7 +254,7 @@
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
-    return 0; //replace with data count
+    return _intervalHours;
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)idx
@@ -252,14 +262,17 @@
     switch (fieldEnum) {
         case CPTScatterPlotFieldX:
             //place x data
+            return [NSNumber numberWithInteger:idx];
             
         case CPTScatterPlotFieldY:
             //place y data
+            return [self.TSHValues objectAtIndex:idx];
             break;
     }
     return [NSDecimalNumber zero];
     
 }
+
 
 
 /*

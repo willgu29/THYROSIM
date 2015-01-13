@@ -15,7 +15,7 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *tableViewRowNames;
-@property (nonatomic, strong) NSArray *defaultInputValues;
+//@property (nonatomic, strong) NSArray *defaultInputValues;
 
 @end
 
@@ -25,6 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self createArrayOfNames];
+    [self setDefaultInputValues];
 }
 
 -(void)createArrayOfNames
@@ -34,7 +35,15 @@
 
 -(void)setDefaultInputValues
 {
-//    _defaultInputValues = @[@"]
+//    _defaultInputValues = @[@"100", @"88", @"100", @"88"];
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    delegate.dataObject.pageOneData.t4Secretion = 100;
+    delegate.dataObject.pageOneData.t4Absorption = 88;
+    delegate.dataObject.pageOneData.t3Secretion = 100;
+    delegate.dataObject.pageOneData.t3Absorption = 88;
+    delegate.dataObject.pageOneData.simulationTimeDays = 5;
+
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -84,11 +93,29 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     cell.inputField.delegate = self;
     cell.name.text = [_tableViewRowNames objectAtIndex:indexPath.row];
     cell.textLabel.tag = indexPath.row;
     cell.inputField.tag = indexPath.row;
     cell.tag = indexPath.row;
+    if (indexPath.row == 0){
+        cell.inputField.text = [NSString stringWithFormat:@"%d",delegate.dataObject.pageOneData.t4Secretion];
+
+    } else if(indexPath.row == 1) {
+        cell.inputField.text = [NSString stringWithFormat:@"%d",delegate.dataObject.pageOneData.t4Absorption];
+
+    } else if (indexPath.row == 2){
+        cell.inputField.text = [NSString stringWithFormat:@"%d",delegate.dataObject.pageOneData.t3Secretion];
+
+    } else if (indexPath.row == 3) {
+        cell.inputField.text = [NSString stringWithFormat:@"%d",delegate.dataObject.pageOneData.t3Absorption];
+
+    } else if (indexPath.row == 5) {
+        cell.inputField.text = [NSString stringWithFormat:@"%d",delegate.dataObject.pageOneData.simulationTimeDays];
+
+    }
+    
     
     return cell;
 }

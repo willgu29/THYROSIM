@@ -16,12 +16,13 @@ struct Opaque;
 //    struct Opaque* opaque;
 //}
 
+@property (nonatomic, strong) NSMutableArray *T4Values;
+@property (nonatomic, strong) NSMutableArray *T3Values;
+@property (nonatomic, strong) NSMutableArray *TSHValues;
+@property (nonatomic) int intervalHours;
+//@property (nonatomic, strong) StoreData *outputData;
+//@property (nonatomic) int myNumber;
 
-@property (nonatomic, strong) StoreData *outputData;
-@property (nonatomic) int myNumber;
-
--(void)example;
--(void)addEverything:(NSInteger)numberGraph andNumber:(NSInteger)number;
 -(void)getShitDone;
 
 -(instancetype)init;

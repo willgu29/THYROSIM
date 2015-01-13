@@ -22,7 +22,7 @@ const NSInteger DIVISOR = 10;
     int countValue;
 }
 
-@property (nonatomic, strong) NSArray *qDot; //Array of floats
+
 
 @end
 
@@ -40,7 +40,9 @@ struct Opaque
     self = [super init];
     if (self)
     {
-        _qDot = [[NSArray alloc] init];
+        _T4Values = [[NSMutableArray alloc] init];
+        _T3Values = [[NSMutableArray alloc] init];
+        _TSHValues = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -60,6 +62,7 @@ struct Opaque
 
 -(void)getShitDone //I.E. get graph results
 {
+    //These have been moved to initOpaque
 //    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
 //    float t4S = delegate.dataObject.pageOneData.t4Secretion;
 //    float t4A = delegate.dataObject.pageOneData.t4Absorption;
@@ -76,7 +79,14 @@ struct Opaque
         NSLog(@"%f", storeDataInstance->getT4()[i]);
         NSLog(@"%f", storeDataInstance->getT3()[i]);
         NSLog(@"%f", storeDataInstance->getTSH()[i]);
+        [_T4Values addObject:[NSNumber numberWithFloat:storeDataInstance->getT4()[i]]];
+        [_T3Values addObject:[NSNumber numberWithFloat:storeDataInstance->getT3()[i]]];
+        [_TSHValues addObject:[NSNumber numberWithFloat:storeDataInstance->getTSH()[i]]];
+        
     }
+    _intervalHours = storeDataInstance->getnum_hours();
+
+    //No longer use struct opaque ****
 //    opaque->storeDataInstance = new storeData(simulTime, t4S, t4A, t3S, t3A);
 //    opaque->storeDataInstance->getTheNumbers([self convertToPrimitive], countValue);
  
@@ -119,54 +129,29 @@ struct Opaque
     
 }
 
--(void)pageTwoInputs
-{
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    
-    
-    
-}
 
--(void)equationCode
-{
-    _qDot = [self computeFloats];
-    
-    //Equation code (rk45, etc.)
-   
-    
-}
-
--(NSArray *)computeFloats
-{
-    NSArray *myArray = [[NSArray alloc] init];
-    return myArray;
-}
-
-
-
-
-#pragma mark - Extras
-
--(void)addEverything:(NSInteger)numberGraph andNumber:(NSInteger)number
-{
-    //Add everything
-    if (numberGraph == 1)
-    {
-        [self.outputData.graphOneData addObject:[NSNumber numberWithInt:number]];
-    }
-    else if (numberGraph == 2)
-    {
-        [self.outputData.graphTwoData addObject:[NSNumber numberWithInt:number]];
-    }
-    else if (numberGraph == 3)
-    {
-        [self.outputData.graphThreeData addObject:[NSNumber numberWithInt:number]];
-    }
-    else
-    {
-        NSLog(@"HELP");
-    }
-}
+//#pragma mark - Extras
+//
+//-(void)addEverything:(NSInteger)numberGraph andNumber:(NSInteger)number
+//{
+//    //Add everything
+//    if (numberGraph == 1)
+//    {
+//        [self.outputData.graphOneData addObject:[NSNumber numberWithInt:number]];
+//    }
+//    else if (numberGraph == 2)
+//    {
+//        [self.outputData.graphTwoData addObject:[NSNumber numberWithInt:number]];
+//    }
+//    else if (numberGraph == 3)
+//    {
+//        [self.outputData.graphThreeData addObject:[NSNumber numberWithInt:number]];
+//    }
+//    else
+//    {
+//        NSLog(@"HELP");
+//    }
+//}
 
 
 @end

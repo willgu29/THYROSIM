@@ -60,7 +60,13 @@
     ScatterPlot3ViewController *scatter3VC = [[ScatterPlot3ViewController alloc ]init];
 
     
-    
+    scatterVC.T4Values = myMathObject.T4Values;
+    scatter2VC.T3Values = myMathObject.T3Values;
+    scatter3VC.TSHValues = myMathObject.TSHValues;
+    scatterVC.intervalHours = myMathObject.intervalHours;
+    scatter2VC.intervalHours = myMathObject.intervalHours;
+    scatter3VC.intervalHours = myMathObject.intervalHours;
+
     
     scatterVC.title = @"T4";
     scatter2VC.title = @"T3";

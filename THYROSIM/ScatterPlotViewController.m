@@ -7,6 +7,7 @@
 //
 
 #import "ScatterPlotViewController.h"
+#import "TabGraphViewController.h"
 
 @interface ScatterPlotViewController ()
 
@@ -16,6 +17,16 @@
 @implementation ScatterPlotViewController
 
 @synthesize hostView = hostView_;
+
+-(instancetype)init
+{
+    self = [super init];
+    if (self)
+    {
+        
+    }
+    return self;
+}
 
 -(IBAction)backButton:(UIButton *)sender
 {
@@ -62,10 +73,10 @@
 {
     // 1 - Create the graph
     CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
-    [graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];
+    [graph applyTheme:[CPTTheme themeNamed:kCPTSlateTheme]];//kCPTDarkGradientTheme
     self.hostView.hostedGraph = graph;
     // 2 - Set graph title
-    NSString *title = @"Portfolio Prices: April 2012";
+    NSString *title = @"T4 Values";
     graph.title = title;
     // 3 - Create and set text style
     CPTMutableTextStyle *titleStyle = [CPTMutableTextStyle textStyle];
@@ -92,20 +103,9 @@
     CPTScatterPlot *aaplPlot = [[CPTScatterPlot alloc] init];
     aaplPlot.dataSource = self;
     aaplPlot.identifier = @"APPL";
-    CPTColor *aaplColor = [CPTColor redColor];
+    CPTColor *aaplColor = [CPTColor blueColor];
     [graph addPlot:aaplPlot toPlotSpace:plotSpace];
-    CPTScatterPlot *googPlot = [[CPTScatterPlot alloc] init];
-    googPlot.dataSource = self;
-    googPlot.identifier = @"GOOG";
-    CPTColor *googColor = [CPTColor greenColor];
-    [graph addPlot:googPlot toPlotSpace:plotSpace];
-    CPTScatterPlot *msftPlot = [[CPTScatterPlot alloc] init];
-    msftPlot.dataSource = self;
-    msftPlot.identifier = @"MSF";
-    CPTColor *msftColor = [CPTColor blueColor];
-    [graph addPlot:msftPlot toPlotSpace:plotSpace];
-    // 3 - Set up plot space
-    [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:aaplPlot, googPlot, msftPlot, nil]];
+    [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:aaplPlot, nil]];
     CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
     [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
     plotSpace.xRange = xRange;
@@ -114,7 +114,7 @@
     plotSpace.yRange = yRange;
     // 4 - Create styles and symbols
     CPTMutableLineStyle *aaplLineStyle = [aaplPlot.dataLineStyle mutableCopy];
-    aaplLineStyle.lineWidth = 2.5;
+    aaplLineStyle.lineWidth = 1.5;
     aaplLineStyle.lineColor = aaplColor;
     aaplPlot.dataLineStyle = aaplLineStyle;
     CPTMutableLineStyle *aaplSymbolLineStyle = [CPTMutableLineStyle lineStyle];
@@ -124,28 +124,7 @@
     aaplSymbol.lineStyle = aaplSymbolLineStyle;
     aaplSymbol.size = CGSizeMake(6.0f, 6.0f);
     aaplPlot.plotSymbol = aaplSymbol;
-    CPTMutableLineStyle *googLineStyle = [googPlot.dataLineStyle mutableCopy];
-    googLineStyle.lineWidth = 1.0;
-    googLineStyle.lineColor = googColor;
-    googPlot.dataLineStyle = googLineStyle;
-    CPTMutableLineStyle *googSymbolLineStyle = [CPTMutableLineStyle lineStyle];
-    googSymbolLineStyle.lineColor = googColor;
-    CPTPlotSymbol *googSymbol = [CPTPlotSymbol starPlotSymbol];
-    googSymbol.fill = [CPTFill fillWithColor:googColor];
-    googSymbol.lineStyle = googSymbolLineStyle;
-    googSymbol.size = CGSizeMake(6.0f, 6.0f);
-    googPlot.plotSymbol = googSymbol;
-    CPTMutableLineStyle *msftLineStyle = [msftPlot.dataLineStyle mutableCopy];
-    msftLineStyle.lineWidth = 2.0;
-    msftLineStyle.lineColor = msftColor;
-    msftPlot.dataLineStyle = msftLineStyle;
-    CPTMutableLineStyle *msftSymbolLineStyle = [CPTMutableLineStyle lineStyle];
-    msftSymbolLineStyle.lineColor = msftColor;
-    CPTPlotSymbol *msftSymbol = [CPTPlotSymbol diamondPlotSymbol];
-    msftSymbol.fill = [CPTFill fillWithColor:msftColor];
-    msftSymbol.lineStyle = msftSymbolLineStyle;
-    msftSymbol.size = CGSizeMake(6.0f, 6.0f);
-    msftPlot.plotSymbol = msftSymbol;
+
 }
 
 -(void)configureAxes
@@ -172,7 +151,7 @@
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *) self.hostView.hostedGraph.axisSet;
     // 3 - Configure x-axis
     CPTAxis *x = axisSet.xAxis;
-    x.title = @"Day of Month";
+    x.title = @"Hours";
     x.titleTextStyle = axisTitleStyle;
     x.titleOffset = 15.0f;
     x.axisLineStyle = axisLineStyle;
@@ -182,14 +161,14 @@
     x.majorTickLength = 4.0f;
     x.tickDirection = CPTSignNegative;
     
-    /*
-    CGFloat dateCount = [[[CPDStockPriceStore sharedInstance] datesInMonth] count];
+    
+    CGFloat dateCount = _intervalHours;
     NSMutableSet *xLabels = [NSMutableSet setWithCapacity:dateCount];
     NSMutableSet *xLocations = [NSMutableSet setWithCapacity:dateCount];
-    NSInteger i = 0;
-    for (NSString *date in [[CPDStockPriceStore sharedInstance] datesInMonth]) {
-        CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:date  textStyle:x.labelTextStyle];
-        CGFloat location = i++;
+    for (int i = 0; i< _intervalHours; i++) {
+        NSString *numberHour = [NSString stringWithFormat:@"%d", i];
+        CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:numberHour textStyle:x.labelTextStyle];
+        CGFloat location = i;
         label.tickLocation = CPTDecimalFromCGFloat(location);
         label.offset = x.majorTickLength;
         if (label) {
@@ -200,10 +179,10 @@
     
     x.axisLabels = xLabels;
     x.majorTickLocations = xLocations;
-     */
+    
     // 4 - Configure y-axis
     CPTAxis *y = axisSet.yAxis;
-    y.title = @"Price";
+    y.title = @"Values";
     y.titleTextStyle = axisTitleStyle;
     y.titleOffset = -40.0f;
     y.axisLineStyle = axisLineStyle;
@@ -215,8 +194,8 @@
     y.majorTickLength = 4.0f;
     y.minorTickLength = 2.0f;
     y.tickDirection = CPTSignPositive;
-    NSInteger majorIncrement = 100;
-    NSInteger minorIncrement = 50;
+    NSInteger majorIncrement = 20;
+    NSInteger minorIncrement = 5;
     CGFloat yMax = 700.0f;  // should determine dynamically based on max price
     NSMutableSet *yLabels = [NSMutableSet set];
     NSMutableSet *yMajorLocations = [NSMutableSet set];
@@ -245,7 +224,7 @@
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
-    return 0; //replace with data count
+    return _intervalHours;
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)idx
@@ -253,9 +232,11 @@
     switch (fieldEnum) {
         case CPTScatterPlotFieldX:
             //place x data
+            return [NSNumber numberWithInteger:idx];
             
         case CPTScatterPlotFieldY:
             //place y data
+            return [self.T4Values objectAtIndex:idx];
             break;
     }
     return [NSDecimalNumber zero];

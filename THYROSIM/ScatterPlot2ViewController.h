@@ -12,5 +12,10 @@
 @interface ScatterPlot2ViewController : UIViewController <CPTPlotDataSource>
 
 @property (nonatomic, strong) CPTGraphHostingView *hostView;
+@property (nonatomic, strong) NSArray *T3Values;
+@property (nonatomic) int intervalHours;
+
+
+-(instancetype)init;
 
 @end
