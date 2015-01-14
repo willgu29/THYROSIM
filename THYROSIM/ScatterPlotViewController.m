@@ -123,7 +123,7 @@
     aaplSymbol.fill = [CPTFill fillWithColor:aaplColor];
     aaplSymbol.lineStyle = aaplSymbolLineStyle;
     aaplSymbol.size = CGSizeMake(6.0f, 6.0f);
-    aaplPlot.plotSymbol = aaplSymbol;
+//    aaplPlot.plotSymbol = aaplSymbol;
 
 }
 
@@ -196,7 +196,7 @@
     y.tickDirection = CPTSignPositive;
     NSInteger majorIncrement = 20;
     NSInteger minorIncrement = 5;
-    CGFloat yMax = 700.0f;  // should determine dynamically based on max price
+    CGFloat yMax = 300.0f;  // should determine dynamically based on max price
     NSMutableSet *yLabels = [NSMutableSet set];
     NSMutableSet *yMajorLocations = [NSMutableSet set];
     NSMutableSet *yMinorLocations = [NSMutableSet set];

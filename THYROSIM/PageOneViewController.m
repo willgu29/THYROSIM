@@ -166,7 +166,7 @@
     }
     else if (row == 4)
     {
-        //Refer to switch cell
+        //refer to switch cell
     }
     else if (row == 5)
     {

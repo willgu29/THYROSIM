@@ -27,7 +27,7 @@ storeData::storeData(float simulTime, float T4S, float T4A, float T3S, float T3A
 //Stores final three array values!
 //myInputArray is in form
 //   ID, dose, dose_interval, start_time, end_time, ID, dose, dose_interval, start_time, end_time,.....,
-void storeData::getTheNumbers(float *myInputArray, int count)
+void storeData::getTheNumbers(float *myInputArray, int count, bool recalculateFlag)
 {
     //Time 1 and time 2 initialized, as start and ending hours
     int t1 = 0;
@@ -63,6 +63,17 @@ void storeData::getTheNumbers(float *myInputArray, int count)
     //Here is where the map is initialized
     std::map <int, std::vector<InputEvent>> map;
     
+    
+    float relative_error = .001;
+    float absolute_error = .000001;
+    
+    if (recalculateFlag)
+    {
+        float t = 0;
+        float t2 = 1080;
+        r4_rkf45(&ODE::computeDerivatives, NUM_EQUATIONS, q, qDot, &t, t2, &relative_error, absolute_error, 1);
+    }
+    
     //For loop which maps every hour (int) to a list of input events
     for (int i = 0; i < count; i+=5)
     {
@@ -97,9 +108,7 @@ void storeData::getTheNumbers(float *myInputArray, int count)
                 break;
         }
     }
-    
-    float relative_error = 1;
-    float absolute_error = 2;
+
     
     T4 = new float[(int)t2 - (int)t1 + 1];
     T3 = new float[(int)t2 - (int)t1 + 1];

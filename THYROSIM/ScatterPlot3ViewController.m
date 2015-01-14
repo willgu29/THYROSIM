@@ -74,7 +74,7 @@
     [graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];
     self.hostView.hostedGraph = graph;
     // 2 - Set graph title
-    NSString *title = @"Portfolio Prices: April 2012";
+    NSString *title = @"TSH Values";
     graph.title = title;
     // 3 - Create and set text style
     CPTMutableTextStyle *titleStyle = [CPTMutableTextStyle textStyle];
@@ -132,29 +132,7 @@
     aaplSymbol.fill = [CPTFill fillWithColor:aaplColor];
     aaplSymbol.lineStyle = aaplSymbolLineStyle;
     aaplSymbol.size = CGSizeMake(6.0f, 6.0f);
-    aaplPlot.plotSymbol = aaplSymbol;
-    CPTMutableLineStyle *googLineStyle = [googPlot.dataLineStyle mutableCopy];
-    googLineStyle.lineWidth = 1.0;
-    googLineStyle.lineColor = googColor;
-    googPlot.dataLineStyle = googLineStyle;
-    CPTMutableLineStyle *googSymbolLineStyle = [CPTMutableLineStyle lineStyle];
-    googSymbolLineStyle.lineColor = googColor;
-    CPTPlotSymbol *googSymbol = [CPTPlotSymbol starPlotSymbol];
-    googSymbol.fill = [CPTFill fillWithColor:googColor];
-    googSymbol.lineStyle = googSymbolLineStyle;
-    googSymbol.size = CGSizeMake(6.0f, 6.0f);
-    googPlot.plotSymbol = googSymbol;
-    CPTMutableLineStyle *msftLineStyle = [msftPlot.dataLineStyle mutableCopy];
-    msftLineStyle.lineWidth = 2.0;
-    msftLineStyle.lineColor = msftColor;
-    msftPlot.dataLineStyle = msftLineStyle;
-    CPTMutableLineStyle *msftSymbolLineStyle = [CPTMutableLineStyle lineStyle];
-    msftSymbolLineStyle.lineColor = msftColor;
-    CPTPlotSymbol *msftSymbol = [CPTPlotSymbol diamondPlotSymbol];
-    msftSymbol.fill = [CPTFill fillWithColor:msftColor];
-    msftSymbol.lineStyle = msftSymbolLineStyle;
-    msftSymbol.size = CGSizeMake(6.0f, 6.0f);
-    msftPlot.plotSymbol = msftSymbol;
+//    aaplPlot.plotSymbol = aaplSymbol;
 }
 
 -(void)configureAxes
@@ -191,25 +169,22 @@
     x.majorTickLength = 4.0f;
     x.tickDirection = CPTSignNegative;
     
-    /*
-     CGFloat dateCount = [[[CPDStockPriceStore sharedInstance] datesInMonth] count];
-     NSMutableSet *xLabels = [NSMutableSet setWithCapacity:dateCount];
-     NSMutableSet *xLocations = [NSMutableSet setWithCapacity:dateCount];
-     NSInteger i = 0;
-     for (NSString *date in [[CPDStockPriceStore sharedInstance] datesInMonth]) {
-     CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:date  textStyle:x.labelTextStyle];
-     CGFloat location = i++;
-     label.tickLocation = CPTDecimalFromCGFloat(location);
-     label.offset = x.majorTickLength;
-     if (label) {
-     [xLabels addObject:label];
-     [xLocations addObject:[NSNumber numberWithFloat:location]];
-     }
-     }
-     
-     x.axisLabels = xLabels;
-     x.majorTickLocations = xLocations;
-     */
+    
+    CGFloat dateCount = _intervalHours;
+    NSMutableSet *xLabels = [NSMutableSet setWithCapacity:dateCount];
+    NSMutableSet *xLocations = [NSMutableSet setWithCapacity:dateCount];
+    for (int i = 0; i< _intervalHours; i++) {
+        NSString *numberHour = [NSString stringWithFormat:@"%d", i];
+        CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:numberHour textStyle:x.labelTextStyle];
+        CGFloat location = i;
+        label.tickLocation = CPTDecimalFromCGFloat(location);
+        label.offset = x.majorTickLength;
+        if (label) {
+            [xLabels addObject:label];
+            [xLocations addObject:[NSNumber numberWithFloat:location]];
+        }
+    }
+    
     // 4 - Configure y-axis
     CPTAxis *y = axisSet.yAxis;
     y.title = @"Price";

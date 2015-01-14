@@ -123,7 +123,7 @@
     aaplSymbol.fill = [CPTFill fillWithColor:aaplColor];
     aaplSymbol.lineStyle = aaplSymbolLineStyle;
     aaplSymbol.size = CGSizeMake(6.0f, 6.0f);
-    aaplPlot.plotSymbol = aaplSymbol;
+//    aaplPlot.plotSymbol = aaplSymbol;
    
 }
 
@@ -161,25 +161,21 @@
     x.majorTickLength = 4.0f;
     x.tickDirection = CPTSignNegative;
     
-    /*
-     CGFloat dateCount = [[[CPDStockPriceStore sharedInstance] datesInMonth] count];
-     NSMutableSet *xLabels = [NSMutableSet setWithCapacity:dateCount];
-     NSMutableSet *xLocations = [NSMutableSet setWithCapacity:dateCount];
-     NSInteger i = 0;
-     for (NSString *date in [[CPDStockPriceStore sharedInstance] datesInMonth]) {
-     CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:date  textStyle:x.labelTextStyle];
-     CGFloat location = i++;
-     label.tickLocation = CPTDecimalFromCGFloat(location);
-     label.offset = x.majorTickLength;
-     if (label) {
-     [xLabels addObject:label];
-     [xLocations addObject:[NSNumber numberWithFloat:location]];
-     }
-     }
-     
-     x.axisLabels = xLabels;
-     x.majorTickLocations = xLocations;
-     */
+    
+    CGFloat dateCount = _intervalHours;
+    NSMutableSet *xLabels = [NSMutableSet setWithCapacity:dateCount];
+    NSMutableSet *xLocations = [NSMutableSet setWithCapacity:dateCount];
+    for (int i = 0; i< _intervalHours; i++) {
+        NSString *numberHour = [NSString stringWithFormat:@"%d", i];
+        CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:numberHour textStyle:x.labelTextStyle];
+        CGFloat location = i;
+        label.tickLocation = CPTDecimalFromCGFloat(location);
+        label.offset = x.majorTickLength;
+        if (label) {
+            [xLabels addObject:label];
+            [xLocations addObject:[NSNumber numberWithFloat:location]];
+        }
+    }
     // 4 - Configure y-axis
     CPTAxis *y = axisSet.yAxis;
     y.title = @"Price";

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		843863D419F71DC00095E6BB /* MathComputations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 843863D319F71DC00095E6BB /* MathComputations.mm */; };
 		843863D719F7216A0095E6BB /* StoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 843863D619F7216A0095E6BB /* StoreData.m */; };
+		843CAAB11A6706D80046E549 /* ErrorCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 843CAAB01A6706D80046E549 /* ErrorCheck.m */; };
 		849224B11A34D70D006BEBF6 /* TabGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849224AF1A34D70D006BEBF6 /* TabGraphViewController.m */; };
 		849224B21A34D70D006BEBF6 /* TabGraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849224B01A34D70D006BEBF6 /* TabGraphViewController.xib */; };
 		849224B61A34D804006BEBF6 /* ScatterPlot2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849224B41A34D804006BEBF6 /* ScatterPlot2ViewController.m */; };
@@ -68,6 +69,9 @@
 		843863D319F71DC00095E6BB /* MathComputations.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = MathComputations.mm; sourceTree = "<group>"; };
 		843863D519F7216A0095E6BB /* StoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreData.h; sourceTree = "<group>"; };
 		843863D619F7216A0095E6BB /* StoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreData.m; sourceTree = "<group>"; };
+		843CAAAF1A6706D80046E549 /* ErrorCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorCheck.h; sourceTree = "<group>"; };
+		843CAAB01A6706D80046E549 /* ErrorCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorCheck.m; sourceTree = "<group>"; };
+		843CAAB21A6708F00046E549 /* ErrorEnums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorEnums.h; sourceTree = "<group>"; };
 		849224AE1A34D70D006BEBF6 /* TabGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabGraphViewController.h; sourceTree = "<group>"; };
 		849224AF1A34D70D006BEBF6 /* TabGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabGraphViewController.m; sourceTree = "<group>"; };
 		849224B01A34D70D006BEBF6 /* TabGraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabGraphViewController.xib; sourceTree = "<group>"; };
@@ -247,6 +251,9 @@
 				BC03F6D61A4623B20088F303 /* MathSolver.cpp */,
 				BCF1E9371A61DE7600CEDD9B /* rk45.cpp */,
 				BCF1E9381A61DE7600CEDD9B /* rk45.hpp */,
+				843CAAAF1A6706D80046E549 /* ErrorCheck.h */,
+				843CAAB01A6706D80046E549 /* ErrorCheck.m */,
+				843CAAB21A6708F00046E549 /* ErrorEnums.h */,
 			);
 			name = Math;
 			sourceTree = "<group>";
@@ -625,6 +632,7 @@
 				849224B11A34D70D006BEBF6 /* TabGraphViewController.m in Sources */,
 				84D7B1511A13DF110024DCE5 /* ScatterPlotViewController.m in Sources */,
 				843863D419F71DC00095E6BB /* MathComputations.mm in Sources */,
+				843CAAB11A6706D80046E549 /* ErrorCheck.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

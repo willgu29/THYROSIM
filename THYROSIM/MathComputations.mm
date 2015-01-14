@@ -70,15 +70,16 @@ struct Opaque
 //    float t3A = delegate.dataObject.pageOneData.t3Absorption;
 //    float simulTime = delegate.dataObject.pageOneData.simulationTimeDays;
 //    [self convertToPrimitive];
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
   
     storeData* storeDataInstance = [self initOpaque];
-    storeDataInstance->getTheNumbers([self convertToPrimitive], countValue);
+    storeDataInstance->getTheNumbers([self convertToPrimitive], countValue, delegate.dataObject.pageOneData.recalculateInitialConditions);
     
     for (int i = 0; i< storeDataInstance->getnum_hours(); i++)
     {
-        NSLog(@"%f", storeDataInstance->getT4()[i]);
-        NSLog(@"%f", storeDataInstance->getT3()[i]);
-        NSLog(@"%f", storeDataInstance->getTSH()[i]);
+//        NSLog(@"%f", storeDataInstance->getT4()[i]);
+//        NSLog(@"%f", storeDataInstance->getT3()[i]);
+//        NSLog(@"%f", storeDataInstance->getTSH()[i]);
         [_T4Values addObject:[NSNumber numberWithFloat:storeDataInstance->getT4()[i]]];
         [_T3Values addObject:[NSNumber numberWithFloat:storeDataInstance->getT3()[i]]];
         [_TSHValues addObject:[NSNumber numberWithFloat:storeDataInstance->getTSH()[i]]];

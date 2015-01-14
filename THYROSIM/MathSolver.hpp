@@ -94,7 +94,7 @@ class storeData
     
 public:
     storeData(float simulTime, float T4S, float T4A, float T3S, float T3A );
-    void getTheNumbers(float *myInputArray, int count);
+    void getTheNumbers(float *myInputArray, int count, bool recalculateFlag);
     
     /* Accessors*/
     float *getT4()

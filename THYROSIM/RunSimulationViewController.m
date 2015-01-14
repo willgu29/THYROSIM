@@ -13,6 +13,8 @@
 #import "ScatterPlot2ViewController.h"
 #import "ScatterPlot3ViewController.h"
 #import "TabGraphViewController.h"
+#import "ErrorCheck.h"
+#import "ErrorEnums.h"
 
 @interface RunSimulationViewController ()
 
@@ -41,6 +43,12 @@
     
     
     //TODO: Error check here
+    ErrorCheck *errorChecker = [[ErrorCheck alloc] init];
+    if ([errorChecker errorCheckAll] != ALL_GOOD_PROCEED)
+    {
+        //DISPLAY ERROR MESSAGE
+        return;
+    }
     
     
     
