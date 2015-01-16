@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuickStartViewController">
@@ -16,26 +18,29 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Introduction" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5u-1s-Eod">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Introduction" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5u-1s-Eod">
                     <rect key="frame" x="114" y="46" width="93" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quick Start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6i-EB-nD6">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quick Start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6i-EB-nD6">
                     <rect key="frame" x="117" y="293" width="87" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cR-II-T3L">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cR-II-T3L">
                     <rect key="frame" x="8" y="322" width="304" height="199"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <string key="text">1. To see normal thyroid hormone behavior: slide or tap STEP 1 -&gt; STEP2 -&gt; SIMULATION and click START SIMULATION                          2. To simulate hypo/hyperthyroidism: change T3/T4 secretion in STEP 1                                  3. To modify oral input absorption: change T3/T4 absorption in STEP 1                                     4. Simulate treatment options in STEP 2:                                 a. Click the icons to add as input                                                                              b. Fill in the required dosage, start and end times                                                             c. Click the icon to delete an input                                         5. Restart simulation: start from STEP 1</string>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="199" id="yAE-Zf-Lit"/>
+                    </constraints>
+                    <mutableString key="text">1. To see normal thyroid hormone behavior: slide or tap STEP 1 -&gt; STEP2 -&gt; SIMULATION and click START SIMULATION                          2. To simulate hypo/hyperthyroidism: change T3/T4 secretion in STEP 1                                  3. To modify oral input absorption: change T3/T4 absorption in STEP 1                                     4. Simulate treatment options in STEP 2:                                 a. Click the icons to add as input                                                                              b. Fill in the required dosage, start and end times                                                             c. Click the icon to delete an input                                         </mutableString>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufe-Rh-Z0c">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufe-Rh-Z0c">
                     <rect key="frame" x="8" y="78" width="304" height="207"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <string key="text">THYROSIM is a tool for simulating a well-validated human thyroid hormone (TH) feedback regulation system model*.                                                                                                            Users can simulate common throid system maladies by adjusting TH secretion/absorption rates on the interface.                                                                                                                   Oral input regimens, also selectable on the interface, simiulate common hormone treatment options.                                                                                                                                Bolus and intravenous infusion inputs also can be added, for exploratory research and teaching demonstrations.                                                                                                               For easy comparisons, the interface includes facility for superimposing two sets of simulation results.                                                                              </string>
@@ -44,6 +49,19 @@
                 </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ufe-Rh-Z0c" firstAttribute="trailing" secondItem="4cR-II-T3L" secondAttribute="trailing" id="FEL-Ui-4sg"/>
+                <constraint firstAttribute="bottom" secondItem="4cR-II-T3L" secondAttribute="bottom" constant="47" id="M1j-Wt-Uiy"/>
+                <constraint firstItem="4cR-II-T3L" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="NDZ-Hq-cfZ"/>
+                <constraint firstItem="ufe-Rh-Z0c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="dSz-XZ-L5Q"/>
+                <constraint firstItem="ufe-Rh-Z0c" firstAttribute="leading" secondItem="4cR-II-T3L" secondAttribute="leading" id="f7R-AA-5R7"/>
+                <constraint firstItem="N6i-EB-nD6" firstAttribute="top" secondItem="ufe-Rh-Z0c" secondAttribute="bottom" constant="8" symbolic="YES" id="jgp-Yg-axR"/>
+                <constraint firstItem="ufe-Rh-Z0c" firstAttribute="centerX" secondItem="i5u-1s-Eod" secondAttribute="centerX" id="plQ-TB-Mf8"/>
+                <constraint firstItem="4cR-II-T3L" firstAttribute="top" secondItem="N6i-EB-nD6" secondAttribute="bottom" constant="8" symbolic="YES" id="r2u-ea-E8J"/>
+                <constraint firstItem="N6i-EB-nD6" firstAttribute="centerX" secondItem="4cR-II-T3L" secondAttribute="centerX" id="u6R-tq-k1C"/>
+                <constraint firstItem="ufe-Rh-Z0c" firstAttribute="top" secondItem="i5u-1s-Eod" secondAttribute="bottom" constant="11" id="vKD-Ea-A0J"/>
+                <constraint firstItem="i5u-1s-Eod" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="46" id="zJM-9k-AHT"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>

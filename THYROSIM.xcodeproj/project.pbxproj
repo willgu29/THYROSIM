@@ -28,8 +28,6 @@
 		84ECB43D19E9C39E00D5F795 /* THYROSIMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB43C19E9C39E00D5F795 /* THYROSIMTests.m */; };
 		84ECB44919E9C77C00D5F795 /* QuickStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB44719E9C77C00D5F795 /* QuickStartViewController.m */; };
 		84ECB44A19E9C77C00D5F795 /* QuickStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB44819E9C77C00D5F795 /* QuickStartViewController.xib */; };
-		84ECB44E19E9C80800D5F795 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB44C19E9C80800D5F795 /* TabBarViewController.m */; };
-		84ECB44F19E9C80800D5F795 /* TabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB44D19E9C80800D5F795 /* TabBarViewController.xib */; };
 		84ECB45319E9C92300D5F795 /* PageOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB45119E9C92300D5F795 /* PageOneViewController.m */; };
 		84ECB45419E9C92300D5F795 /* PageOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB45219E9C92300D5F795 /* PageOneViewController.xib */; };
 		84ECB45819E9C93400D5F795 /* PageTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB45619E9C93400D5F795 /* PageTwoViewController.m */; };
@@ -178,9 +176,6 @@
 		84ECB44619E9C77C00D5F795 /* QuickStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickStartViewController.h; sourceTree = "<group>"; };
 		84ECB44719E9C77C00D5F795 /* QuickStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickStartViewController.m; sourceTree = "<group>"; };
 		84ECB44819E9C77C00D5F795 /* QuickStartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuickStartViewController.xib; sourceTree = "<group>"; };
-		84ECB44B19E9C80800D5F795 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
-		84ECB44C19E9C80800D5F795 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
-		84ECB44D19E9C80800D5F795 /* TabBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBarViewController.xib; sourceTree = "<group>"; };
 		84ECB45019E9C92300D5F795 /* PageOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageOneViewController.h; sourceTree = "<group>"; };
 		84ECB45119E9C92300D5F795 /* PageOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageOneViewController.m; sourceTree = "<group>"; };
 		84ECB45219E9C92300D5F795 /* PageOneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageOneViewController.xib; sourceTree = "<group>"; };
@@ -406,9 +401,6 @@
 				84ECB44619E9C77C00D5F795 /* QuickStartViewController.h */,
 				84ECB44719E9C77C00D5F795 /* QuickStartViewController.m */,
 				84ECB44819E9C77C00D5F795 /* QuickStartViewController.xib */,
-				84ECB44B19E9C80800D5F795 /* TabBarViewController.h */,
-				84ECB44C19E9C80800D5F795 /* TabBarViewController.m */,
-				84ECB44D19E9C80800D5F795 /* TabBarViewController.xib */,
 				84ECB45019E9C92300D5F795 /* PageOneViewController.h */,
 				84ECB45119E9C92300D5F795 /* PageOneViewController.m */,
 				84ECB45219E9C92300D5F795 /* PageOneViewController.xib */,
@@ -575,7 +567,6 @@
 				84ECB48819E9FD3800D5F795 /* InfusionTableViewCell.xib in Resources */,
 				84ECB45919E9C93400D5F795 /* PageTwoViewController.xib in Resources */,
 				84ECB47A19E9E72D00D5F795 /* TextInputTableViewCell.xib in Resources */,
-				84ECB44F19E9C80800D5F795 /* TabBarViewController.xib in Resources */,
 				84ECB44A19E9C77C00D5F795 /* QuickStartViewController.xib in Resources */,
 				849224B21A34D70D006BEBF6 /* TabGraphViewController.xib in Resources */,
 				849224BC1A34D818006BEBF6 /* ScatterPlot3ViewController.xib in Resources */,
@@ -607,7 +598,6 @@
 				84ECB48719E9FD3800D5F795 /* InfusionTableViewCell.m in Sources */,
 				84ECB46219E9C96800D5F795 /* RunSimulationViewController.m in Sources */,
 				BC03F6D81A4623B20088F303 /* MathSolver.cpp in Sources */,
-				84ECB44E19E9C80800D5F795 /* TabBarViewController.m in Sources */,
 				84ECB42619E9C39E00D5F795 /* AppDelegate.m in Sources */,
 				84ECB47919E9E72D00D5F795 /* TextInputTableViewCell.m in Sources */,
 				84ECB47D19E9E90900D5F795 /* DataWrapper.m in Sources */,
