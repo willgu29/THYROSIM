@@ -25,7 +25,6 @@
 		84ECB42319E9C39E00D5F795 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB42219E9C39E00D5F795 /* main.m */; };
 		84ECB42619E9C39E00D5F795 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB42519E9C39E00D5F795 /* AppDelegate.m */; };
 		84ECB42E19E9C39E00D5F795 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB42D19E9C39E00D5F795 /* Images.xcassets */; };
-		84ECB43119E9C39E00D5F795 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB42F19E9C39E00D5F795 /* LaunchScreen.xib */; };
 		84ECB43D19E9C39E00D5F795 /* THYROSIMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB43C19E9C39E00D5F795 /* THYROSIMTests.m */; };
 		84ECB44919E9C77C00D5F795 /* QuickStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB44719E9C77C00D5F795 /* QuickStartViewController.m */; };
 		84ECB44A19E9C77C00D5F795 /* QuickStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB44819E9C77C00D5F795 /* QuickStartViewController.xib */; };
@@ -173,7 +172,6 @@
 		84ECB42419E9C39E00D5F795 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84ECB42519E9C39E00D5F795 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		84ECB42D19E9C39E00D5F795 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		84ECB43019E9C39E00D5F795 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		84ECB43619E9C39E00D5F795 /* THYROSIMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = THYROSIMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84ECB43B19E9C39E00D5F795 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84ECB43C19E9C39E00D5F795 /* THYROSIMTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THYROSIMTests.m; sourceTree = "<group>"; };
@@ -404,7 +402,6 @@
 				84ECB42419E9C39E00D5F795 /* AppDelegate.h */,
 				84ECB42519E9C39E00D5F795 /* AppDelegate.m */,
 				84ECB42D19E9C39E00D5F795 /* Images.xcassets */,
-				84ECB42F19E9C39E00D5F795 /* LaunchScreen.xib */,
 				84ECB42019E9C39E00D5F795 /* Supporting Files */,
 				84ECB44619E9C77C00D5F795 /* QuickStartViewController.h */,
 				84ECB44719E9C77C00D5F795 /* QuickStartViewController.m */,
@@ -583,7 +580,6 @@
 				849224B21A34D70D006BEBF6 /* TabGraphViewController.xib in Resources */,
 				849224BC1A34D818006BEBF6 /* ScatterPlot3ViewController.xib in Resources */,
 				84D7B1521A13DF110024DCE5 /* ScatterPlotViewController.xib in Resources */,
-				84ECB43119E9C39E00D5F795 /* LaunchScreen.xib in Resources */,
 				84ECB46319E9C96800D5F795 /* RunSimulationViewController.xib in Resources */,
 				84ECB46F19E9CE9100D5F795 /* Default-568h@2x.png in Resources */,
 				849224B71A34D804006BEBF6 /* ScatterPlot2ViewController.xib in Resources */,
@@ -653,17 +649,6 @@
 			targetProxy = 84ECB43719E9C39E00D5F795 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		84ECB42F19E9C39E00D5F795 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84ECB43019E9C39E00D5F795 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		84ECB43E19E9C39E00D5F795 /* Debug */ = {

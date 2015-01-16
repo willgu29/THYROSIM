@@ -99,6 +99,10 @@
     // 1 - Get graph and plot space
     CPTGraph *graph = self.hostView.hostedGraph;
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
+    
+    
+   
+    
     // 2 - Create the three plots
     CPTScatterPlot *aaplPlot = [[CPTScatterPlot alloc] init];
     aaplPlot.dataSource = self;
@@ -106,6 +110,33 @@
     CPTColor *aaplColor = [CPTColor blueColor];
     [graph addPlot:aaplPlot toPlotSpace:plotSpace];
     [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:aaplPlot, nil]];
+    
+//    NSNumberFormatter *plotFormatter = [[NSNumberFormatter alloc] init];
+//    [plotFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+//    [plotFormatter setMaximumFractionDigits:2];
+//    [plotFormatter setFormatWidth:2];
+//    [plotFormatter setPositiveFormat:@"###.##"];
+//     aaplPlot.labelFormatter = plotFormatter;
+
+    
+//    CPTPlotRange *xRangeMe = [[CPTPlotRange alloc] initWithLocation:[NSNumber numberWithInt:0].decimalValue length:[NSNumber numberWithInt:_intervalHours].decimalValue];
+//    
+//    
+//    NSNumber* min = [_T4Values valueForKeyPath:@"@min.self"];
+//    NSNumber* max = [_T4Values valueForKeyPath:@"@max.self"];
+//
+//    CPTPlotRange *yRangeMe = [[CPTPlotRange alloc] initWithLocation:min.decimalValue length:max.decimalValue];
+//
+//    CPTMutablePlotRange *xRange = xRangeMe.mutableCopy;
+//    CPTMutablePlotRange *yRange = yRangeMe.mutableCopy;
+//
+//    
+//    [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
+//    plotSpace.xRange = xRange;
+//    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.2f)];
+//    plotSpace.yRange = yRange;
+//
+//
     CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
     [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
     plotSpace.xRange = xRange;
@@ -155,69 +186,121 @@
     x.titleTextStyle = axisTitleStyle;
     x.titleOffset = 15.0f;
     x.axisLineStyle = axisLineStyle;
-    x.labelingPolicy = CPTAxisLabelingPolicyNone;
+    x.labelingPolicy = CPTAxisLabelingPolicyAutomatic;
     x.labelTextStyle = axisTextStyle;
     x.majorTickLineStyle = axisLineStyle;
     x.majorTickLength = 4.0f;
     x.tickDirection = CPTSignNegative;
     
     
-    CGFloat dateCount = _intervalHours;
-    NSMutableSet *xLabels = [NSMutableSet setWithCapacity:dateCount];
-    NSMutableSet *xLocations = [NSMutableSet setWithCapacity:dateCount];
-    for (int i = 0; i< _intervalHours; i++) {
-        NSString *numberHour = [NSString stringWithFormat:@"%d", i];
-        CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:numberHour textStyle:x.labelTextStyle];
-        CGFloat location = i;
-        label.tickLocation = CPTDecimalFromCGFloat(location);
-        label.offset = x.majorTickLength;
-        if (label) {
-            [xLabels addObject:label];
-            [xLocations addObject:[NSNumber numberWithFloat:location]];
-        }
-    }
-    
-    x.axisLabels = xLabels;
-    x.majorTickLocations = xLocations;
-    
+//    CGFloat dateCount = _intervalHours;
+//    NSMutableSet *xLabels = [NSMutableSet setWithCapacity:dateCount];
+//    NSMutableSet *xLocations = [NSMutableSet setWithCapacity:dateCount];
+//    for (int i = 0; i< _intervalHours; i++) {
+//        NSString *numberHour = [NSString stringWithFormat:@"%d", i];
+//        CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:numberHour textStyle:x.labelTextStyle];
+//        CGFloat location = i;
+//        label.tickLocation = CPTDecimalFromCGFloat(location);
+//        label.offset = x.majorTickLength;
+//        if (label) {
+//            [xLabels addObject:label];
+//            [xLocations addObject:[NSNumber numberWithFloat:location]];
+//        }
+//    }
+////    
+//    x.axisLabels = xLabels;
+//    x.majorTickLocations = xLocations;
+//    
     // 4 - Configure y-axis
     CPTAxis *y = axisSet.yAxis;
     y.title = @"Values";
     y.titleTextStyle = axisTitleStyle;
-    y.titleOffset = -40.0f;
+    y.titleOffset = -30.0f;
     y.axisLineStyle = axisLineStyle;
     y.majorGridLineStyle = gridLineStyle;
-    y.labelingPolicy = CPTAxisLabelingPolicyNone;
+    y.labelingPolicy = CPTAxisLabelingPolicyAutomatic;
     y.labelTextStyle = axisTextStyle;
     y.labelOffset = 16.0f;
     y.majorTickLineStyle = axisLineStyle;
     y.majorTickLength = 4.0f;
     y.minorTickLength = 2.0f;
     y.tickDirection = CPTSignPositive;
-    NSInteger majorIncrement = 20;
-    NSInteger minorIncrement = 5;
-    CGFloat yMax = 300.0f;  // should determine dynamically based on max price
-    NSMutableSet *yLabels = [NSMutableSet set];
-    NSMutableSet *yMajorLocations = [NSMutableSet set];
-    NSMutableSet *yMinorLocations = [NSMutableSet set];
-    for (NSInteger j = minorIncrement; j <= yMax; j += minorIncrement) {
-        NSUInteger mod = j % majorIncrement;
-        if (mod == 0) {
-            CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:[NSString stringWithFormat:@"%i", j] textStyle:y.labelTextStyle];
-            NSDecimal location = CPTDecimalFromInteger(j);
-            label.tickLocation = location;
-            label.offset = -y.majorTickLength - y.labelOffset;
-            if (label) {
-                [yLabels addObject:label];
-            }
-            [yMajorLocations addObject:[NSDecimalNumber decimalNumberWithDecimal:location]];
-        } else {
-            [yMinorLocations addObject:[NSDecimalNumber decimalNumberWithDecimal:CPTDecimalFromInteger(j)]];
-        }
-    }
-    y.axisLabels = yLabels;    
-    y.majorTickLocations = yMajorLocations;
-    y.minorTickLocations = yMinorLocations;
+    
+    
+    NSNumber* min = [_T4Values valueForKeyPath:@"@min.self"];
+    NSNumber* max = [_T4Values valueForKeyPath:@"@max.self"];
+    
+//    double majorIncrement = 1;
+//    double minorIncrement = 0.2;
+////    CGFloat yMax = (max.doubleValue*1.1);
+//    CGFloat yMax = max.doubleValue*1.1;
+//    
+//    NSMutableSet *yLabels = [NSMutableSet set];
+//    NSMutableSet *yMajorLocations = [NSMutableSet set];
+//    NSMutableSet *yMinorLocations = [NSMutableSet set];
+//    for (double j = min.intValue; j <= yMax; j += minorIncrement) {
+//        double mod = fmod(j, majorIncrement);
+//        if (YES) { //mod == 0
+//            CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:[NSString stringWithFormat:@"%f", j] textStyle:y.labelTextStyle];
+//            NSString *formatedDouble = [NSString stringWithFormat:@"%.02f",j];
+//            NSDecimal location = CPTDecimalFromString(formatedDouble);
+//            
+//            label.tickLocation = [NSDecimalNumber decimalNumberWithDecimal:location].decimalValue;
+//            label.offset = -y.majorTickLength - y.labelOffset;
+//            if (label) {
+//                [yLabels addObject:label];
+//            }
+//            [yMajorLocations addObject:[NSDecimalNumber decimalNumberWithDecimal:location]];
+//        } else {
+//            [yMinorLocations addObject:[NSDecimalNumber decimalNumberWithDecimal:CPTDecimalFromDouble(j)]];
+//        }
+//    }
+//    
+
+//    y.axisLabels = yLabels;
+//    y.majorTickLocations = yMajorLocations;
+//    y.minorTickLocations = yMinorLocations;
+//    
+//    
+    
+    
+//    //MY STUFF
+//    CPTPlotRange *xRangeMe = [[CPTPlotRange alloc] initWithLocation:[NSNumber numberWithInt:0].decimalValue length:[NSNumber numberWithInt:_intervalHours].decimalValue];
+//    
+////    NSNumber* min = [_T4Values valueForKeyPath:@"@min.self"];
+////    NSNumber* max = [_T4Values valueForKeyPath:@"@max.self"];
+////    
+//    CPTPlotRange *yRangeMe = [[CPTPlotRange alloc] initWithLocation:min.decimalValue length:max.decimalValue];
+//    
+//    CPTMutablePlotRange *xRange = xRangeMe.mutableCopy;
+//    CPTMutablePlotRange *yRange = yRangeMe.mutableCopy;
+//    
+//    
+//    [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
+//    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.2f)];
+//   
+//
+//    
+//    y.visibleRange = yRange;
+//    x.visibleRange = xRange;
+//    
+//    
+//    [x filteredMajorTickLocations:x.majorTickLocations];
+//    [y filteredMajorTickLocations:y.majorTickLocations];
+//    [x filteredMinorTickLocations:x.minorTickLocations];
+//    [y filteredMinorTickLocations:y.minorTickLocations];
+    
+    
+    NSNumberFormatter *plotFormatter = [[NSNumberFormatter alloc] init];
+    [plotFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [plotFormatter setMaximumFractionDigits:4];
+    [plotFormatter setFormatWidth:2];
+    [plotFormatter setPositiveFormat:@"####.####"];
+    
+    x.labelFormatter = plotFormatter;
+    y.labelFormatter = plotFormatter;   
+    
+    
 }
 
 #pragma mark - CPTPlotDataSource Methods
@@ -245,6 +328,7 @@
 
 
 
+//[plotSpace pointingDeviceDownEvent:<#(UIEvent *)#> atPoint:<#(CGPoint)#>
 
 
 

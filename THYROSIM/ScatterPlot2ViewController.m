@@ -54,8 +54,131 @@
 {
     [self configureHost];
     [self configureGraph];
-    [self configurePlots];
-    [self configureAxes];
+    [self myConfigure];
+//    [self configurePlots];
+//    [self configureAxes];
+}
+
+-(void)myConfigure
+{
+    // 1 - Get graph and plot space
+    CPTGraph *graph = self.hostView.hostedGraph;
+    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
+    // 2 - Create the three plots
+    CPTScatterPlot *aaplPlot = [[CPTScatterPlot alloc] init];
+    aaplPlot.dataSource = self;
+    aaplPlot.identifier = @"APPL";
+    CPTColor *aaplColor = [CPTColor blueColor];
+    [graph addPlot:aaplPlot toPlotSpace:plotSpace];
+    
+    
+    
+    // 3 - Set up plot space
+    [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:aaplPlot, nil]];
+    CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
+    [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
+    plotSpace.xRange = xRange;
+    CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
+    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.2f)];
+    plotSpace.yRange = yRange;
+    // 4 - Create styles and symbols
+    CPTMutableLineStyle *aaplLineStyle = [aaplPlot.dataLineStyle mutableCopy];
+    aaplLineStyle.lineWidth = 2.0;
+    aaplLineStyle.lineColor = aaplColor;
+    aaplPlot.dataLineStyle = aaplLineStyle;
+    CPTMutableLineStyle *aaplSymbolLineStyle = [CPTMutableLineStyle lineStyle];
+    aaplSymbolLineStyle.lineColor = aaplColor;
+    CPTPlotSymbol *aaplSymbol = [CPTPlotSymbol ellipsePlotSymbol];
+    aaplSymbol.fill = [CPTFill fillWithColor:aaplColor];
+    aaplSymbol.lineStyle = aaplSymbolLineStyle;
+    aaplSymbol.size = CGSizeMake(6.0f, 6.0f);
+    //    aaplPlot.plotSymbol = aaplSymbol;
+    
+    // 1 - Create styles
+    CPTMutableTextStyle *axisTitleStyle = [CPTMutableTextStyle textStyle];
+    axisTitleStyle.color = [CPTColor whiteColor];
+    axisTitleStyle.fontName = @"Helvetica-Bold";
+    axisTitleStyle.fontSize = 12.0f;
+    CPTMutableLineStyle *axisLineStyle = [CPTMutableLineStyle lineStyle];
+    axisLineStyle.lineWidth = 2.0f;
+    axisLineStyle.lineColor = [CPTColor whiteColor];
+    CPTMutableTextStyle *axisTextStyle = [[CPTMutableTextStyle alloc] init];
+    axisTextStyle.color = [CPTColor whiteColor];
+    axisTextStyle.fontName = @"Helvetica-Bold";
+    axisTextStyle.fontSize = 11.0f;
+    CPTMutableLineStyle *tickLineStyle = [CPTMutableLineStyle lineStyle];
+    tickLineStyle.lineColor = [CPTColor whiteColor];
+    tickLineStyle.lineWidth = 2.0f;
+    CPTMutableLineStyle *gridLineStyle = [CPTMutableLineStyle lineStyle];
+    tickLineStyle.lineColor = [CPTColor blackColor];
+    tickLineStyle.lineWidth = 1.0f;
+    // 2 - Get axis set
+    CPTXYAxisSet *axisSet = (CPTXYAxisSet *) self.hostView.hostedGraph.axisSet;
+
+    NSNumber* max = [_T3Values valueForKeyPath:@"@max.self"];
+    NSNumber* min = [_T3Values valueForKeyPath:@"@min.self"];
+//    double newNumber = (min.doubleValue + max.doubleValue)/2;
+    double newNumber = (min.doubleValue*.99);
+    axisSet.xAxis.orthogonalCoordinateDecimal = CPTDecimalFromDouble(newNumber);
+    
+    
+    // 3 - Configure x-axis
+    CPTAxis *x = axisSet.xAxis;
+    x.title = @"Hours";
+    x.titleTextStyle = axisTitleStyle;
+    x.titleOffset = 15.0f;
+    x.axisLineStyle = axisLineStyle;
+    x.labelingPolicy = CPTAxisLabelingPolicyAutomatic;
+    x.labelTextStyle = axisTextStyle;
+    x.majorTickLineStyle = axisLineStyle;
+    x.majorTickLength = 4.0f;
+    x.tickDirection = CPTSignNegative;
+    
+    
+    // 4 - Configure y-axis
+    CPTAxis *y = axisSet.yAxis;
+    y.title = @"Values";
+    y.titleTextStyle = axisTitleStyle;
+    y.titleOffset = -40.0f;
+    y.axisLineStyle = axisLineStyle;
+    y.majorGridLineStyle = gridLineStyle;
+    y.labelingPolicy = CPTAxisLabelingPolicyAutomatic;
+    y.labelTextStyle = axisTextStyle;
+    y.labelOffset = 16.0f;
+    y.majorTickLineStyle = axisLineStyle;
+    y.majorTickLength = 4.0f;
+    y.minorTickLength = 2.0f;
+    y.tickDirection = CPTSignPositive;
+    
+    NSNumberFormatter *plotFormatter = [[NSNumberFormatter alloc] init];
+    [plotFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [plotFormatter setMaximumFractionDigits:4];
+    [plotFormatter setFormatWidth:2];
+    [plotFormatter setPositiveFormat:@"####.####"];
+    
+    x.labelFormatter = plotFormatter;
+    y.labelFormatter = plotFormatter;
+    
+    // Auto scale the plot space to fit the plot data
+    [plotSpace scaleToFitPlots:[graph allPlots]];
+    
+    // Expand the ranges to put some space around the plot
+    [xRange expandRangeByFactor:CPTDecimalFromDouble(1.2)];
+    [yRange expandRangeByFactor:CPTDecimalFromDouble(1.2)];
+    plotSpace.xRange = xRange;
+    plotSpace.yRange = yRange;
+    
+    [xRange expandRangeByFactor:CPTDecimalFromDouble(1.025)];
+    xRange.location = plotSpace.xRange.location;
+    [yRange expandRangeByFactor:CPTDecimalFromDouble(1.05)];
+    x.visibleAxisRange = xRange;
+    y.visibleAxisRange = yRange;
+    
+    [xRange expandRangeByFactor:CPTDecimalFromDouble(3.0)];
+    [yRange expandRangeByFactor:CPTDecimalFromDouble(3.0)];
+    plotSpace.globalXRange = xRange;
+    plotSpace.globalYRange = yRange;
+
 }
 
 -(void)configureHost
@@ -71,7 +194,7 @@
 {
     // 1 - Create the graph
     CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
-    [graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];
+    [graph applyTheme:[CPTTheme themeNamed:kCPTSlateTheme]];
     self.hostView.hostedGraph = graph;
     // 2 - Set graph title
     NSString *title = @"T3 Values";
@@ -90,6 +213,10 @@
     // 5 - Enable user interactions for plot space
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     plotSpace.allowsUserInteraction = YES;
+    
+    
+   
+
 }
 
 -(void)configurePlots
@@ -103,6 +230,8 @@
     aaplPlot.identifier = @"APPL";
     CPTColor *aaplColor = [CPTColor blueColor];
     [graph addPlot:aaplPlot toPlotSpace:plotSpace];
+
+
     
     // 3 - Set up plot space
     [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:aaplPlot, nil]];
@@ -124,7 +253,8 @@
     aaplSymbol.lineStyle = aaplSymbolLineStyle;
     aaplSymbol.size = CGSizeMake(6.0f, 6.0f);
 //    aaplPlot.plotSymbol = aaplSymbol;
-   
+    
+
 }
 
 -(void)configureAxes
@@ -151,69 +281,46 @@
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *) self.hostView.hostedGraph.axisSet;
     // 3 - Configure x-axis
     CPTAxis *x = axisSet.xAxis;
-    x.title = @"Day of Month";
+    x.title = @"Hours";
     x.titleTextStyle = axisTitleStyle;
     x.titleOffset = 15.0f;
     x.axisLineStyle = axisLineStyle;
-    x.labelingPolicy = CPTAxisLabelingPolicyNone;
+    x.labelingPolicy = CPTAxisLabelingPolicyAutomatic;
     x.labelTextStyle = axisTextStyle;
     x.majorTickLineStyle = axisLineStyle;
     x.majorTickLength = 4.0f;
     x.tickDirection = CPTSignNegative;
     
-    
-    CGFloat dateCount = _intervalHours;
-    NSMutableSet *xLabels = [NSMutableSet setWithCapacity:dateCount];
-    NSMutableSet *xLocations = [NSMutableSet setWithCapacity:dateCount];
-    for (int i = 0; i< _intervalHours; i++) {
-        NSString *numberHour = [NSString stringWithFormat:@"%d", i];
-        CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:numberHour textStyle:x.labelTextStyle];
-        CGFloat location = i;
-        label.tickLocation = CPTDecimalFromCGFloat(location);
-        label.offset = x.majorTickLength;
-        if (label) {
-            [xLabels addObject:label];
-            [xLocations addObject:[NSNumber numberWithFloat:location]];
-        }
-    }
+
     // 4 - Configure y-axis
     CPTAxis *y = axisSet.yAxis;
-    y.title = @"Price";
+    y.title = @"Values";
     y.titleTextStyle = axisTitleStyle;
     y.titleOffset = -40.0f;
     y.axisLineStyle = axisLineStyle;
     y.majorGridLineStyle = gridLineStyle;
-    y.labelingPolicy = CPTAxisLabelingPolicyNone;
+    y.labelingPolicy = CPTAxisLabelingPolicyAutomatic;
     y.labelTextStyle = axisTextStyle;
     y.labelOffset = 16.0f;
     y.majorTickLineStyle = axisLineStyle;
     y.majorTickLength = 4.0f;
     y.minorTickLength = 2.0f;
     y.tickDirection = CPTSignPositive;
-    NSInteger majorIncrement = 100;
-    NSInteger minorIncrement = 50;
-    CGFloat yMax = 700.0f;  // should determine dynamically based on max price
-    NSMutableSet *yLabels = [NSMutableSet set];
-    NSMutableSet *yMajorLocations = [NSMutableSet set];
-    NSMutableSet *yMinorLocations = [NSMutableSet set];
-    for (NSInteger j = minorIncrement; j <= yMax; j += minorIncrement) {
-        NSUInteger mod = j % majorIncrement;
-        if (mod == 0) {
-            CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:[NSString stringWithFormat:@"%i", j] textStyle:y.labelTextStyle];
-            NSDecimal location = CPTDecimalFromInteger(j);
-            label.tickLocation = location;
-            label.offset = -y.majorTickLength - y.labelOffset;
-            if (label) {
-                [yLabels addObject:label];
-            }
-            [yMajorLocations addObject:[NSDecimalNumber decimalNumberWithDecimal:location]];
-        } else {
-            [yMinorLocations addObject:[NSDecimalNumber decimalNumberWithDecimal:CPTDecimalFromInteger(j)]];
-        }
-    }
-    y.axisLabels = yLabels;
-    y.majorTickLocations = yMajorLocations;
-    y.minorTickLocations = yMinorLocations;
+
+    
+    NSNumberFormatter *plotFormatter = [[NSNumberFormatter alloc] init];
+    [plotFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [plotFormatter setMaximumFractionDigits:4];
+    [plotFormatter setFormatWidth:2];
+    [plotFormatter setPositiveFormat:@"####.####"];
+    
+    x.labelFormatter = plotFormatter;
+    y.labelFormatter = plotFormatter;
+
+    
+   
+    
+
 }
 
 #pragma mark - CPTPlotDataSource Methods
@@ -238,6 +345,8 @@
     return [NSDecimalNumber zero];
     
 }
+
+
 
 /*
 #pragma mark - Navigation

@@ -18,6 +18,9 @@
 
 @interface RunSimulationViewController ()
 
+@property (nonatomic, weak) IBOutlet UILabel *errorLabel;
+@property (nonatomic, weak) IBOutlet UILabel *errorHolder;
+
 @end
 
 @implementation RunSimulationViewController
@@ -32,6 +35,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    _errorLabel.hidden = YES;
+    _errorHolder.hidden = YES;
+}
+
 -(IBAction)runSimulation:(UIButton *)sender
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
@@ -44,9 +53,13 @@
     
     //TODO: Error check here
     ErrorCheck *errorChecker = [[ErrorCheck alloc] init];
-    if ([errorChecker errorCheckAll] != ALL_GOOD_PROCEED)
+    int errorValue = [errorChecker errorCheckAll];
+    if (errorValue != ALL_GOOD_PROCEED)
     {
         //DISPLAY ERROR MESSAGE
+        _errorLabel.text = [self convertErrorToString:errorValue];
+        _errorLabel.hidden = NO;
+        _errorHolder.hidden = NO;
         return;
     }
     
@@ -89,6 +102,47 @@
     [self presentViewController:tabGraph animated:YES completion:nil];
     
    
+}
+
+-(NSString *)convertErrorToString:(int) errorValue
+{
+    
+    if (errorValue == PAGE_ONE_SIMULDAYS_ERROR)
+    {
+        return @"Make sure simulation days in step 1 is greater than zero";
+    }
+    else if (errorValue == PAGE_ONE_T3A_ERROR)
+    {
+        return @"Check to make sure T3 Absorption is between 0-100% in step 1";
+    }
+    else if (errorValue == PAGE_ONE_T3S_ERROR)
+    {
+        return @"Check to make sure T3 Secretion is between 0-200% in step 1";
+
+    }
+    else if (errorValue == PAGE_ONE_T4A_ERROR)
+    {
+        return @"Check to make sure T4 Absorption is between 0-100% in step 1";
+
+    }
+    else if (errorValue == PAGE_ONE_T4S_ERROR)
+    {
+        return @"Check to make sure T4 Secretion is between 0-200% in step 1";
+    }
+    else if (errorValue == PAGE_TWO_DOSING_INTERVAL_ERROR)
+    {
+        return @"Make sure your dosing intervals is positive in step 2";
+    }
+    else if (errorValue == PAGE_TWO_TIME_ERROR)
+    {
+        return @"Make sure start and end times are valid in step 2";
+    }
+    else
+    {
+        //???
+    }
+    
+    return @"NO ERROR";
 }
 
 -(void)createHeadline
