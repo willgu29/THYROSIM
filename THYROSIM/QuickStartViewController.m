@@ -7,6 +7,7 @@
 //
 
 #import "QuickStartViewController.h"
+#import "AppDelegate.h"
 
 @interface QuickStartViewController ()
 
@@ -26,6 +27,7 @@
     
     [self introAddPicture];
     [self quickstartAddPictures];
+    [self setDefaultInputValues];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,6 +90,19 @@
     [_quickStart addSubview:imageView1];
     [_quickStart addSubview:imageView2];
     [_quickStart addSubview:imageView3];
+}
+
+-(void)setDefaultInputValues
+{
+    //    _defaultInputValues = @[@"100", @"88", @"100", @"88"];
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    delegate.dataObject.pageOneData.t4Secretion = 100;
+    delegate.dataObject.pageOneData.t4Absorption = 88;
+    delegate.dataObject.pageOneData.t3Secretion = 100;
+    delegate.dataObject.pageOneData.t3Absorption = 88;
+    delegate.dataObject.pageOneData.simulationTimeDays = 5;
+    
+    
 }
 
 /*

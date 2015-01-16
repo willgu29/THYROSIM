@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "THYROSIM/ScatterPlotViewController.m"
-            timestampString = "443086338.203019"
+            timestampString = "443088881.740513"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
+            startingLineNumber = "353"
+            endingLineNumber = "353"
             landmarkName = "-configureAxes"
             landmarkType = "5">
          </BreakpointContent>
