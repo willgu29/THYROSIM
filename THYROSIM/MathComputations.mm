@@ -15,7 +15,6 @@
 
 
 
-const NSInteger DIVISOR = 10;
 
 @interface MathComputations()
 {

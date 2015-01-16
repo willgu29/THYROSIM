@@ -7,6 +7,8 @@
 //
 
 #import "ScatterPlot2ViewController.h"
+#import "CorePlot-CocoaTouch.h"
+
 
 @interface ScatterPlot2ViewController ()
 
@@ -115,7 +117,6 @@
     // 2 - Get axis set
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *) self.hostView.hostedGraph.axisSet;
 
-    NSNumber* max = [_T3Values valueForKeyPath:@"@max.self"];
     NSNumber* min = [_T3Values valueForKeyPath:@"@min.self"];
 //    double newNumber = (min.doubleValue + max.doubleValue)/2;
     double newNumber = (min.doubleValue*.99);

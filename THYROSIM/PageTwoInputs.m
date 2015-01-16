@@ -38,10 +38,10 @@
     for (Inputs *input in _filledArray)
     {
         NSLog(@"NAME: %@", input.inputName);
-        NSLog(@"Dose Amount: %d", input.doseAmount);
-        NSLog(@"ST: %d", input.startTime);
-        NSLog(@"ET: %d", input.endTime);
-        NSLog(@"DI: %d", input.doseInterval);
+        NSLog(@"Dose Amount: %ld", (long)input.doseAmount);
+        NSLog(@"ST: %ld", (long)input.startTime);
+        NSLog(@"ET: %ld", (long)input.endTime);
+        NSLog(@"DI: %ld", (long)input.doseInterval);
         NSLog(@"\n");
 
     }

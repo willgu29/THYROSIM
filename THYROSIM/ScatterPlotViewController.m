@@ -8,6 +8,8 @@
 
 #import "ScatterPlotViewController.h"
 #import "TabGraphViewController.h"
+#import "CorePlot-CocoaTouch.h"
+
 
 @interface ScatterPlotViewController ()
 
@@ -117,7 +119,6 @@
     // 2 - Get axis set
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *) self.hostView.hostedGraph.axisSet;
     
-    NSNumber* max = [_T4Values valueForKeyPath:@"@max.self"];
     NSNumber* min = [_T4Values valueForKeyPath:@"@min.self"];
     //    double newNumber = (min.doubleValue + max.doubleValue)/2;
     double newNumber = (min.doubleValue*.9999);
@@ -350,8 +351,6 @@
     y.tickDirection = CPTSignPositive;
     
     
-    NSNumber* min = [_T4Values valueForKeyPath:@"@min.self"];
-    NSNumber* max = [_T4Values valueForKeyPath:@"@max.self"];
     
 //    double majorIncrement = 1;
 //    double minorIncrement = 0.2;

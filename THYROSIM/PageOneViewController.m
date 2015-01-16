@@ -100,19 +100,19 @@
     cell.inputField.tag = indexPath.row;
     cell.tag = indexPath.row;
     if (indexPath.row == 0){
-        cell.inputField.text = [NSString stringWithFormat:@"%d",delegate.dataObject.pageOneData.t4Secretion];
+        cell.inputField.text = [NSString stringWithFormat:@"%ld",(long)delegate.dataObject.pageOneData.t4Secretion];
 
     } else if(indexPath.row == 1) {
-        cell.inputField.text = [NSString stringWithFormat:@"%d",delegate.dataObject.pageOneData.t4Absorption];
+        cell.inputField.text = [NSString stringWithFormat:@"%ld",(long)delegate.dataObject.pageOneData.t4Absorption];
 
     } else if (indexPath.row == 2){
-        cell.inputField.text = [NSString stringWithFormat:@"%d",delegate.dataObject.pageOneData.t3Secretion];
+        cell.inputField.text = [NSString stringWithFormat:@"%ld",(long)delegate.dataObject.pageOneData.t3Secretion];
 
     } else if (indexPath.row == 3) {
-        cell.inputField.text = [NSString stringWithFormat:@"%d",delegate.dataObject.pageOneData.t3Absorption];
+        cell.inputField.text = [NSString stringWithFormat:@"%ld",(long)delegate.dataObject.pageOneData.t3Absorption];
 
     } else if (indexPath.row == 5) {
-        cell.inputField.text = [NSString stringWithFormat:@"%d",delegate.dataObject.pageOneData.simulationTimeDays];
+        cell.inputField.text = [NSString stringWithFormat:@"%ld",(long)delegate.dataObject.pageOneData.simulationTimeDays];
 
     }
     

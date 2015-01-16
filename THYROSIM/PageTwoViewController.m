@@ -125,9 +125,9 @@
         
         Inputs *inputs = [delegate.dataObject.pageTwoData.filledArray objectAtIndex:indexPath.row];
         
-        cell.inputField1.text = [NSString stringWithFormat:@"%d",inputs.doseAmount];
-        cell.inputField2.text = [NSString stringWithFormat:@"%d",inputs.startTime];
-        cell.inputField3.text = [NSString stringWithFormat:@"%d",inputs.endTime];
+        cell.inputField1.text = [NSString stringWithFormat:@"%ld",(long)inputs.doseAmount];
+        cell.inputField2.text = [NSString stringWithFormat:@"%ld",(long)inputs.startTime];
+        cell.inputField3.text = [NSString stringWithFormat:@"%ld",(long)inputs.endTime];
         
         return cell;
         
@@ -150,10 +150,10 @@
         
         Inputs *inputs = [delegate.dataObject.pageTwoData.filledArray objectAtIndex:indexPath.row];
         
-        cell.inputField1.text = [NSString stringWithFormat:@"%d",inputs.doseAmount];
-        cell.inputField2.text = [NSString stringWithFormat:@"%d",inputs.doseInterval];
-        cell.inputField3.text = [NSString stringWithFormat:@"%d",inputs.startTime];
-        cell.inputField4.text = [NSString stringWithFormat:@"%d",inputs.endTime];
+        cell.inputField1.text = [NSString stringWithFormat:@"%ld",(long)inputs.doseAmount];
+        cell.inputField2.text = [NSString stringWithFormat:@"%ld",(long)inputs.doseInterval];
+        cell.inputField3.text = [NSString stringWithFormat:@"%ld",(long)inputs.startTime];
+        cell.inputField4.text = [NSString stringWithFormat:@"%ld",(long)inputs.endTime];
 
 
         return cell;

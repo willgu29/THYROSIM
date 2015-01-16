@@ -7,6 +7,7 @@
 //
 
 #import "ScatterPlot3ViewController.h"
+#import "CorePlot-CocoaTouch.h"
 
 @interface ScatterPlot3ViewController ()
 
