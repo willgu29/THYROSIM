@@ -19,8 +19,8 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bz8-Ii-6fO">
                     <rect key="frame" x="8" y="5" width="49" height="54"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="49" id="3R4-Y6-tWN"/>
-                        <constraint firstAttribute="height" constant="54" id="t7s-8B-dmE"/>
+                        <constraint firstAttribute="height" constant="54" id="QqW-hk-QOC"/>
+                        <constraint firstAttribute="width" constant="49" id="qdm-MO-WQT"/>
                     </constraints>
                     <state key="normal" title="Back">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -29,10 +29,10 @@
                         <action selector="backButton:" destination="-1" eventType="touchUpInside" id="BVC-HI-bUe"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal Range: 45- 120" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lhj-aI-VYM">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal Range: 45 - 120" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lhj-aI-VYM">
                     <rect key="frame" x="133" y="21" width="179" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="waQ-6j-FSf"/>
+                        <constraint firstAttribute="height" constant="21" id="EF2-jf-OHq"/>
                     </constraints>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -41,11 +41,11 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Lhj-aI-VYM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="21" id="3i3-5q-pTW"/>
-                <constraint firstItem="bz8-Ii-6fO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="FLI-Nr-Nfr"/>
-                <constraint firstItem="bz8-Ii-6fO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="5" id="peW-gv-T2m"/>
-                <constraint firstItem="Lhj-aI-VYM" firstAttribute="leading" secondItem="bz8-Ii-6fO" secondAttribute="trailing" constant="76" id="uN7-aH-WLz"/>
-                <constraint firstItem="Lhj-aI-VYM" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="zzk-CJ-6Lf"/>
+                <constraint firstItem="bz8-Ii-6fO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="5" id="9YA-A3-Sr2"/>
+                <constraint firstItem="bz8-Ii-6fO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="XE0-AW-eCY"/>
+                <constraint firstItem="Lhj-aI-VYM" firstAttribute="leading" secondItem="bz8-Ii-6fO" secondAttribute="trailing" constant="76" id="aHF-tw-EvE"/>
+                <constraint firstItem="Lhj-aI-VYM" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="atl-8W-0Pc"/>
+                <constraint firstItem="Lhj-aI-VYM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="21" id="e7M-ny-V22"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
