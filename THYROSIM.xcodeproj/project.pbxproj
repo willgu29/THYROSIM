@@ -23,6 +23,8 @@
 		84D7B1521A13DF110024DCE5 /* ScatterPlotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D7B1501A13DF110024DCE5 /* ScatterPlotViewController.xib */; };
 		84D7B2BB1A13E2670024DCE5 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D7B2BA1A13E2670024DCE5 /* CoreImage.framework */; };
 		84D91E1019F5A7FD007A2172 /* Inputs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D91E0F19F5A7FD007A2172 /* Inputs.m */; };
+		84DF601A1A69E92E00CF84F1 /* OverviewPlotsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DF60181A69E92E00CF84F1 /* OverviewPlotsViewController.m */; };
+		84DF601B1A69E92E00CF84F1 /* OverviewPlotsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DF60191A69E92E00CF84F1 /* OverviewPlotsViewController.xib */; };
 		84ECB42319E9C39E00D5F795 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB42219E9C39E00D5F795 /* main.m */; };
 		84ECB42619E9C39E00D5F795 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB42519E9C39E00D5F795 /* AppDelegate.m */; };
 		84ECB42E19E9C39E00D5F795 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB42D19E9C39E00D5F795 /* Images.xcassets */; };
@@ -181,6 +183,9 @@
 		84D7B2BA1A13E2670024DCE5 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		84D91E0E19F5A7FC007A2172 /* Inputs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inputs.h; sourceTree = "<group>"; };
 		84D91E0F19F5A7FD007A2172 /* Inputs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inputs.m; sourceTree = "<group>"; };
+		84DF60171A69E92E00CF84F1 /* OverviewPlotsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewPlotsViewController.h; sourceTree = "<group>"; };
+		84DF60181A69E92E00CF84F1 /* OverviewPlotsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverviewPlotsViewController.m; sourceTree = "<group>"; };
+		84DF60191A69E92E00CF84F1 /* OverviewPlotsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverviewPlotsViewController.xib; sourceTree = "<group>"; };
 		84ECB41D19E9C39E00D5F795 /* THYROSIM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THYROSIM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84ECB42119E9C39E00D5F795 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84ECB42219E9C39E00D5F795 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -284,6 +289,9 @@
 				849224AE1A34D70D006BEBF6 /* TabGraphViewController.h */,
 				849224AF1A34D70D006BEBF6 /* TabGraphViewController.m */,
 				849224B01A34D70D006BEBF6 /* TabGraphViewController.xib */,
+				84DF60171A69E92E00CF84F1 /* OverviewPlotsViewController.h */,
+				84DF60181A69E92E00CF84F1 /* OverviewPlotsViewController.m */,
+				84DF60191A69E92E00CF84F1 /* OverviewPlotsViewController.xib */,
 			);
 			name = TabBarGraphs;
 			sourceTree = "<group>";
@@ -621,6 +629,7 @@
 				849224B71A34D804006BEBF6 /* ScatterPlot2ViewController.xib in Resources */,
 				84ECB48319E9FB1400D5F795 /* PageTwoTableViewCell.xib in Resources */,
 				84ECB47519E9E71900D5F795 /* SwitchTableViewCell.xib in Resources */,
+				84DF601B1A69E92E00CF84F1 /* OverviewPlotsViewController.xib in Resources */,
 				84ECB42E19E9C39E00D5F795 /* Images.xcassets in Resources */,
 				84ECB45419E9C92300D5F795 /* PageOneViewController.xib in Resources */,
 			);
@@ -664,6 +673,7 @@
 				84D7B1511A13DF110024DCE5 /* ScatterPlotViewController.m in Sources */,
 				843863D419F71DC00095E6BB /* MathComputations.mm in Sources */,
 				843CAAB11A6706D80046E549 /* ErrorCheck.m in Sources */,
+				84DF601A1A69E92E00CF84F1 /* OverviewPlotsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

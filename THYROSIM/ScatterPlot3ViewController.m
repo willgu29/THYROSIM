@@ -10,7 +10,9 @@
 #import "CorePlot-CocoaTouch.h"
 
 @interface ScatterPlot3ViewController ()
-
+{
+    BOOL firstTime;
+}
 @end
 
 @implementation ScatterPlot3ViewController
@@ -34,13 +36,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     NSLog(@"Scatter Plot 1");
     [super viewDidAppear:animated];
-    [self initPlot];
+    if (firstTime == YES)
+    {
+        [self initPlot];
+        firstTime = NO;
+    }
+
 }
 
 

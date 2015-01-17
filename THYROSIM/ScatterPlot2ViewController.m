@@ -11,7 +11,9 @@
 
 
 @interface ScatterPlot2ViewController ()
-
+{
+    BOOL firstTime;
+}
 @end
 
 @implementation ScatterPlot2ViewController
@@ -21,7 +23,7 @@
     self = [super init];
     if (self)
     {
-        
+        firstTime = YES;
     }
     return self;
 
@@ -42,7 +44,11 @@
 {
     NSLog(@"Scatter Plot 1");
     [super viewDidAppear:animated];
-    [self initPlot];
+    if (firstTime == YES)
+    {
+        [self initPlot];
+        firstTime = NO;
+    }
 }
 
 

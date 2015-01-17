@@ -15,6 +15,7 @@
 #import "TabGraphViewController.h"
 #import "ErrorCheck.h"
 #import "ErrorEnums.h"
+#import "OverviewPlotsViewController.h"
 
 @interface RunSimulationViewController ()
 
@@ -75,6 +76,9 @@
     
     
     //Set a timer... if runs for more than 30seconds or so just cancel the operation
+    
+    OverviewPlotsViewController *overViewVC = [[OverviewPlotsViewController alloc] init];
+    
     
     ScatterPlotViewController *scatterVC = [[ScatterPlotViewController alloc ]init];
     ScatterPlot2ViewController *scatter2VC = [[ScatterPlot2ViewController alloc ]init];
