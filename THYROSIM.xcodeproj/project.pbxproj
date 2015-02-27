@@ -17,7 +17,6 @@
 		849224B71A34D804006BEBF6 /* ScatterPlot2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849224B51A34D804006BEBF6 /* ScatterPlot2ViewController.xib */; };
 		849224BB1A34D818006BEBF6 /* ScatterPlot3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849224B91A34D818006BEBF6 /* ScatterPlot3ViewController.m */; };
 		849224BC1A34D818006BEBF6 /* ScatterPlot3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849224BA1A34D818006BEBF6 /* ScatterPlot3ViewController.xib */; };
-		84D7B0FC1A13D28F0024DCE5 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D7B0FB1A13D28F0024DCE5 /* libCorePlot-CocoaTouch.a */; };
 		84D7B14C1A13D4410024DCE5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D7B14B1A13D4410024DCE5 /* QuartzCore.framework */; };
 		84D7B1511A13DF110024DCE5 /* ScatterPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D7B14F1A13DF110024DCE5 /* ScatterPlotViewController.m */; };
 		84D7B1521A13DF110024DCE5 /* ScatterPlotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D7B1501A13DF110024DCE5 /* ScatterPlotViewController.xib */; };
@@ -51,30 +50,24 @@
 		84ECB48719E9FD3800D5F795 /* InfusionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB48519E9FD3800D5F795 /* InfusionTableViewCell.m */; };
 		84ECB48819E9FD3800D5F795 /* InfusionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB48619E9FD3800D5F795 /* InfusionTableViewCell.xib */; };
 		BC03F6D81A4623B20088F303 /* MathSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC03F6D61A4623B20088F303 /* MathSolver.cpp */; };
+		BCDB8B161AA135A8005DD246 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDB8B151AA1358B005DD246 /* libCorePlot-CocoaTouch.a */; };
 		BCF1E9391A61DE7600CEDD9B /* rk45.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF1E9371A61DE7600CEDD9B /* rk45.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		845965811A6907DB00D21723 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8459657B1A6907DA00D21723 /* CorePlot-CocoaTouch.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BC9B83470FB8A0A40035D8DA;
-			remoteInfo = "CorePlot-CocoaTouch";
-		};
-		845965831A6907EC00D21723 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8459657B1A6907DA00D21723 /* CorePlot-CocoaTouch.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = BC9B83460FB8A0A40035D8DA;
-			remoteInfo = "CorePlot-CocoaTouch";
-		};
 		84ECB43719E9C39E00D5F795 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84ECB41519E9C39E00D5F795 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 84ECB41C19E9C39E00D5F795;
 			remoteInfo = THYROSIM;
+		};
+		BCDB8B141AA1358B005DD246 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCDB8B0E1AA1358A005DD246 /* CorePlot-CocoaTouch.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC9B83470FB8A0A40035D8DA;
+			remoteInfo = "CorePlot-CocoaTouch";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -86,7 +79,6 @@
 		843CAAAF1A6706D80046E549 /* ErrorCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorCheck.h; sourceTree = "<group>"; };
 		843CAAB01A6706D80046E549 /* ErrorCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorCheck.m; sourceTree = "<group>"; };
 		843CAAB21A6708F00046E549 /* ErrorEnums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorEnums.h; sourceTree = "<group>"; };
-		8459657B1A6907DA00D21723 /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../../core-plot-master/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
 		845965851A69097C00D21723 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		849224AE1A34D70D006BEBF6 /* TabGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabGraphViewController.h; sourceTree = "<group>"; };
 		849224AF1A34D70D006BEBF6 /* TabGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabGraphViewController.m; sourceTree = "<group>"; };
@@ -230,6 +222,7 @@
 		84ECB48619E9FD3800D5F795 /* InfusionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfusionTableViewCell.xib; sourceTree = "<group>"; };
 		BC03F6D61A4623B20088F303 /* MathSolver.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = MathSolver.cpp; sourceTree = "<group>"; };
 		BC03F6D71A4623B20088F303 /* MathSolver.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = MathSolver.hpp; sourceTree = "<group>"; };
+		BCDB8B0E1AA1358A005DD246 /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../CorePlot_1.5.1/Source/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
 		BCF1E9371A61DE7600CEDD9B /* rk45.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rk45.cpp; sourceTree = "<group>"; };
 		BCF1E9381A61DE7600CEDD9B /* rk45.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rk45.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,10 +232,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCDB8B161AA135A8005DD246 /* libCorePlot-CocoaTouch.a in Frameworks */,
 				845965861A69097C00D21723 /* Accelerate.framework in Frameworks */,
 				84D7B2BB1A13E2670024DCE5 /* CoreImage.framework in Frameworks */,
 				84D7B14C1A13D4410024DCE5 /* QuartzCore.framework in Frameworks */,
-				84D7B0FC1A13D28F0024DCE5 /* libCorePlot-CocoaTouch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,14 +265,6 @@
 				843CAAB21A6708F00046E549 /* ErrorEnums.h */,
 			);
 			name = Math;
-			sourceTree = "<group>";
-		};
-		8459657C1A6907DA00D21723 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				845965821A6907DB00D21723 /* libCorePlot-CocoaTouch.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		849224AD1A34D6E7006BEBF6 /* TabBarGraphs */ = {
@@ -401,8 +386,8 @@
 		84ECB41419E9C39E00D5F795 = {
 			isa = PBXGroup;
 			children = (
+				BCDB8B0E1AA1358A005DD246 /* CorePlot-CocoaTouch.xcodeproj */,
 				845965851A69097C00D21723 /* Accelerate.framework */,
-				8459657B1A6907DA00D21723 /* CorePlot-CocoaTouch.xcodeproj */,
 				84D7B2BA1A13E2670024DCE5 /* CoreImage.framework */,
 				84D7B14B1A13D4410024DCE5 /* QuartzCore.framework */,
 				84ECB46E19E9CE9100D5F795 /* Default-568h@2x.png */,
@@ -519,6 +504,14 @@
 			name = "PageTwo Cells";
 			sourceTree = "<group>";
 		};
+		BCDB8B0F1AA1358A005DD246 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BCDB8B151AA1358B005DD246 /* libCorePlot-CocoaTouch.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -533,7 +526,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				845965841A6907EC00D21723 /* PBXTargetDependency */,
 			);
 			name = THYROSIM;
 			productName = THYROSIM;
@@ -590,8 +582,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 8459657C1A6907DA00D21723 /* Products */;
-					ProjectRef = 8459657B1A6907DA00D21723 /* CorePlot-CocoaTouch.xcodeproj */;
+					ProductGroup = BCDB8B0F1AA1358A005DD246 /* Products */;
+					ProjectRef = BCDB8B0E1AA1358A005DD246 /* CorePlot-CocoaTouch.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -603,11 +595,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		845965821A6907DB00D21723 /* libCorePlot-CocoaTouch.a */ = {
+		BCDB8B151AA1358B005DD246 /* libCorePlot-CocoaTouch.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libCorePlot-CocoaTouch.a";
-			remoteRef = 845965811A6907DB00D21723 /* PBXContainerItemProxy */;
+			remoteRef = BCDB8B141AA1358B005DD246 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -688,11 +680,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		845965841A6907EC00D21723 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CorePlot-CocoaTouch";
-			targetProxy = 845965831A6907EC00D21723 /* PBXContainerItemProxy */;
-		};
 		84ECB43819E9C39E00D5F795 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 84ECB41C19E9C39E00D5F795 /* THYROSIM */;
@@ -789,7 +776,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/THYROSIM",
-					"/Users/Gu/TheGuSystem/Work/Programming/Projects/THYROSIM/iOSProject/core-plot-master/framework/**",
+					"\"$(SRCROOT)/../CorePlot_1.5.1/Source/framework\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -808,7 +795,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/THYROSIM",
-					"/Users/Gu/TheGuSystem/Work/Programming/Projects/THYROSIM/iOSProject/core-plot-master/framework/**",
+					"\"$(SRCROOT)/../CorePlot_1.5.1/Source/framework\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
