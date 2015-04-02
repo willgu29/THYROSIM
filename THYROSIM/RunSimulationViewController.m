@@ -79,29 +79,14 @@
     
     OverviewPlotsViewController *overViewVC = [[OverviewPlotsViewController alloc] init];
     
-    
-    ScatterPlotViewController *scatterVC = [[ScatterPlotViewController alloc ]init];
-    ScatterPlot2ViewController *scatter2VC = [[ScatterPlot2ViewController alloc ]init];
-    ScatterPlot3ViewController *scatter3VC = [[ScatterPlot3ViewController alloc ]init];
-
-    
-    scatterVC.T4Values = myMathObject.T4Values;
-    scatter2VC.T3Values = myMathObject.T3Values;
-    scatter3VC.TSHValues = myMathObject.TSHValues;
-    scatterVC.intervalHours = myMathObject.intervalHours;
-    scatter2VC.intervalHours = myMathObject.intervalHours;
-    scatter3VC.intervalHours = myMathObject.intervalHours;
-
-    
-    scatterVC.title = @"T4";
-    scatter2VC.title = @"T3";
-    scatter3VC.title = @"TSH";
-    
-    
-    
-    
+    overViewVC.T4Values = myMathObject.T4Values;
+    overViewVC.T3Values = myMathObject.T3Values;
+    overViewVC.TSHValues = myMathObject.TSHValues;
+    overViewVC.hourinterval= myMathObject.intervalHours;
+  
+    NSLog(@"NSArray overViewVC.T4Values = \n%@", overViewVC.T4Values);
     TabGraphViewController *tabGraph = [[TabGraphViewController alloc] init];
-    tabGraph.viewControllers = [NSArray arrayWithObjects:scatterVC, scatter2VC, scatter3VC, nil];
+    tabGraph.viewControllers = [NSArray arrayWithObjects:overViewVC, nil];
     
     [self presentViewController:tabGraph animated:YES completion:nil];
     

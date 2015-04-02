@@ -73,6 +73,7 @@
 {
     // 1 - Get graph and plot space
     CPTGraph *graph = self.hostView.hostedGraph;
+
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     // 2 - Create the three plots
     CPTScatterPlot *aaplPlot = [[CPTScatterPlot alloc] init];
@@ -91,6 +92,8 @@
     CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
     [yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.2f)];
     plotSpace.yRange = yRange;
+    
+    
     // 4 - Create styles and symbols
     CPTMutableLineStyle *aaplLineStyle = [aaplPlot.dataLineStyle mutableCopy];
     aaplLineStyle.lineWidth = 2.0;
@@ -230,9 +233,6 @@
     CPTGraph *graph = self.hostView.hostedGraph;
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     
-    
-   
-    
     // 2 - Create the three plots
     CPTScatterPlot *aaplPlot = [[CPTScatterPlot alloc] init];
     aaplPlot.dataSource = self;
@@ -265,8 +265,7 @@
 //    plotSpace.xRange = xRange;
 //    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.2f)];
 //    plotSpace.yRange = yRange;
-//
-//
+
     CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
     [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
     plotSpace.xRange = xRange;
@@ -323,24 +322,24 @@
     x.tickDirection = CPTSignNegative;
     
     
-//    CGFloat dateCount = _intervalHours;
-//    NSMutableSet *xLabels = [NSMutableSet setWithCapacity:dateCount];
-//    NSMutableSet *xLocations = [NSMutableSet setWithCapacity:dateCount];
-//    for (int i = 0; i< _intervalHours; i++) {
-//        NSString *numberHour = [NSString stringWithFormat:@"%d", i];
-//        CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:numberHour textStyle:x.labelTextStyle];
-//        CGFloat location = i;
-//        label.tickLocation = CPTDecimalFromCGFloat(location);
-//        label.offset = x.majorTickLength;
-//        if (label) {
-//            [xLabels addObject:label];
-//            [xLocations addObject:[NSNumber numberWithFloat:location]];
-//        }
-//    }
-////    
-//    x.axisLabels = xLabels;
-//    x.majorTickLocations = xLocations;
+    CGFloat dateCount = _intervalHours;
+    NSMutableSet *xLabels = [NSMutableSet setWithCapacity:dateCount];
+    NSMutableSet *xLocations = [NSMutableSet setWithCapacity:dateCount];
+    for (int i = 0; i< _intervalHours; i++) {
+        NSString *numberHour = [NSString stringWithFormat:@"%d", i];
+        CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:numberHour textStyle:x.labelTextStyle];
+        CGFloat location = i;
+        label.tickLocation = CPTDecimalFromCGFloat(location);
+        label.offset = x.majorTickLength;
+        if (label) {
+            [xLabels addObject:label];
+            [xLocations addObject:[NSNumber numberWithFloat:location]];
+        }
+    }
 //    
+    x.axisLabels = xLabels;
+    x.majorTickLocations = xLocations;
+//
     // 4 - Configure y-axis
     CPTAxis *y = axisSet.yAxis;
     y.title = @"Values";
@@ -435,6 +434,7 @@
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
+    
     return _intervalHours;
 }
 
