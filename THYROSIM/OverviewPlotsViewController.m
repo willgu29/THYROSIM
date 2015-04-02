@@ -107,7 +107,7 @@
     [self configureGraph:(graph1) ];
     [self configureGraph:(graph2) ];
     [self configureGraph:(graph3) ];
-//    
+    
     [self configureAxes:set1 field:(graph1)];
     [self configureAxes:set2 field:(graph2)];
     [self configureAxes:set3 field:(graph3)];
@@ -121,6 +121,9 @@
     NSString *title;
     CPTScatterPlot *plot = [[CPTScatterPlot alloc] init];
 
+    CPTScatterPlot *high = [[CPTScatterPlot alloc] init];
+    
+    
     if ([graph.identifier isEqual: @"T4"])
     {
         
@@ -129,6 +132,9 @@
         self.hostingview1.hostedGraph = graph;
         title = @"T4 Values";
         plot.identifier = @"T4";
+        high.identifier = @"T4h";
+        high.areaBaseValue = CPTDecimalFromDouble(45);
+        
     }
     
     else if ([graph.identifier isEqual: @"T3"])
@@ -138,6 +144,9 @@
         self.hostingview2.hostedGraph = graph;
         title = @"T3 Values";
            plot.identifier = @"T3";
+        high.identifier = @"T3h";
+        high.areaBaseValue = CPTDecimalFromDouble(0.75);
+        
     }
     
     else
@@ -147,6 +156,8 @@
         self.hostingview3.hostedGraph = graph;
         title = @"TSH Values";
            plot.identifier = @"TSH";
+        high.identifier = @"TSHh";
+        high.areaBaseValue = CPTDecimalFromDouble(0.3);
     }
     
     // 2 - Set graph title
@@ -168,14 +179,16 @@
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     plotSpace.allowsUserInteraction = YES;
 
-    
+    CPTColor *Color = [CPTColor blueColor];
+    CPTColor *green = [CPTColor grayColor];
     // Creates the blue lines for line graph
     plot.dataSource = self;
-
-    CPTColor *Color = [CPTColor blueColor];
+    high.dataSource = self;
     
+    [graph addPlot:high toPlotSpace:plotSpace];
+    high.areaFill = [CPTFill fillWithColor:green];
     [graph addPlot:plot toPlotSpace:plotSpace];
-
+    
     [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:plot, nil]];
     
     CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
@@ -197,8 +210,6 @@
     Symbol.lineStyle = SymbolLineStyle;
     Symbol.size = CGSizeMake(2.0f, 2.0f);
     plot.plotSymbol = Symbol;
-    
-    
 }
 
 -(void)configureAxes:(CPTXYAxisSet *)axisSet field:(CPTGraph *)graph
@@ -259,7 +270,6 @@
     x.tickDirection = CPTSignNegative;
     x.majorGridLineStyle = gridLineStyle;
     x.majorIntervalLength = CPTDecimalFromInteger(1);
-    
     
     CGFloat dateCount = _hourinterval;
     NSMutableSet *xLabels = [NSMutableSet setWithCapacity:dateCount];
@@ -331,13 +341,39 @@
                 return [self.TSHValues objectAtIndex:idx];
                 break;
             }
-           
-         
+            
+            if ([plot.identifier  isEqual: @"T3h"])
+            {
+                //place y data
+                return [NSNumber numberWithDouble:1.8];
+                break;
+            }
+            
+            if ([plot.identifier isEqual: @"T4h"])
+            {
+                //place y data
+                return [NSNumber numberWithDouble:120];
+                break;
+            }
+            
+            if ([plot.identifier isEqual: @"TSHh"])
+            {
+                //place y data
+                return [NSNumber numberWithDouble:4.7];
+                break;
+            }
         }
     }
     return [NSDecimalNumber zero];
     
 }
+
+-(void)addConstraints:(CPTXYGraph *) graph field: (CPTRangePlot *) range
+{
+    
+    
+}
+
 @end
 
 
