@@ -9,9 +9,6 @@
 #import "RunSimulationViewController.h"
 #import "AppDelegate.h"
 #import "MathComputations.h"
-#import "ScatterPlotViewController.h"
-#import "ScatterPlot2ViewController.h"
-#import "ScatterPlot3ViewController.h"
 #import "TabGraphViewController.h"
 #import "ErrorCheck.h"
 #import "ErrorEnums.h"
@@ -84,7 +81,6 @@
     overViewVC.TSHValues = myMathObject.TSHValues;
     overViewVC.hourinterval= myMathObject.intervalHours;
   
-    NSLog(@"NSArray overViewVC.T4Values = \n%@", overViewVC.T4Values);
     TabGraphViewController *tabGraph = [[TabGraphViewController alloc] init];
     tabGraph.viewControllers = [NSArray arrayWithObjects:overViewVC, nil];
     

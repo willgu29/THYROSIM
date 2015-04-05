@@ -9,9 +9,12 @@
 #import "OverviewPlotsViewController.h"
 #import "TabGraphViewController.h"
 #import "CorePlot-CocoaTouch.h"
+#import "PageTwoViewController.h"
+#import "QuickStartViewController.h"
 
 @interface OverviewPlotsViewController ()
 {
+   
 }
 @end
 
@@ -28,13 +31,68 @@
     self = [super init];
     if (self)
     {
+        
+        
+        _T4_1 = [[UITextField alloc]initWithFrame:CGRectMake(30, 175, 100, 20)];
+        [_T4_1 setBorderStyle:UITextBorderStyleRoundedRect];
+        _T4_1.text = @"Run 1";
+        [_T4_1 sizeToFit ];
+        _T4_1.layer.zPosition = 1;
+        [self.view addSubview:_T4_1];
+        
+        _T4_2 = [[UITextField alloc]initWithFrame:CGRectMake(210, 175, 100, 20)];
+        [_T4_2 setBorderStyle:UITextBorderStyleRoundedRect];
+        _T4_2.text = @"Run 2";
+        _T4_2.layer.zPosition = 1;
+        [_T4_2 sizeToFit ];
+        [self.view addSubview:_T4_2];
+        
+        _T3_1 = [[UITextField alloc]initWithFrame:CGRectMake(30, 325, 100, 20)];
+        [_T3_1 setBorderStyle:UITextBorderStyleRoundedRect];
+        _T3_1.text = @"Run 1";
+        _T3_1.layer.zPosition = 1;
+        [_T3_1 sizeToFit ];
+        [self.view addSubview:_T3_1];
+        
+        _T3_2 = [[UITextField alloc]initWithFrame:CGRectMake(210, 325, 100, 20)];
+        [_T3_2 setBorderStyle:UITextBorderStyleRoundedRect];
+        _T3_2.text = @"Run 2";
+        _T3_2.layer.zPosition = 1;
+        [_T3_2 sizeToFit ];
+        [self.view addSubview:_T3_2];
+        
+        _TSH_1 = [[UITextField alloc]initWithFrame:CGRectMake(30, 475, 100, 20)];
+        [_TSH_1 setBorderStyle:UITextBorderStyleRoundedRect];
+        _TSH_1.text = @"Run 1";
+        _TSH_1.layer.zPosition = 1;
+        [_TSH_1 sizeToFit ];
+        [self.view addSubview:_TSH_1];
+        
+        _TSH_2 = [[UITextField alloc]initWithFrame:CGRectMake(210, 475, 100, 20)];
+        [_TSH_2 setBorderStyle:UITextBorderStyleRoundedRect];
+        _TSH_2.text = @"Run 2";
+        _TSH_2.layer.zPosition = 1;
+        [_TSH_2 sizeToFit ];
+        [self.view addSubview:_TSH_2];
+    
     }
     return self;
 }
 
+
+
 -(IBAction)backButton:(UIButton *)sender
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+ 
+    //TODO:
+    //Make this switch back to initial tab
+}
+
+-(IBAction)run2:(UIButton *)sender
+{
+    PageTwoViewController *pagetwo = [[PageTwoViewController alloc] init];
+    [self presentViewController:pagetwo animated:YES completion:nil];
 }
 
 - (void)viewDidLoad {
@@ -89,30 +147,24 @@
 
 -(void) myConfigure
 {
-    CPTGraph* graph1  = [[CPTXYGraph alloc] initWithFrame:hostingview1_.bounds];
-    graph1.identifier = @"T4";
-    CPTGraph* graph2  = [[CPTXYGraph alloc] initWithFrame:hostingview2_.bounds];
-    graph2.identifier = @"T3";
-    CPTGraph* graph3  = [[CPTXYGraph alloc] initWithFrame:hostingview3_.bounds];
-    graph3.identifier = @"TSH";
-    
-    hostingview1_.hostedGraph = graph1;
-    hostingview2_.hostedGraph = graph2;
-    hostingview3_.hostedGraph = graph3;
-    
+    _graph1  = [[CPTXYGraph alloc] initWithFrame:hostingview1_.bounds];
+    _graph1.identifier = @"T4";
+    _graph2  = [[CPTXYGraph alloc] initWithFrame:hostingview2_.bounds];
+    _graph2.identifier = @"T3";
+    _graph3  = [[CPTXYGraph alloc] initWithFrame:hostingview3_.bounds];
+    _graph3.identifier = @"TSH";
+    hostingview1_.hostedGraph = _graph1;
+    hostingview2_.hostedGraph = _graph2;
+    hostingview3_.hostedGraph = _graph3;
     CPTXYAxisSet* set1;
     CPTXYAxisSet* set2;
     CPTXYAxisSet* set3;
-    
-    [self configureGraph:(graph1) ];
-    [self configureGraph:(graph2) ];
-    [self configureGraph:(graph3) ];
-    
-    [self configureAxes:set1 field:(graph1)];
-    [self configureAxes:set2 field:(graph2)];
-    [self configureAxes:set3 field:(graph3)];
-    
-    
+    [self configureGraph:(_graph1) ];
+    [self configureGraph:(_graph2) ];
+    [self configureGraph:(_graph3) ];
+    [self configureAxes:set1 field:(_graph1)];
+    [self configureAxes:set2 field:(_graph2)];
+    [self configureAxes:set3 field:(_graph3)];
 }
 
 -(void)configureGraph:( CPTGraph *) graph
@@ -120,10 +172,7 @@
     // 1 - Create the graph
     NSString *title;
     CPTScatterPlot *plot = [[CPTScatterPlot alloc] init];
-
     CPTScatterPlot *high = [[CPTScatterPlot alloc] init];
-    
-    
     if ([graph.identifier isEqual: @"T4"])
     {
         
@@ -171,33 +220,27 @@
     graph.titleTextStyle = titleStyle;
     graph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;
     graph.titleDisplacement = CGPointMake(0.0f, 10.0f);
-    
     // 4 - Set padding for plot area
     [graph.plotAreaFrame setPaddingLeft:30.0f];
     [graph.plotAreaFrame setPaddingBottom:30.0f];
     // 5 - Enable user interactions for plot space
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     plotSpace.allowsUserInteraction = YES;
-
     CPTColor *Color = [CPTColor blueColor];
     CPTColor *green = [CPTColor grayColor];
     // Creates the blue lines for line graph
     plot.dataSource = self;
     high.dataSource = self;
-    
     [graph addPlot:high toPlotSpace:plotSpace];
     high.areaFill = [CPTFill fillWithColor:green];
     [graph addPlot:plot toPlotSpace:plotSpace];
-    
     [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:plot, nil]];
-    
     CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
     [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
     plotSpace.xRange = xRange;
     CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
     [yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.2f)];
     plotSpace.yRange = yRange;
-    
     // 4 - Create styles and symbols
     CPTMutableLineStyle *LineStyle = [plot.dataLineStyle mutableCopy];
     LineStyle.lineWidth = 1.5;
@@ -205,21 +248,27 @@
     plot.dataLineStyle = LineStyle;
     CPTMutableLineStyle *SymbolLineStyle = [CPTMutableLineStyle lineStyle];
     SymbolLineStyle.lineColor = Color;
-    CPTPlotSymbol *Symbol = [CPTPlotSymbol ellipsePlotSymbol];
-    Symbol.fill = [CPTFill fillWithColor:Color];
-    Symbol.lineStyle = SymbolLineStyle;
-    Symbol.size = CGSizeMake(2.0f, 2.0f);
-    plot.plotSymbol = Symbol;
+    
+    
+    plot.delegate = self;
+    
 }
+
+
 
 -(void)configureAxes:(CPTXYAxisSet *)axisSet field:(CPTGraph *)graph
 {
+    
+   
+    
+    
     NSNumber* min;
     if ([graph.identifier isEqual: @"T4"])
     {
         NSLog(@"h");
         min = [_T4Values valueForKeyPath:@"@min.self"];
         axisSet = (CPTXYAxisSet *) self.hostingview1.hostedGraph.axisSet;
+        
     }
     
     if ([graph.identifier isEqual: @"T3"])
@@ -227,6 +276,7 @@
         NSLog(@"h");
         min = [_T3Values valueForKeyPath:@"@min.self"];
         axisSet = (CPTXYAxisSet *) self.hostingview2.hostedGraph.axisSet;
+ 
     }
     
     if ([graph.identifier isEqual: @"TSH"])
@@ -234,6 +284,7 @@
         NSLog(@"h");
         min = [_TSHValues valueForKeyPath:@"@min.self"];
         axisSet = (CPTXYAxisSet *) self.hostingview3.hostedGraph.axisSet;
+    
     }
 
     double newNumber = (min.doubleValue*.9999);
@@ -291,18 +342,35 @@
     x.labelingPolicy        = CPTAxisLabelingPolicyNone;
     
     CPTAxis *y = axisSet.yAxis;
-    y.title = @"Values";
     y.titleTextStyle = axisTitleStyle;
     y.titleOffset = -30.0f;
     y.axisLineStyle = axisLineStyle;
     y.majorGridLineStyle = gridLineStyle;
     y.labelingPolicy = CPTAxisLabelingPolicyAutomatic;
     y.labelTextStyle = axisTextStyle;
-    y.labelOffset = 16.0f;
+    y.labelOffset = 200.0f;
     y.majorTickLineStyle = axisLineStyle;
     y.majorTickLength = 4.0f;
     y.minorTickLength = 2.0f;
     y.tickDirection = CPTSignPositive;
+    
+    if ([graph.identifier isEqual: @"T4"])
+    {
+    
+        y.title = @"T4 (μg/L)";
+    }
+    
+    if ([graph.identifier isEqual: @"T3"])
+    {
+       
+        y.title = @"T3 (μg/L)";
+    }
+    
+    if ([graph.identifier isEqual: @"TSH"])
+    {
+        y.title = @"TSH (mU/L)";
+    }
+
 }
 
 #pragma mark - CPTPlotDataSource methods
@@ -368,61 +436,99 @@
     
 }
 
--(void)addConstraints:(CPTXYGraph *) graph field: (CPTRangePlot *) range
+#pragma mark -
+#pragma mark CPTScatterPlot delegate method
+
+
+- (void)scatterPlot:(CPTScatterPlot *)plot plotSymbolWasSelectedAtRecordIndex:(NSUInteger)index
 {
+
+    if ([plot.identifier isEqual:@"T4"])
+    {
+        _touchPlot1Selected = YES;
+        _index1selected = index;
+        
+        NSArray *toadd = @[[NSNumber numberWithFloat:index], [self.T4Values objectAtIndex:index] ];
+        NSString *string = [NSString stringWithFormat:@"(%@, %@)", toadd[0], toadd[1]];
+        _T4_1.text = string;
+        [_T4_1 sizeToFit];
+        
+    }
+    if ([plot.identifier isEqual:@"T3"])
+    {
+        _touchPlot2Selected = YES;
+        _index2selected = index;
+        NSArray *toadd = @[[NSNumber numberWithFloat:index], [self.T3Values objectAtIndex:index] ];
+        NSString *string = [NSString stringWithFormat:@"(%@, %@)", toadd[0], toadd[1]];
+        _T3_1.text = string;
+        [_T3_1 sizeToFit];
+    }
+    
+    if ([plot.identifier isEqual:@"TSH"])
+    {
+        _touchPlot3Selected = YES;
+        _index3selected = index;
+        NSArray *toadd = @[[NSNumber numberWithFloat:index], [self.TSHValues objectAtIndex:index] ];
+        NSString *string = [NSString stringWithFormat:@"(%@, %@)", toadd[0], toadd[1]];
+        _TSH_1.text = string;
+        [_TSH_1 sizeToFit];
+    }
+    
+    [plot reloadData];
     
     
+}
+
+- (CPTPlotSymbol *)symbolForScatterPlot:(CPTScatterPlot *)plot recordIndex:(NSUInteger)index
+{
+
+    CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
+    symbolLineStyle.lineColor = [CPTColor blueColor];
+    CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
+    plotSymbol.lineStyle = symbolLineStyle;
+    CPTColor *blue = [CPTColor blueColor];
+    CPTColor *green = [CPTColor greenColor];
+    
+    if ([plot.identifier isEqual:@"T4"] && _touchPlot1Selected == YES && index == _index1selected)
+    {
+        plotSymbol.symbolType = CPTPlotSymbolTypeDiamond;
+        plotSymbol.size = CGSizeMake(12, 12);
+        plotSymbol.fill = [CPTFill fillWithColor:green];
+        
+    }
+    
+    else if ([plot.identifier isEqual:@"T3"] && _touchPlot2Selected == YES && index == _index2selected)
+    {
+        plotSymbol.symbolType = CPTPlotSymbolTypeDiamond;
+        plotSymbol.size = CGSizeMake(12, 12);
+        plotSymbol.fill = [CPTFill fillWithColor:green];
+    }
+    
+ 
+    
+    else if ([plot.identifier isEqual:@"TSH"] && _touchPlot3Selected == YES && index == _index3selected)
+    {
+        plotSymbol.symbolType = CPTPlotSymbolTypeDiamond;
+        plotSymbol.size = CGSizeMake(12, 12);
+        plotSymbol.fill = [CPTFill fillWithColor:green];
+    }
+    
+    
+    else if ([plot.identifier isEqual:@"T4h"] || [plot.identifier isEqual:@"T3h"] || [plot.identifier isEqual:@"T4h"] )
+    {
+        plotSymbol.size = CGSizeMake(2.0f, 2.0f);
+        plot.plotSymbol = plotSymbol;
+        plotSymbol.fill = [CPTFill fillWithColor:blue];
+    }
+    
+    else
+    {
+        plotSymbol.size = CGSizeMake(2.0f, 2.0f);
+        plot.plotSymbol = plotSymbol;
+        plotSymbol.fill = [CPTFill fillWithColor:blue];
+    }
+   
+    return plotSymbol;
 }
 
 @end
-
-
-
-
-
-
-
-
-
- /*
-#pragma mark - CPTPlotDataSource Methods
-
--(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
-{
-    
-    return _intervalHours;
-}
-
--(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)idx
-{
-    switch (fieldEnum) {
-        case CPTScatterPlotFieldX:
-            //place x data
-            return [NSNumber numberWithInteger:idx];
-            
-        case CPTScatterPlotFieldY:
-            //place y data
-            return [self.T4Values objectAtIndex:idx];
-            break;
-    }
-    return [NSDecimalNumber zero];
-    
-}
-
-
-
-//[plotSpace pointingDeviceDownEvent:<#(UIEvent *)#> atPoint:<#(CGPoint)#>
-
-
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
-//@end

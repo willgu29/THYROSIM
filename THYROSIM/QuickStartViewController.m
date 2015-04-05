@@ -28,6 +28,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [self setDefaultInputValues];
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
