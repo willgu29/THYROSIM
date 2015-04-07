@@ -234,7 +234,7 @@
     [graph addPlot:high toPlotSpace:plotSpace];
     high.areaFill = [CPTFill fillWithColor:green];
     [graph addPlot:plot toPlotSpace:plotSpace];
-    [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:plot, nil]];
+    [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:high, nil]];
     CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
     [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
     plotSpace.xRange = xRange;
@@ -514,11 +514,10 @@
     }
     
     
-    else if ([plot.identifier isEqual:@"T4h"] || [plot.identifier isEqual:@"T3h"] || [plot.identifier isEqual:@"T4h"] )
+    else if ([plot.identifier isEqual:@"T4h"] || [plot.identifier isEqual:@"T3h"] || [plot.identifier isEqual:@"TSHh"] )
     {
-        plotSymbol.size = CGSizeMake(2.0f, 2.0f);
-        plot.plotSymbol = plotSymbol;
-        plotSymbol.fill = [CPTFill fillWithColor:blue];
+        NSLog(@"1");
+        symbolLineStyle.lineColor = [CPTColor grayColor];
     }
     
     else
