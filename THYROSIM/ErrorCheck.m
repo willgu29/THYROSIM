@@ -21,6 +21,15 @@
     }
     return self;
 }
+-(int)errorCheckRunTwo
+{
+    int pageTwoErrorID = [self pageTwoErrorChecksRunTwo];
+    if (pageTwoErrorID != PAGE_TWO_GOOD)
+    {
+        return pageTwoErrorID;
+    }
+    return ALL_GOOD_PROCEED;
+}
 
 -(int)errorCheckAll
 {
@@ -75,6 +84,36 @@
     for (int i = 0; i < [delegate.dataObject.pageTwoData.filledArray count]; i++)
     {
         Inputs *currentInput = [delegate.dataObject.pageTwoData.filledArray objectAtIndex:i];
+        if (currentInput.inputID == 5 || currentInput.inputID == 6)
+        {
+            infusionCheck = [self errorCheckInfusion:currentInput];
+            if (infusionCheck != PAGE_TWO_INFUSION_GOOD)
+            {
+                return infusionCheck;
+            }
+            else
+            {
+                continue;
+            }
+        }
+        dosingCheck = [self errorCheckDose:currentInput];
+        if (dosingCheck != PAGE_TWO_DOSING_GOOD)
+        {
+            return dosingCheck;
+        }
+    }
+    return PAGE_TWO_GOOD;
+}
+
+-(int)pageTwoErrorChecksRunTwo
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    int dosingCheck = -99;
+    int infusionCheck = -99;
+    
+    for (int i = 0; i < [delegate.dataObject.pageTwoData.filledArray2 count]; i++)
+    {
+        Inputs *currentInput = [delegate.dataObject.pageTwoData.filledArray2 objectAtIndex:i];
         if (currentInput.inputID == 5 || currentInput.inputID == 6)
         {
             infusionCheck = [self errorCheckInfusion:currentInput];

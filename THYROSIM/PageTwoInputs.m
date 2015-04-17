@@ -26,11 +26,13 @@
 -(void)createInputArray
 {
     _inputArray = [[NSMutableArray alloc] init];
+    _inputArray2 = [[NSMutableArray alloc] init];
 }
 
 -(void)createFilledArray
 {
     _filledArray = [[NSMutableArray alloc] init];
+    _filledArray2 = [[NSMutableArray alloc] init];
 }
 
 -(void)logAllData
@@ -44,6 +46,19 @@
         NSLog(@"DI: %ld", (long)input.doseInterval);
         NSLog(@"\n");
 
+    }
+}
+-(void)logAllData2
+{
+    for (Inputs *input in _filledArray2)
+    {
+        NSLog(@"NAME: %@", input.inputName);
+        NSLog(@"Dose Amount: %ld", (long)input.doseAmount);
+        NSLog(@"ST: %ld", (long)input.startTime);
+        NSLog(@"ET: %ld", (long)input.endTime);
+        NSLog(@"DI: %ld", (long)input.doseInterval);
+        NSLog(@"\n");
+        
     }
 }
 

@@ -13,6 +13,10 @@
 @property (strong, nonatomic) NSMutableArray *inputArray; //of numbers
 @property (strong, nonatomic) NSMutableArray *filledArray; //of inputs
 
+@property (strong, nonatomic) NSMutableArray *inputArray2; //of numbers
+@property (strong, nonatomic) NSMutableArray *filledArray2; //of inputs
+
+
 -(instancetype)init;
 -(void)logAllData;
 

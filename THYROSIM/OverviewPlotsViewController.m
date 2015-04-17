@@ -1,23 +1,14 @@
-//
-//  ScatterPlotViewController.m
-//  THYROSIM
-//
-//  Created by William Gu on 11/12/14.
-//  Copyright (c) 2014 William Gu. All rights reserved.
-//
-
 #import "OverviewPlotsViewController.h"
 #import "TabGraphViewController.h"
 #import "CorePlot-CocoaTouch.h"
 #import "PageTwoViewController.h"
 #import "QuickStartViewController.h"
-
+#import "PageTwoRunTwoViewController.h"
+#import "AppDelegate.h"
+#import "PageOneViewController.h"
+#import "RunSimulationViewController.h"
 @interface OverviewPlotsViewController ()
-{
-   
-}
 @end
-
 
 @implementation OverviewPlotsViewController
 
@@ -25,14 +16,49 @@
 @synthesize hostingview2 = hostingview2_;
 @synthesize hostingview3 = hostingview3_;
 
+-(IBAction)reset:(UIButton *)sender
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    delegate.dataObject = nil;
+    delegate.dataObject = [[DataWrapper alloc] init];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
+        QuickStartViewController *quickStart =[[QuickStartViewController alloc] init];
+        PageOneViewController *pageOne = [[PageOneViewController alloc] init];
+        PageTwoViewController *pageTwo = [[PageTwoViewController alloc] init];
+        RunSimulationViewController *runSimulation = [[RunSimulationViewController alloc] init];
+        
+        
+        quickStart.title = @"Quick Start";
+        pageOne.title = @"Step 1";
+        pageTwo.title = @"Step 2";
+        runSimulation.title = @"Simulation";
+        
+        //TODO: Add tab bar images;
+        UITabBarController *tabVC = (UITabBarController *)delegate.window.rootViewController;
+        //    quickStart.tabBarItem.image = [UIImage imageNamed:@"..."];
+        NSMutableArray *viewControllers = tabVC.viewControllers.mutableCopy;
+        [viewControllers replaceObjectAtIndex:1 withObject:pageOne];
+        [viewControllers replaceObjectAtIndex:2 withObject:pageTwo];
+        [viewControllers replaceObjectAtIndex:3 withObject:runSimulation];
+        
+        tabVC.viewControllers = viewControllers;
+        
+        [(UITabBarController *)delegate.window.rootViewController setSelectedIndex:0];
+
+    }];
+}
+-(IBAction)runTwo:(UIButton *)sender
+{
+   
+    PageTwoRunTwoViewController *pageTwoVC = [[PageTwoRunTwoViewController alloc] init];
+    [self presentViewController:pageTwoVC animated:YES completion:nil];
+}
 
 -(instancetype)init
 {
     self = [super init];
     if (self)
     {
-        
-        
         _T4_1 = [[UITextField alloc]initWithFrame:CGRectMake(30, 175, 100, 20)];
         [_T4_1 setBorderStyle:UITextBorderStyleRoundedRect];
         _T4_1.text = @"Run 1";
@@ -74,12 +100,9 @@
         _TSH_2.layer.zPosition = 1;
         [_TSH_2 sizeToFit ];
         [self.view addSubview:_TSH_2];
-    
     }
     return self;
 }
-
-
 
 -(IBAction)backButton:(UIButton *)sender
 {
@@ -89,11 +112,7 @@
     //Make this switch back to initial tab
 }
 
--(IBAction)run2:(UIButton *)sender
-{
-    PageTwoViewController *pagetwo = [[PageTwoViewController alloc] init];
-    [self presentViewController:pagetwo animated:YES completion:nil];
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -109,7 +128,6 @@
     [super viewDidAppear:animated];
     [self initPlot];
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -254,13 +272,8 @@
     
 }
 
-
-
 -(void)configureAxes:(CPTXYAxisSet *)axisSet field:(CPTGraph *)graph
 {
-    
-   
-    
     
     NSNumber* min;
     if ([graph.identifier isEqual: @"T4"])
@@ -504,15 +517,12 @@
         plotSymbol.fill = [CPTFill fillWithColor:green];
     }
     
- 
-    
     else if ([plot.identifier isEqual:@"TSH"] && _touchPlot3Selected == YES && index == _index3selected)
     {
         plotSymbol.symbolType = CPTPlotSymbolTypeDiamond;
         plotSymbol.size = CGSizeMake(12, 12);
         plotSymbol.fill = [CPTFill fillWithColor:green];
     }
-    
     
     else if ([plot.identifier isEqual:@"T4h"] || [plot.identifier isEqual:@"T3h"] || [plot.identifier isEqual:@"TSHh"] )
     {

@@ -21,7 +21,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="backButton:" destination="-1" eventType="touchUpInside" id="xB6-i6-TtM"/>
+                        <action selector="reset:" destination="-1" eventType="touchUpInside" id="ccH-r9-sVn"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lT-sn-xPH">
@@ -30,7 +30,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="run2:" destination="-1" eventType="touchUpInside" id="Ukx-ns-zet"/>
+                        <action selector="runTwo:" destination="-1" eventType="touchUpInside" id="cFG-98-p2Z"/>
                     </connections>
                 </button>
             </subviews>

@@ -13,5 +13,6 @@
 
 -(int)errorCheckAll;
 -(instancetype)init;
+-(int)errorCheckRunTwo;
 
 @end
