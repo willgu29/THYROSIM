@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PageTwoRunTwoViewController : UIViewController  <UITableViewDataSource, UITableViewDelegate>
+@interface PageTwoRunTwoViewController : UIViewController  < UITableViewDataSource, UITableViewDelegate>
 
 @end

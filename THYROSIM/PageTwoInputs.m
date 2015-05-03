@@ -48,6 +48,7 @@
 
     }
 }
+
 -(void)logAllData2
 {
     for (Inputs *input in _filledArray2)

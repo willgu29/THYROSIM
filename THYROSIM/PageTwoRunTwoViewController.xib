@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PageTwoRunTwoViewController">
@@ -126,9 +125,9 @@
                         <outlet property="delegate" destination="-1" id="M5Q-vA-gYl"/>
                     </connections>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgh-15-DUK">
-                    <rect key="frame" x="133" y="530" width="55" height="30"/>
-                    <state key="normal" title="Confirm">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgh-15-DUK">
+                    <rect key="frame" x="128" y="116" width="65" height="30"/>
+                    <state key="normal" title="Do Run 2">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -151,7 +150,6 @@
                 <constraint firstItem="LQA-uM-aih" firstAttribute="trailing" secondItem="eLL-dS-GAm" secondAttribute="trailing" id="Gnn-HE-Ou3"/>
                 <constraint firstItem="3Cf-MM-gbc" firstAttribute="top" secondItem="eLL-dS-GAm" secondAttribute="bottom" constant="8" symbolic="YES" id="IiJ-IJ-IAh"/>
                 <constraint firstItem="MMF-2N-Jnq" firstAttribute="top" secondItem="LQA-uM-aih" secondAttribute="top" id="Imx-qj-r8j"/>
-                <constraint firstItem="vgh-15-DUK" firstAttribute="top" secondItem="MMJ-Ak-lhw" secondAttribute="topMargin" id="K2e-re-7nv"/>
                 <constraint firstItem="8ae-wi-P0m" firstAttribute="trailing" secondItem="rTF-gM-vGb" secondAttribute="trailing" id="LOg-Fk-MZZ"/>
                 <constraint firstItem="8ae-wi-P0m" firstAttribute="leading" secondItem="MMJ-Ak-lhw" secondAttribute="leading" constant="37" id="M3J-Iw-saK"/>
                 <constraint firstItem="eLL-dS-GAm" firstAttribute="top" secondItem="LQA-uM-aih" secondAttribute="bottom" constant="8" symbolic="YES" id="OBE-kv-pOP"/>
@@ -166,7 +164,6 @@
                 <constraint firstItem="Dgg-YZ-EsS" firstAttribute="top" secondItem="MMF-2N-Jnq" secondAttribute="bottom" constant="8" symbolic="YES" id="g2t-id-1pL"/>
                 <constraint firstItem="eVi-Mp-zjI" firstAttribute="trailing" secondItem="Dgg-YZ-EsS" secondAttribute="trailing" id="hAj-ql-sHf"/>
                 <constraint firstItem="Dgg-YZ-EsS" firstAttribute="leading" secondItem="eVi-Mp-zjI" secondAttribute="leading" id="jRJ-0C-C3d"/>
-                <constraint firstItem="vgh-15-DUK" firstAttribute="centerX" secondItem="8ae-wi-P0m" secondAttribute="centerX" id="m0V-Ov-Wtl"/>
                 <constraint firstAttribute="bottom" secondItem="tQD-lu-ZFF" secondAttribute="bottom" constant="55" id="mXL-ib-zvX"/>
                 <constraint firstItem="LQA-uM-aih" firstAttribute="centerX" secondItem="rTF-gM-vGb" secondAttribute="centerX" id="oT6-YC-URG"/>
                 <constraint firstItem="tQD-lu-ZFF" firstAttribute="leading" secondItem="MMJ-Ak-lhw" secondAttribute="leading" id="ppX-rI-Zbx"/>

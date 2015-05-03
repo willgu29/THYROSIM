@@ -15,6 +15,8 @@
 @property (nonatomic, strong) PageOneInputs *pageOneData;
 @property (nonatomic, strong) PageTwoInputs *pageTwoData;
 
+@property (nonatomic, strong) PageTwoInputs *pageTwoDatarunTwo;
+
 -(NSMutableArray *)getPageTwoInputArray;
 -(instancetype)init;
 

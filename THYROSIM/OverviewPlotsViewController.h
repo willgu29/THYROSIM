@@ -16,13 +16,19 @@
 @property (nonatomic, strong) CPTGraphHostingView *hostingview3;
 @property (nonatomic, strong) CPTGraph *graph1;
 @property (nonatomic, strong) CPTGraph *graph2;
+@property (nonatomic, strong) CPTGraph *graph3;
+
 @property (nonatomic, strong) CPTPlot *check;
 @property (nonatomic, strong) NSArray *T4Values;
 @property (nonatomic, strong) NSArray *T3Values;
 @property (nonatomic, strong) NSArray *TSHValues;
 
+@property (nonatomic, strong) NSArray *T4Values_2;
+@property (nonatomic, strong) NSArray *T3Values_2;
+@property (nonatomic, strong) NSArray *TSHValues_2;
+
 @property (nonatomic) int hourinterval;
-@property (nonatomic, strong) CPTGraph *graph3;
+
 
 
 @property (nonatomic) BOOL touchPlot1Selected;

@@ -50,6 +50,8 @@
 		84ECB48719E9FD3800D5F795 /* InfusionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECB48519E9FD3800D5F795 /* InfusionTableViewCell.m */; };
 		84ECB48819E9FD3800D5F795 /* InfusionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ECB48619E9FD3800D5F795 /* InfusionTableViewCell.xib */; };
 		BC03F6D81A4623B20088F303 /* MathSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC03F6D61A4623B20088F303 /* MathSolver.cpp */; };
+		BC494A6D1AE1C1B400678CD1 /* PageTwoRunTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC494A6B1AE1C1B400678CD1 /* PageTwoRunTwoViewController.m */; };
+		BC494A6E1AE1C1B400678CD1 /* PageTwoRunTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC494A6C1AE1C1B400678CD1 /* PageTwoRunTwoViewController.xib */; };
 		BCDB8B161AA135A8005DD246 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDB8B151AA1358B005DD246 /* libCorePlot-CocoaTouch.a */; };
 		BCF1E9391A61DE7600CEDD9B /* rk45.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF1E9371A61DE7600CEDD9B /* rk45.cpp */; };
 /* End PBXBuildFile section */
@@ -222,6 +224,9 @@
 		84ECB48619E9FD3800D5F795 /* InfusionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfusionTableViewCell.xib; sourceTree = "<group>"; };
 		BC03F6D61A4623B20088F303 /* MathSolver.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = MathSolver.cpp; sourceTree = "<group>"; };
 		BC03F6D71A4623B20088F303 /* MathSolver.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = MathSolver.hpp; sourceTree = "<group>"; };
+		BC494A6A1AE1C1B400678CD1 /* PageTwoRunTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTwoRunTwoViewController.h; sourceTree = "<group>"; };
+		BC494A6B1AE1C1B400678CD1 /* PageTwoRunTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTwoRunTwoViewController.m; sourceTree = "<group>"; };
+		BC494A6C1AE1C1B400678CD1 /* PageTwoRunTwoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageTwoRunTwoViewController.xib; sourceTree = "<group>"; };
 		BCDB8B0E1AA1358A005DD246 /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../CorePlot_1.5.1/Source/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
 		BCF1E9371A61DE7600CEDD9B /* rk45.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rk45.cpp; sourceTree = "<group>"; };
 		BCF1E9381A61DE7600CEDD9B /* rk45.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rk45.hpp; sourceTree = "<group>"; };
@@ -409,6 +414,7 @@
 		84ECB41F19E9C39E00D5F795 /* THYROSIM */ = {
 			isa = PBXGroup;
 			children = (
+				BC494A611AE1C0A700678CD1 /* RunTwoInterface */,
 				849224AD1A34D6E7006BEBF6 /* TabBarGraphs */,
 				84D7B0F71A13D11A0024DCE5 /* CorePlot */,
 				843863D119F71DAC0095E6BB /* Math */,
@@ -502,6 +508,16 @@
 				84ECB48619E9FD3800D5F795 /* InfusionTableViewCell.xib */,
 			);
 			name = "PageTwo Cells";
+			sourceTree = "<group>";
+		};
+		BC494A611AE1C0A700678CD1 /* RunTwoInterface */ = {
+			isa = PBXGroup;
+			children = (
+				BC494A6A1AE1C1B400678CD1 /* PageTwoRunTwoViewController.h */,
+				BC494A6B1AE1C1B400678CD1 /* PageTwoRunTwoViewController.m */,
+				BC494A6C1AE1C1B400678CD1 /* PageTwoRunTwoViewController.xib */,
+			);
+			name = RunTwoInterface;
 			sourceTree = "<group>";
 		};
 		BCDB8B0F1AA1358A005DD246 /* Products */ = {
@@ -614,6 +630,7 @@
 				84ECB47A19E9E72D00D5F795 /* TextInputTableViewCell.xib in Resources */,
 				84ECB44A19E9C77C00D5F795 /* QuickStartViewController.xib in Resources */,
 				849224B21A34D70D006BEBF6 /* TabGraphViewController.xib in Resources */,
+				BC494A6E1AE1C1B400678CD1 /* PageTwoRunTwoViewController.xib in Resources */,
 				849224BC1A34D818006BEBF6 /* ScatterPlot3ViewController.xib in Resources */,
 				84D7B1521A13DF110024DCE5 /* ScatterPlotViewController.xib in Resources */,
 				84ECB46319E9C96800D5F795 /* RunSimulationViewController.xib in Resources */,
@@ -648,6 +665,7 @@
 				84ECB47919E9E72D00D5F795 /* TextInputTableViewCell.m in Sources */,
 				84ECB47D19E9E90900D5F795 /* DataWrapper.m in Sources */,
 				849224BB1A34D818006BEBF6 /* ScatterPlot3ViewController.m in Sources */,
+				BC494A6D1AE1C1B400678CD1 /* PageTwoRunTwoViewController.m in Sources */,
 				84D91E1019F5A7FD007A2172 /* Inputs.m in Sources */,
 				84ECB48219E9FB1400D5F795 /* PageTwoTableViewCell.m in Sources */,
 				84ECB42319E9C39E00D5F795 /* main.m in Sources */,

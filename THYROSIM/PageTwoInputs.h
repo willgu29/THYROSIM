@@ -19,5 +19,6 @@
 
 -(instancetype)init;
 -(void)logAllData;
+-(void)logAllData2;
 
 @end

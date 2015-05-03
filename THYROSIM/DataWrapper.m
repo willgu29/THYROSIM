@@ -17,6 +17,8 @@
     {
         _pageOneData = [[PageOneInputs alloc] init];
         _pageTwoData = [[PageTwoInputs alloc] init];
+        
+        _pageTwoDatarunTwo = [[PageTwoInputs alloc] init];
     }
     return self;
 }

@@ -153,6 +153,7 @@
                 <constraint firstItem="hkv-E4-wcC" firstAttribute="top" secondItem="khg-8U-ePH" secondAttribute="bottom" constant="8" symbolic="YES" id="zUv-fT-pIY"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="327" y="353"/>
         </view>
     </objects>
     <resources>

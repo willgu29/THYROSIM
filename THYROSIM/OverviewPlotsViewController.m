@@ -6,8 +6,14 @@
 #import "PageTwoRunTwoViewController.h"
 #import "AppDelegate.h"
 #import "PageOneViewController.h"
+#import "PAgeTwoInputs.h"
 #import "RunSimulationViewController.h"
+#import "ErrorCheck.h"
+#import "ErrorEnums.h"
+#import "MathComputations.h"
+
 @interface OverviewPlotsViewController ()
+
 @end
 
 @implementation OverviewPlotsViewController
@@ -49,9 +55,35 @@
 }
 -(IBAction)runTwo:(UIButton *)sender
 {
-   
     PageTwoRunTwoViewController *pageTwoVC = [[PageTwoRunTwoViewController alloc] init];
     [self presentViewController:pageTwoVC animated:YES completion:nil];
+    PageTwoInputs *pageTwoInputs = [[PageTwoInputs alloc] init];
+    
+    [pageTwoInputs logAllData2];
+    
+    //TODO: Math computations
+    MathComputations *myMathObject = [[MathComputations alloc] init];
+    
+    [myMathObject getShitDone];
+    
+    
+    //TODO: Pass in Data Objects for all graphs
+    
+    
+    //Set a timer... if runs for more than 30seconds or so just cancel the operation
+    
+    _T4Values_2 = myMathObject.T4Values;
+    _T3Values_2 = myMathObject.T3Values;
+    _TSHValues_2 = myMathObject.TSHValues;
+    
+//    
+//    TabGraphViewController *tabGraph = [[TabGraphViewController alloc] init];
+//    tabGraph.viewControllers = [NSArray arrayWithObjects:overViewVC, nil];
+//    
+//    [self presentViewController:tabGraph animated:YES completion:nil];
+
+    
+    NSLog(@"sup");
 }
 
 -(instancetype)init
@@ -124,7 +156,6 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"Scatter Plots");
     [super viewDidAppear:animated];
     [self initPlot];
 }
@@ -189,7 +220,10 @@
 {
     // 1 - Create the graph
     NSString *title;
-    CPTScatterPlot *plot = [[CPTScatterPlot alloc] init];
+    CPTScatterPlot *plot1 = [[CPTScatterPlot alloc] init];
+    
+    CPTScatterPlot *plot2 = [[CPTScatterPlot alloc] init];
+    
     CPTScatterPlot *high = [[CPTScatterPlot alloc] init];
     if ([graph.identifier isEqual: @"T4"])
     {
@@ -198,7 +232,8 @@
         [graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];//kCPTSlateTheme
         self.hostingview1.hostedGraph = graph;
         title = @"T4 Values";
-        plot.identifier = @"T4";
+        plot1.identifier = @"T4";
+        plot2.identifier = @"T42";
         high.identifier = @"T4h";
         high.areaBaseValue = CPTDecimalFromDouble(45);
         
@@ -210,7 +245,8 @@
         [graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];//kCPTSlateTheme
         self.hostingview2.hostedGraph = graph;
         title = @"T3 Values";
-           plot.identifier = @"T3";
+           plot1.identifier = @"T3";
+        plot2.identifier = @"T32";
         high.identifier = @"T3h";
         high.areaBaseValue = CPTDecimalFromDouble(0.75);
         
@@ -222,7 +258,8 @@
         [graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];//kCPTSlateTheme
         self.hostingview3.hostedGraph = graph;
         title = @"TSH Values";
-           plot.identifier = @"TSH";
+           plot1.identifier = @"TSH";
+        plot2.identifier = @"TSH2";
         high.identifier = @"TSHh";
         high.areaBaseValue = CPTDecimalFromDouble(0.3);
     }
@@ -247,11 +284,11 @@
     CPTColor *Color = [CPTColor blueColor];
     CPTColor *green = [CPTColor grayColor];
     // Creates the blue lines for line graph
-    plot.dataSource = self;
+    plot1.dataSource = self;
     high.dataSource = self;
     [graph addPlot:high toPlotSpace:plotSpace];
     high.areaFill = [CPTFill fillWithColor:green];
-    [graph addPlot:plot toPlotSpace:plotSpace];
+    [graph addPlot:plot1 toPlotSpace:plotSpace];
     [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:high, nil]];
     CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
     [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
@@ -260,15 +297,25 @@
     [yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.2f)];
     plotSpace.yRange = yRange;
     // 4 - Create styles and symbols
-    CPTMutableLineStyle *LineStyle = [plot.dataLineStyle mutableCopy];
+    CPTMutableLineStyle *LineStyle = [plot1.dataLineStyle mutableCopy];
     LineStyle.lineWidth = 1.5;
     LineStyle.lineColor = Color;
-    plot.dataLineStyle = LineStyle;
+    plot1.dataLineStyle = LineStyle;
     CPTMutableLineStyle *SymbolLineStyle = [CPTMutableLineStyle lineStyle];
     SymbolLineStyle.lineColor = Color;
     
+    plot2.delegate = self;
+    plot2.dataSource = self;
+    [graph addPlot:plot2 toPlotSpace:plotSpace];
     
-    plot.delegate = self;
+    CPTMutableLineStyle *LineStyle2 = [plot2.dataLineStyle mutableCopy];
+    LineStyle2.lineWidth = 1.5;
+    LineStyle2.lineColor = [CPTColor blackColor];
+    plot2.dataLineStyle = LineStyle2;
+    
+    
+    
+    plot1.delegate = self;
     
 }
 
@@ -278,7 +325,6 @@
     NSNumber* min;
     if ([graph.identifier isEqual: @"T4"])
     {
-        NSLog(@"h");
         min = [_T4Values valueForKeyPath:@"@min.self"];
         axisSet = (CPTXYAxisSet *) self.hostingview1.hostedGraph.axisSet;
         
@@ -286,7 +332,6 @@
     
     if ([graph.identifier isEqual: @"T3"])
     {
-        NSLog(@"h");
         min = [_T3Values valueForKeyPath:@"@min.self"];
         axisSet = (CPTXYAxisSet *) self.hostingview2.hostedGraph.axisSet;
  
@@ -294,7 +339,6 @@
     
     if ([graph.identifier isEqual: @"TSH"])
     {
-        NSLog(@"h");
         min = [_TSHValues valueForKeyPath:@"@min.self"];
         axisSet = (CPTXYAxisSet *) self.hostingview3.hostedGraph.axisSet;
     
@@ -443,6 +487,27 @@
                 return [NSNumber numberWithDouble:4.7];
                 break;
             }
+            
+            if ([plot.identifier  isEqual: @"T32"])
+            {
+                //place y data
+                return [self.T3Values_2 objectAtIndex:idx];
+                break;
+            }
+            
+            if ([plot.identifier isEqual: @"T42"])
+            {
+                //place y data
+                return [self.T4Values_2 objectAtIndex:idx];
+                break;
+            }
+            if ([plot.identifier isEqual: @"TSH2"])
+            {
+                //place y data
+                return [self.TSHValues_2 objectAtIndex:idx];
+                break;
+            }
+            
         }
     }
     return [NSDecimalNumber zero];
@@ -487,6 +552,37 @@
         [_TSH_1 sizeToFit];
     }
     
+    if ([plot.identifier isEqual:@"T42"])
+    {
+        _touchPlot1Selected = YES;
+        _index1selected = index;
+        
+        NSArray *toadd = @[[NSNumber numberWithFloat:index], [self.T4Values_2 objectAtIndex:index] ];
+        NSString *string = [NSString stringWithFormat:@"(%@, %@)", toadd[0], toadd[1]];
+        _T4_2.text = string;
+        [_T4_2 sizeToFit];
+        
+    }
+    if ([plot.identifier isEqual:@"T32"])
+    {
+        _touchPlot2Selected = YES;
+        _index2selected = index;
+        NSArray *toadd = @[[NSNumber numberWithFloat:index], [self.T3Values_2 objectAtIndex:index] ];
+        NSString *string = [NSString stringWithFormat:@"(%@, %@)", toadd[0], toadd[1]];
+        _T3_2.text = string;
+        [_T3_2 sizeToFit];
+    }
+    
+    if ([plot.identifier isEqual:@"TSH2"])
+    {
+        _touchPlot3Selected = YES;
+        _index3selected = index;
+        NSArray *toadd = @[[NSNumber numberWithFloat:index], [self.TSHValues_2 objectAtIndex:index] ];
+        NSString *string = [NSString stringWithFormat:@"(%@, %@)", toadd[0], toadd[1]];
+        _TSH_2.text = string;
+        [_TSH_2 sizeToFit];
+    }
+    
     [plot reloadData];
     
     
@@ -526,7 +622,6 @@
     
     else if ([plot.identifier isEqual:@"T4h"] || [plot.identifier isEqual:@"T3h"] || [plot.identifier isEqual:@"TSHh"] )
     {
-        NSLog(@"1");
         symbolLineStyle.lineColor = [CPTColor grayColor];
     }
     
