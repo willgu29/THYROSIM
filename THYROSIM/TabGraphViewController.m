@@ -33,7 +33,6 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"HELLO");
     [[self.viewControllers objectAtIndex:0] viewDidAppear:YES];
 }
 

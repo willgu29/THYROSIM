@@ -11,6 +11,7 @@
 #import "ErrorCheck.h"
 #import "ErrorEnums.h"
 #import "MathComputations.h"
+#import "Inputs.h"
 
 @interface OverviewPlotsViewController ()
 
@@ -33,7 +34,6 @@
         PageTwoViewController *pageTwo = [[PageTwoViewController alloc] init];
         RunSimulationViewController *runSimulation = [[RunSimulationViewController alloc] init];
         
-        
         quickStart.title = @"Quick Start";
         pageOne.title = @"Step 1";
         pageTwo.title = @"Step 2";
@@ -55,42 +55,19 @@
 }
 -(IBAction)runTwo:(UIButton *)sender
 {
+    sender.hidden = TRUE;
     PageTwoRunTwoViewController *pageTwoVC = [[PageTwoRunTwoViewController alloc] init];
     [self presentViewController:pageTwoVC animated:YES completion:nil];
-    PageTwoInputs *pageTwoInputs = [[PageTwoInputs alloc] init];
-    
-    [pageTwoInputs logAllData2];
-    
-    //TODO: Math computations
-    MathComputations *myMathObject = [[MathComputations alloc] init];
-    
-    [myMathObject getShitDone];
-    
-    
-    //TODO: Pass in Data Objects for all graphs
-    
-    
-    //Set a timer... if runs for more than 30seconds or so just cancel the operation
-    
-    _T4Values_2 = myMathObject.T4Values;
-    _T3Values_2 = myMathObject.T3Values;
-    _TSHValues_2 = myMathObject.TSHValues;
-    
-//    
-//    TabGraphViewController *tabGraph = [[TabGraphViewController alloc] init];
-//    tabGraph.viewControllers = [NSArray arrayWithObjects:overViewVC, nil];
-//    
-//    [self presentViewController:tabGraph animated:YES completion:nil];
-
-    
-    NSLog(@"sup");
 }
 
 -(instancetype)init
 {
+    
     self = [super init];
     if (self)
     {
+        
+        self.button.hidden = YES;
         _T4_1 = [[UITextField alloc]initWithFrame:CGRectMake(30, 175, 100, 20)];
         [_T4_1 setBorderStyle:UITextBorderStyleRoundedRect];
         _T4_1.text = @"Run 1";
@@ -136,22 +113,8 @@
     return self;
 }
 
--(IBAction)backButton:(UIButton *)sender
-{
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
- 
-    //TODO:
-    //Make this switch back to initial tab
-}
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    // Do any additional setup after loading the view from its nib.
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -175,7 +138,6 @@
 
 -(void)configureHost
 {
-    
     CGRect frame1 = CGRectMake(0, 50, self.view.window.bounds.size.width, (self.view.window.bounds.size.height-80)/3);
     CGRect frame2 = CGRectMake(0, 200, self.view.window.bounds.size.width, (self.view.window.bounds.size.height-80)/3);
     CGRect frame3 = CGRectMake(0, 350, self.view.window.bounds.size.width, (self.view.window.bounds.size.height-80)/3);
@@ -191,7 +153,6 @@
     self.hostingview3 = [(CPTGraphHostingView *) [CPTGraphHostingView alloc] initWithFrame:frame3];//self.view.bounds];
     self.hostingview3.allowPinchScaling = YES;
     [self.view addSubview:self.hostingview3];
-    
 }
 
 -(void) myConfigure
@@ -221,47 +182,45 @@
     // 1 - Create the graph
     NSString *title;
     CPTScatterPlot *plot1 = [[CPTScatterPlot alloc] init];
-    
     CPTScatterPlot *plot2 = [[CPTScatterPlot alloc] init];
-    
     CPTScatterPlot *high = [[CPTScatterPlot alloc] init];
+    
     if ([graph.identifier isEqual: @"T4"])
     {
-        
         graph = [[CPTXYGraph alloc] initWithFrame:self.hostingview1.bounds];
         [graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];//kCPTSlateTheme
         self.hostingview1.hostedGraph = graph;
         title = @"T4 Values";
         plot1.identifier = @"T4";
-        plot2.identifier = @"T42";
         high.identifier = @"T4h";
         high.areaBaseValue = CPTDecimalFromDouble(45);
         
+        plot2.identifier = @"T42";
     }
-    
     else if ([graph.identifier isEqual: @"T3"])
     {
         graph = [[CPTXYGraph alloc] initWithFrame:self.hostingview2.bounds];
         [graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];//kCPTSlateTheme
         self.hostingview2.hostedGraph = graph;
         title = @"T3 Values";
-           plot1.identifier = @"T3";
-        plot2.identifier = @"T32";
+        plot1.identifier = @"T3";
         high.identifier = @"T3h";
         high.areaBaseValue = CPTDecimalFromDouble(0.75);
         
+        plot2.identifier = @"T32";
+        
     }
-    
     else
     {
         graph = [[CPTXYGraph alloc] initWithFrame:self.hostingview3.bounds];
         [graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];//kCPTSlateTheme
         self.hostingview3.hostedGraph = graph;
         title = @"TSH Values";
-           plot1.identifier = @"TSH";
-        plot2.identifier = @"TSH2";
+        plot1.identifier = @"TSH";
         high.identifier = @"TSHh";
         high.areaBaseValue = CPTDecimalFromDouble(0.3);
+        
+        plot2.identifier = @"TSH2";
     }
     
     // 2 - Set graph title
@@ -275,48 +234,60 @@
     graph.titleTextStyle = titleStyle;
     graph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;
     graph.titleDisplacement = CGPointMake(0.0f, 10.0f);
+    
     // 4 - Set padding for plot area
     [graph.plotAreaFrame setPaddingLeft:30.0f];
     [graph.plotAreaFrame setPaddingBottom:30.0f];
+    
     // 5 - Enable user interactions for plot space
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     plotSpace.allowsUserInteraction = YES;
-    CPTColor *Color = [CPTColor blueColor];
-    CPTColor *green = [CPTColor grayColor];
+    CPTColor *blue = [CPTColor blueColor];
+    CPTColor *gray = [CPTColor grayColor];
+    CPTColor *black = [CPTColor blackColor];
+    
     // Creates the blue lines for line graph
     plot1.dataSource = self;
     high.dataSource = self;
-    [graph addPlot:high toPlotSpace:plotSpace];
-    high.areaFill = [CPTFill fillWithColor:green];
-    [graph addPlot:plot1 toPlotSpace:plotSpace];
-    [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:high, nil]];
-    CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
-    [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
-    plotSpace.xRange = xRange;
-    CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
-    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.2f)];
-    plotSpace.yRange = yRange;
-    // 4 - Create styles and symbols
-    CPTMutableLineStyle *LineStyle = [plot1.dataLineStyle mutableCopy];
-    LineStyle.lineWidth = 1.5;
-    LineStyle.lineColor = Color;
-    plot1.dataLineStyle = LineStyle;
-    CPTMutableLineStyle *SymbolLineStyle = [CPTMutableLineStyle lineStyle];
-    SymbolLineStyle.lineColor = Color;
-    
-    plot2.delegate = self;
     plot2.dataSource = self;
+    
+    [graph addPlot:high toPlotSpace:plotSpace];
+    [graph addPlot:plot1 toPlotSpace:plotSpace];
     [graph addPlot:plot2 toPlotSpace:plotSpace];
     
-    CPTMutableLineStyle *LineStyle2 = [plot2.dataLineStyle mutableCopy];
-    LineStyle2.lineWidth = 1.5;
-    LineStyle2.lineColor = [CPTColor blackColor];
-    plot2.dataLineStyle = LineStyle2;
     
+    CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
+    CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
     
+    [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
+    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.2f)];
+
+    plotSpace.xRange = xRange;
+    plotSpace.yRange = yRange;
+    
+    high.areaFill = [CPTFill fillWithColor:gray];
+
+    [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:high, nil]];
+    
+//   /// 4 - Create styles and symbols
+//    CPTMutableLineStyle *LineStyle = [plot1.dataLineStyle mutableCopy];
+//    CPTMutableLineStyle *LineStyle2 = [plot2.dataLineStyle mutableCopy];
+//    
+//    LineStyle.lineWidth = 1.5;
+//    LineStyle.lineColor = blue;
+//    
+//    LineStyle2.lineWidth = 1.5;
+//    LineStyle2.lineColor = black;
+//    
+//    [plot1 setDataLineStyle:LineStyle];
+//    
+//    [plot2 setDataLineStyle:LineStyle2];
     
     plot1.delegate = self;
+    plot2.delegate = self;
     
+//    CPTMutableLineStyle *SymbolLineStyle = [CPTMutableLineStyle lineStyle];
+//    SymbolLineStyle.lineColor = blue;
 }
 
 -(void)configureAxes:(CPTXYAxisSet *)axisSet field:(CPTGraph *)graph
@@ -327,7 +298,6 @@
     {
         min = [_T4Values valueForKeyPath:@"@min.self"];
         axisSet = (CPTXYAxisSet *) self.hostingview1.hostedGraph.axisSet;
-        
     }
     
     if ([graph.identifier isEqual: @"T3"])
@@ -439,12 +409,11 @@
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)idx
 {
-    
     switch (fieldEnum) {
         case CPTScatterPlotFieldX:
             //place x data
             return [NSNumber numberWithInteger:idx];
-            
+    
         case CPTScatterPlotFieldY:
         {
             if ([plot.identifier  isEqual: @"T3"])
@@ -511,16 +480,12 @@
         }
     }
     return [NSDecimalNumber zero];
-    
 }
 
 #pragma mark -
 #pragma mark CPTScatterPlot delegate method
-
-
 - (void)scatterPlot:(CPTScatterPlot *)plot plotSymbolWasSelectedAtRecordIndex:(NSUInteger)index
 {
-
     if ([plot.identifier isEqual:@"T4"])
     {
         _touchPlot1Selected = YES;
@@ -530,8 +495,8 @@
         NSString *string = [NSString stringWithFormat:@"(%@, %@)", toadd[0], toadd[1]];
         _T4_1.text = string;
         [_T4_1 sizeToFit];
-        
     }
+    
     if ([plot.identifier isEqual:@"T3"])
     {
         _touchPlot2Selected = YES;
@@ -561,8 +526,8 @@
         NSString *string = [NSString stringWithFormat:@"(%@, %@)", toadd[0], toadd[1]];
         _T4_2.text = string;
         [_T4_2 sizeToFit];
-        
     }
+    
     if ([plot.identifier isEqual:@"T32"])
     {
         _touchPlot2Selected = YES;
@@ -582,38 +547,35 @@
         _TSH_2.text = string;
         [_TSH_2 sizeToFit];
     }
-    
     [plot reloadData];
-    
-    
 }
 
 - (CPTPlotSymbol *)symbolForScatterPlot:(CPTScatterPlot *)plot recordIndex:(NSUInteger)index
 {
-
     CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
-    symbolLineStyle.lineColor = [CPTColor blueColor];
     CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
+    
     plotSymbol.lineStyle = symbolLineStyle;
+    
     CPTColor *blue = [CPTColor blueColor];
+     CPTColor *black = [CPTColor blackColor];
     CPTColor *green = [CPTColor greenColor];
     
-    if ([plot.identifier isEqual:@"T4"] && _touchPlot1Selected == YES && index == _index1selected)
-    {
-        plotSymbol.symbolType = CPTPlotSymbolTypeDiamond;
-        plotSymbol.size = CGSizeMake(12, 12);
-        plotSymbol.fill = [CPTFill fillWithColor:green];
-        
-    }
-    
-    else if ([plot.identifier isEqual:@"T3"] && _touchPlot2Selected == YES && index == _index2selected)
+    if ( ([plot.identifier isEqual:@"T4"] || [plot.identifier isEqual:@"T42"])&& _touchPlot1Selected == YES && index == _index1selected)
     {
         plotSymbol.symbolType = CPTPlotSymbolTypeDiamond;
         plotSymbol.size = CGSizeMake(12, 12);
         plotSymbol.fill = [CPTFill fillWithColor:green];
     }
     
-    else if ([plot.identifier isEqual:@"TSH"] && _touchPlot3Selected == YES && index == _index3selected)
+    else if ( ( [plot.identifier isEqual:@"T3"] || [plot.identifier isEqual:@"T32"]) && _touchPlot2Selected == YES && index == _index2selected)
+    {
+        plotSymbol.symbolType = CPTPlotSymbolTypeDiamond;
+        plotSymbol.size = CGSizeMake(12, 12);
+        plotSymbol.fill = [CPTFill fillWithColor:green];
+    }
+    
+    else if ( ([plot.identifier isEqual:@"TSH"] || [plot.identifier isEqual:@"TSH2"] ) && _touchPlot3Selected == YES && index == _index3selected)
     {
         plotSymbol.symbolType = CPTPlotSymbolTypeDiamond;
         plotSymbol.size = CGSizeMake(12, 12);
@@ -629,9 +591,16 @@
     {
         plotSymbol.size = CGSizeMake(2.0f, 2.0f);
         plot.plotSymbol = plotSymbol;
-        plotSymbol.fill = [CPTFill fillWithColor:blue];
+        
+        if ( [plot.identifier isEqual:@"T4"] || [plot.identifier isEqual:@"T3"] || [plot.identifier isEqual:@"TSH"])
+        {
+              symbolLineStyle.lineColor = blue;
+        }
+        else
+        {
+              symbolLineStyle.lineColor = black;
+        }
     }
-   
     return plotSymbol;
 }
 

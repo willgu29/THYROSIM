@@ -23,7 +23,7 @@ struct Opaque;
 //@property (nonatomic, strong) StoreData *outputData;
 //@property (nonatomic) int myNumber;
 
--(void)getShitDone;
+-(void)getShitDone:(BOOL)runtwo;
 
 -(instancetype)init;
 

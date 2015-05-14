@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -31,7 +31,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                         <connections>
-                            <outlet property="delegate" destination="KGk-i7-Jjw" id="PlD-ji-7Ib"/>
+                            <outlet property="delegate" destination="-1" id="pRq-oe-kzF"/>
                         </connections>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uQe-9R-xEX">
@@ -39,7 +39,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                         <connections>
-                            <outlet property="delegate" destination="KGk-i7-Jjw" id="hiy-Fl-0rg"/>
+                            <outlet property="delegate" destination="-1" id="qTW-8O-J6W"/>
                         </connections>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lzv-rF-prE">
@@ -47,7 +47,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                         <connections>
-                            <outlet property="delegate" destination="KGk-i7-Jjw" id="uAK-4v-boy"/>
+                            <outlet property="delegate" destination="-1" id="2zr-2v-SUU"/>
                         </connections>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Input" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYA-TD-jC0">
@@ -68,17 +68,17 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
-                            <action selector="deleteRow:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NhN-NP-Q4k"/>
+                            <action selector="deleteRow:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oDK-ey-gsu"/>
                         </connections>
                     </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="deleteButton" destination="EW1-mQ-VPh" id="Mat-te-uMJ"/>
-                <outlet property="inputField1" destination="6MR-5i-ene" id="RL8-o6-Xhu"/>
-                <outlet property="inputField2" destination="uQe-9R-xEX" id="GQe-Bw-qyb"/>
-                <outlet property="inputField3" destination="lzv-rF-prE" id="nXb-3X-HFG"/>
-                <outlet property="label" destination="dYA-TD-jC0" id="ydX-ew-wdh"/>
+                <outlet property="deleteButton" destination="EW1-mQ-VPh" id="qDM-es-T8E"/>
+                <outlet property="inputField1" destination="6MR-5i-ene" id="xBg-Ku-K4F"/>
+                <outlet property="inputField2" destination="uQe-9R-xEX" id="AdY-Ej-FyT"/>
+                <outlet property="inputField3" destination="lzv-rF-prE" id="CsI-Iz-8Gk"/>
+                <outlet property="label" destination="dYA-TD-jC0" id="pk6-HA-ja3"/>
             </connections>
             <point key="canvasLocation" x="140" y="209"/>
         </tableViewCell>

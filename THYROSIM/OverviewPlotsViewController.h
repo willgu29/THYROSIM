@@ -10,7 +10,7 @@
 #import "CorePlot-CocoaTouch.h"
 
 @interface OverviewPlotsViewController : UIViewController <CPTPlotDataSource, CPTPlotDelegate>
-
+@property (weak, atomic) UIButton* button;
 @property (nonatomic, strong) CPTGraphHostingView *hostingview1;
 @property (nonatomic, strong) CPTGraphHostingView *hostingview2;
 @property (nonatomic, strong) CPTGraphHostingView *hostingview3;
@@ -47,6 +47,8 @@
 @property (nonatomic) UITextField *T4_2;
 @property (nonatomic) UITextField *T3_2;
 @property (nonatomic) UITextField *TSH_2;
+
+
 
 -(instancetype) init;
 

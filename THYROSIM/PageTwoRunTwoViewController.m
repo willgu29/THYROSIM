@@ -7,12 +7,15 @@
 //
 
 #import "PageTwoRunTwoViewController.h"
-#import "PageTwoTableViewCell.h"
-#import "InfusionTableViewCell.h"
+#import "PageTwoRunTableViewCell.h"
+#import "InfusionTwoRunTableViewCell.h"
 #import "AppDelegate.h"
 #import "Inputs.h"
 #import "ErrorCheck.h"
 #import "ErrorEnums.h"
+#import "OverviewPlotsViewController.h"
+#import "TabGraphViewController.h"
+#import "MathComputations.h"
 @interface PageTwoRunTwoViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -25,27 +28,36 @@
 -(IBAction)run2:(UIButton *)sender
 {
     ErrorCheck *errorChecker = [[ErrorCheck alloc] init];
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    [delegate.dataObject.pageTwoData logAllData2];
     int errorValue = [errorChecker errorCheckRunTwo];
     if (errorValue != ALL_GOOD_PROCEED)
     {
         //DISPLAY ERROR MESSAGE
         return;
     }
+    
+    MathComputations *myMathObject = [[MathComputations alloc] init];
+    [myMathObject getShitDone: true];
+    OverviewPlotsViewController *overViewVC = (OverviewPlotsViewController *)self.presentingViewController;
+    overViewVC.T4Values_2 = myMathObject.T4Values;
+    overViewVC.T3Values_2 = myMathObject.T3Values;
+    overViewVC.TSHValues_2 = myMathObject.TSHValues;
+    overViewVC.hourinterval= myMathObject.intervalHours;
+
+    TabGraphViewController *tabGraph = [[TabGraphViewController alloc] init];
+    tabGraph.viewControllers = [NSArray arrayWithObjects:overViewVC, nil];
+    
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableData) name:@"Reload Table" object:nil];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveVC) name:@"Move VC" object:nil];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(revertVC) name:@"Revert VC" object:nil];
-    
-    
-    //    [self createInputArray];
 }
 
 
@@ -119,37 +131,34 @@
     
     if ([[delegate.dataObject.pageTwoData.inputArray2 objectAtIndex:indexPath.row] isEqualToNumber:[NSNumber numberWithInt:2]] || [[delegate.dataObject.pageTwoData.inputArray2 objectAtIndex:indexPath.row] isEqualToNumber:[NSNumber numberWithInt:5]])
     {
-        InfusionTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        InfusionTwoRunTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil)
         {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"InfusionTableViewCell" owner:self options:nil];
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"InfusionTwoRunTableViewCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
         }
         //        cell.inputField1.delegate = self;
         //        cell.inputField2.delegate = self;
         //        cell.inputField3.delegate = self;
         
-        
         cell.deleteButton.tag = indexPath.row;
         cell.tag = indexPath.row;
         cell.label.text = [self inputName:[delegate.dataObject.pageTwoData.inputArray2 objectAtIndex:indexPath.row]];
         
-        
-        Inputs *inputs = [delegate.dataObject.pageTwoData.filledArray objectAtIndex:indexPath.row];
+        Inputs *inputs = [delegate.dataObject.pageTwoData.filledArray2 objectAtIndex:indexPath.row];
         
         cell.inputField1.text = [NSString stringWithFormat:@"%ld",(long)inputs.doseAmount];
         cell.inputField2.text = [NSString stringWithFormat:@"%ld",(long)inputs.startTime];
         cell.inputField3.text = [NSString stringWithFormat:@"%ld",(long)inputs.endTime];
         
         return cell;
-        
     }
     else
     {
-        PageTwoTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        PageTwoRunTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil)
         {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"PageTwoTableViewCell" owner:self options:nil];
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"PageTwoRunTableViewCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
         }
         //        cell.inputField1.delegate = self;

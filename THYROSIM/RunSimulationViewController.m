@@ -41,13 +41,6 @@
 
 -(IBAction)runSimulation:(UIButton *)sender
 {
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    PageOneInputs *pageOneData = delegate.dataObject.pageOneData;
-    PageTwoInputs *pageTwoData = delegate.dataObject.pageTwoData;
-    
-    [pageOneData logAllData];
-    [pageTwoData logAllData];
-    
     
     //TODO: Error check here
     ErrorCheck *errorChecker = [[ErrorCheck alloc] init];
@@ -61,13 +54,10 @@
         return;
     }
     
-    
-    
     //TODO: Math computations
     MathComputations *myMathObject = [[MathComputations alloc] init];
 
-    [myMathObject getShitDone];
-    
+    [myMathObject getShitDone:false];
     
     //TODO: Pass in Data Objects for all graphs
     
@@ -81,10 +71,10 @@
     overViewVC.TSHValues = myMathObject.TSHValues;
     overViewVC.hourinterval= myMathObject.intervalHours;
   
-    TabGraphViewController *tabGraph = [[TabGraphViewController alloc] init];
-    tabGraph.viewControllers = [NSArray arrayWithObjects:overViewVC, nil];
+//    TabGraphViewController *tabGraph = [[TabGraphViewController alloc] init];
+//    tabGraph.viewControllers = [NSArray arrayWithObjects:overViewVC, nil];
     
-    [self presentViewController:tabGraph animated:YES completion:nil];
+    [self presentViewController:overViewVC animated:YES completion:nil];
     
    
 }

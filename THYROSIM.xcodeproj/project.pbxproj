@@ -52,6 +52,10 @@
 		BC03F6D81A4623B20088F303 /* MathSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC03F6D61A4623B20088F303 /* MathSolver.cpp */; };
 		BC494A6D1AE1C1B400678CD1 /* PageTwoRunTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC494A6B1AE1C1B400678CD1 /* PageTwoRunTwoViewController.m */; };
 		BC494A6E1AE1C1B400678CD1 /* PageTwoRunTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC494A6C1AE1C1B400678CD1 /* PageTwoRunTwoViewController.xib */; };
+		BCC3CB431AF6F22400658F47 /* PageTwoRunTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC3CB411AF6F22400658F47 /* PageTwoRunTableViewCell.m */; };
+		BCC3CB441AF6F22400658F47 /* PageTwoRunTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC3CB421AF6F22400658F47 /* PageTwoRunTableViewCell.xib */; };
+		BCC3CB4B1AF6F37800658F47 /* InfusionTwoRunTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC3CB491AF6F37800658F47 /* InfusionTwoRunTableViewCell.m */; };
+		BCC3CB4C1AF6F37800658F47 /* InfusionTwoRunTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC3CB4A1AF6F37800658F47 /* InfusionTwoRunTableViewCell.xib */; };
 		BCDB8B161AA135A8005DD246 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDB8B151AA1358B005DD246 /* libCorePlot-CocoaTouch.a */; };
 		BCF1E9391A61DE7600CEDD9B /* rk45.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF1E9371A61DE7600CEDD9B /* rk45.cpp */; };
 /* End PBXBuildFile section */
@@ -227,6 +231,12 @@
 		BC494A6A1AE1C1B400678CD1 /* PageTwoRunTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTwoRunTwoViewController.h; sourceTree = "<group>"; };
 		BC494A6B1AE1C1B400678CD1 /* PageTwoRunTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTwoRunTwoViewController.m; sourceTree = "<group>"; };
 		BC494A6C1AE1C1B400678CD1 /* PageTwoRunTwoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageTwoRunTwoViewController.xib; sourceTree = "<group>"; };
+		BCC3CB401AF6F22400658F47 /* PageTwoRunTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTwoRunTableViewCell.h; sourceTree = "<group>"; };
+		BCC3CB411AF6F22400658F47 /* PageTwoRunTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTwoRunTableViewCell.m; sourceTree = "<group>"; };
+		BCC3CB421AF6F22400658F47 /* PageTwoRunTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageTwoRunTableViewCell.xib; sourceTree = "<group>"; };
+		BCC3CB481AF6F37800658F47 /* InfusionTwoRunTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfusionTwoRunTableViewCell.h; sourceTree = "<group>"; };
+		BCC3CB491AF6F37800658F47 /* InfusionTwoRunTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfusionTwoRunTableViewCell.m; sourceTree = "<group>"; };
+		BCC3CB4A1AF6F37800658F47 /* InfusionTwoRunTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfusionTwoRunTableViewCell.xib; sourceTree = "<group>"; };
 		BCDB8B0E1AA1358A005DD246 /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../CorePlot_1.5.1/Source/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
 		BCF1E9371A61DE7600CEDD9B /* rk45.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rk45.cpp; sourceTree = "<group>"; };
 		BCF1E9381A61DE7600CEDD9B /* rk45.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rk45.hpp; sourceTree = "<group>"; };
@@ -506,6 +516,12 @@
 				84ECB48419E9FD3800D5F795 /* InfusionTableViewCell.h */,
 				84ECB48519E9FD3800D5F795 /* InfusionTableViewCell.m */,
 				84ECB48619E9FD3800D5F795 /* InfusionTableViewCell.xib */,
+				BCC3CB401AF6F22400658F47 /* PageTwoRunTableViewCell.h */,
+				BCC3CB411AF6F22400658F47 /* PageTwoRunTableViewCell.m */,
+				BCC3CB421AF6F22400658F47 /* PageTwoRunTableViewCell.xib */,
+				BCC3CB481AF6F37800658F47 /* InfusionTwoRunTableViewCell.h */,
+				BCC3CB491AF6F37800658F47 /* InfusionTwoRunTableViewCell.m */,
+				BCC3CB4A1AF6F37800658F47 /* InfusionTwoRunTableViewCell.xib */,
 			);
 			name = "PageTwo Cells";
 			sourceTree = "<group>";
@@ -632,6 +648,7 @@
 				849224B21A34D70D006BEBF6 /* TabGraphViewController.xib in Resources */,
 				BC494A6E1AE1C1B400678CD1 /* PageTwoRunTwoViewController.xib in Resources */,
 				849224BC1A34D818006BEBF6 /* ScatterPlot3ViewController.xib in Resources */,
+				BCC3CB4C1AF6F37800658F47 /* InfusionTwoRunTableViewCell.xib in Resources */,
 				84D7B1521A13DF110024DCE5 /* ScatterPlotViewController.xib in Resources */,
 				84ECB46319E9C96800D5F795 /* RunSimulationViewController.xib in Resources */,
 				84ECB46F19E9CE9100D5F795 /* Default-568h@2x.png in Resources */,
@@ -641,6 +658,7 @@
 				84DF601B1A69E92E00CF84F1 /* OverviewPlotsViewController.xib in Resources */,
 				84ECB42E19E9C39E00D5F795 /* Images.xcassets in Resources */,
 				84ECB45419E9C92300D5F795 /* PageOneViewController.xib in Resources */,
+				BCC3CB441AF6F22400658F47 /* PageTwoRunTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,6 +696,8 @@
 				84ECB45819E9C93400D5F795 /* PageTwoViewController.m in Sources */,
 				84ECB46D19E9C9A300D5F795 /* GraphDrawer.m in Sources */,
 				84ECB46A19E9C99700D5F795 /* PageTwoInputs.m in Sources */,
+				BCC3CB431AF6F22400658F47 /* PageTwoRunTableViewCell.m in Sources */,
+				BCC3CB4B1AF6F37800658F47 /* InfusionTwoRunTableViewCell.m in Sources */,
 				84ECB45319E9C92300D5F795 /* PageOneViewController.m in Sources */,
 				849224B11A34D70D006BEBF6 /* TabGraphViewController.m in Sources */,
 				84D7B1511A13DF110024DCE5 /* ScatterPlotViewController.m in Sources */,

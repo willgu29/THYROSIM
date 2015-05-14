@@ -13,25 +13,15 @@
 
 #import "MathSolver.hpp"
 
-
-
-
 @interface MathComputations()
 {
     int countValue;
 }
-
-
-
 @end
-
-
 struct Opaque
 {
     storeData *storeDataInstance;
 };
-
-
 @implementation MathComputations
 
 -(instancetype)init
@@ -59,7 +49,7 @@ struct Opaque
     return opaque.storeDataInstance;
 }
 
--(void)getShitDone //I.E. get graph results
+-(void)getShitDone:(BOOL)runtwo //I.E. get graph results
 {
     //These have been moved to initOpaque
 //    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
@@ -72,7 +62,9 @@ struct Opaque
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
   
     storeData* storeDataInstance = [self initOpaque];
-    storeDataInstance->getTheNumbers([self convertToPrimitive], countValue, delegate.dataObject.pageOneData.recalculateInitialConditions);
+    
+    storeDataInstance->getTheNumbers([self convertToPrimitive:runtwo], countValue, delegate.dataObject.pageOneData.recalculateInitialConditions);
+    
     
     for (int i = 0; i< storeDataInstance->getnum_hours(); i++)
     {
@@ -100,10 +92,20 @@ struct Opaque
 //    }
 }
 
--(float *)convertToPrimitive
+-(float *)convertToPrimitive:(BOOL)runtwo
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    NSArray *inputArray = delegate.dataObject.pageTwoData.filledArray;
+    NSArray *inputArray;
+    
+    if (runtwo)
+    {
+            inputArray = delegate.dataObject.pageTwoData.filledArray2;
+    }
+    else
+    {
+            inputArray = delegate.dataObject.pageTwoData.filledArray;
+    }
+
     
     int count = [inputArray count]*5;
     
