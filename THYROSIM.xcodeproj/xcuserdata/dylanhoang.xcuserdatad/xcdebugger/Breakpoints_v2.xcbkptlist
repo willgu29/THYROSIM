@@ -253,8 +253,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
             endingLineNumber = "26"
-            landmarkName = "@interface MathComputations"
-            landmarkType = "2">
+            landmarkName = "-getShitDone:"
+            landmarkType = "4">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -264,11 +264,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "THYROSIM/OverviewPlotsViewController.m"
-            timestampString = "453322420.686473"
+            timestampString = "453864439.961969"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "564"
-            endingLineNumber = "564"
+            startingLineNumber = "586"
+            endingLineNumber = "586"
             landmarkName = "-symbolForScatterPlot:recordIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -280,11 +280,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "THYROSIM/OverviewPlotsViewController.m"
-            timestampString = "453322420.686473"
+            timestampString = "453864439.961969"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "567"
-            endingLineNumber = "567"
+            startingLineNumber = "589"
+            endingLineNumber = "589"
             landmarkName = "-symbolForScatterPlot:recordIndex:"
             landmarkType = "5">
          </BreakpointContent>

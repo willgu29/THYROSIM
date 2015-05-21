@@ -159,6 +159,9 @@
 {
     _graph1  = [[CPTXYGraph alloc] initWithFrame:hostingview1_.bounds];
     _graph1.identifier = @"T4";
+    
+    
+    
     _graph2  = [[CPTXYGraph alloc] initWithFrame:hostingview2_.bounds];
     _graph2.identifier = @"T3";
     _graph3  = [[CPTXYGraph alloc] initWithFrame:hostingview3_.bounds];
@@ -179,6 +182,7 @@
 
 -(void)configureGraph:( CPTGraph *) graph
 {
+
     // 1 - Create the graph
     NSString *title;
     CPTScatterPlot *plot1 = [[CPTScatterPlot alloc] init];
@@ -188,9 +192,9 @@
     if ([graph.identifier isEqual: @"T4"])
     {
         graph = [[CPTXYGraph alloc] initWithFrame:self.hostingview1.bounds];
-        [graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];//kCPTSlateTheme
+        [graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];//kCPTSlateTheme
         self.hostingview1.hostedGraph = graph;
-        title = @"T4 Values";
+        title = @"T4";
         plot1.identifier = @"T4";
         high.identifier = @"T4h";
         high.areaBaseValue = CPTDecimalFromDouble(45);
@@ -200,9 +204,9 @@
     else if ([graph.identifier isEqual: @"T3"])
     {
         graph = [[CPTXYGraph alloc] initWithFrame:self.hostingview2.bounds];
-        [graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];//kCPTSlateTheme
+        [graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];//kCPTSlateTheme
         self.hostingview2.hostedGraph = graph;
-        title = @"T3 Values";
+        title = @"T3";
         plot1.identifier = @"T3";
         high.identifier = @"T3h";
         high.areaBaseValue = CPTDecimalFromDouble(0.75);
@@ -213,27 +217,30 @@
     else
     {
         graph = [[CPTXYGraph alloc] initWithFrame:self.hostingview3.bounds];
-        [graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];//kCPTSlateTheme
+        [graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];//kCPTSlateTheme
         self.hostingview3.hostedGraph = graph;
-        title = @"TSH Values";
+        title = @"TSH";
         plot1.identifier = @"TSH";
         high.identifier = @"TSHh";
         high.areaBaseValue = CPTDecimalFromDouble(0.3);
         
         plot2.identifier = @"TSH2";
     }
-    
+    graph.plotAreaFrame.borderLineStyle = nil;
     // 2 - Set graph title
     graph.title = title;
     
+    CPTColor *color = [CPTColor whiteColor];
+    
+    
     // 3 - Create and set text style
     CPTMutableTextStyle *titleStyle = [CPTMutableTextStyle textStyle];
-    titleStyle.color = [CPTColor whiteColor];
+    titleStyle.color = [CPTColor blackColor];
     titleStyle.fontName = @"Helvetica-Bold";
     titleStyle.fontSize = 16.0f;
     graph.titleTextStyle = titleStyle;
     graph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;
-    graph.titleDisplacement = CGPointMake(0.0f, 10.0f);
+    graph.titleDisplacement = CGPointMake(0.0f, 18.0f);
     
     // 4 - Set padding for plot area
     [graph.plotAreaFrame setPaddingLeft:30.0f];
@@ -242,14 +249,26 @@
     // 5 - Enable user interactions for plot space
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     plotSpace.allowsUserInteraction = YES;
-    CPTColor *blue = [CPTColor blueColor];
     CPTColor *gray = [CPTColor grayColor];
-    CPTColor *black = [CPTColor blackColor];
-    
     // Creates the blue lines for line graph
     plot1.dataSource = self;
     high.dataSource = self;
+
+    
+    CPTMutableLineStyle *a = [CPTMutableLineStyle lineStyle];
+    [a setLineColor:[CPTColor clearColor]];
+    
+    [high setDataLineStyle:a];
     plot2.dataSource = self;
+    
+    CPTMutableLineStyle *b = [CPTMutableLineStyle lineStyle];
+    CPTMutableLineStyle *c = [CPTMutableLineStyle lineStyle];
+    
+    [b setLineColor:[CPTColor blueColor]];
+    [c setLineColor:[CPTColor blackColor]];
+    
+    [plot1 setDataLineStyle:b];
+    [plot2 setDataLineStyle:c];
     
     [graph addPlot:high toPlotSpace:plotSpace];
     [graph addPlot:plot1 toPlotSpace:plotSpace];
@@ -265,7 +284,8 @@
     plotSpace.xRange = xRange;
     plotSpace.yRange = yRange;
     
-    high.areaFill = [CPTFill fillWithColor:gray];
+    high.areaFill = [CPTFill fillWithColor:[CPTColor yellowColor]];
+    
 
     [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:high, nil]];
     
@@ -313,26 +333,28 @@
         axisSet = (CPTXYAxisSet *) self.hostingview3.hostedGraph.axisSet;
     
     }
+    
+    CPTColor * color = [CPTColor blackColor];
 
     double newNumber = (min.doubleValue*.9999);
     axisSet.xAxis.orthogonalCoordinateDecimal =CPTDecimalFromDouble(newNumber);
 
     CPTMutableTextStyle *axisTitleStyle = [CPTMutableTextStyle textStyle];
-    axisTitleStyle.color = [CPTColor whiteColor];
+    axisTitleStyle.color = color;
     axisTitleStyle.fontName = @"Helvetica-Bold";
     axisTitleStyle.fontSize = 12.0f;
     CPTMutableLineStyle *axisLineStyle = [CPTMutableLineStyle lineStyle];
     axisLineStyle.lineWidth = 2.0f;
-    axisLineStyle.lineColor = [CPTColor whiteColor];
+    axisLineStyle.lineColor = color;
     CPTMutableTextStyle *axisTextStyle = [[CPTMutableTextStyle alloc] init];
-    axisTextStyle.color = [CPTColor whiteColor];
+    axisTextStyle.color = color;
     axisTextStyle.fontName = @"Helvetica-Bold";
     axisTextStyle.fontSize = 11.0f;
     CPTMutableLineStyle *tickLineStyle = [CPTMutableLineStyle lineStyle];
-    tickLineStyle.lineColor = [CPTColor whiteColor];
+    tickLineStyle.lineColor = color;
     tickLineStyle.lineWidth = 2.0f;
     CPTMutableLineStyle *gridLineStyle = [CPTMutableLineStyle lineStyle];
-    tickLineStyle.lineColor = [CPTColor blackColor];
+    tickLineStyle.lineColor = color;
     tickLineStyle.lineWidth = 1.0f;
     
     // 3 - Configure x-axis
@@ -346,7 +368,7 @@
     x.majorTickLineStyle = axisLineStyle;
     x.majorTickLength = 4.0f;
     x.tickDirection = CPTSignNegative;
-    x.majorGridLineStyle = gridLineStyle;
+//    x.majorGridLineStyle = gridLineStyle;
     x.majorIntervalLength = CPTDecimalFromInteger(1);
     
     CGFloat dateCount = _hourinterval;
@@ -372,7 +394,7 @@
     y.titleTextStyle = axisTitleStyle;
     y.titleOffset = -30.0f;
     y.axisLineStyle = axisLineStyle;
-    y.majorGridLineStyle = gridLineStyle;
+//    y.majorGridLineStyle = gridLineStyle;
     y.labelingPolicy = CPTAxisLabelingPolicyAutomatic;
     y.labelTextStyle = axisTextStyle;
     y.labelOffset = 200.0f;
@@ -484,6 +506,7 @@
 
 #pragma mark -
 #pragma mark CPTScatterPlot delegate method
+
 - (void)scatterPlot:(CPTScatterPlot *)plot plotSymbolWasSelectedAtRecordIndex:(NSUInteger)index
 {
     if ([plot.identifier isEqual:@"T4"])
@@ -563,43 +586,45 @@
     
     if ( ([plot.identifier isEqual:@"T4"] || [plot.identifier isEqual:@"T42"])&& _touchPlot1Selected == YES && index == _index1selected)
     {
-        plotSymbol.symbolType = CPTPlotSymbolTypeDiamond;
-        plotSymbol.size = CGSizeMake(12, 12);
+        plotSymbol.symbolType = CPTPlotSymbolTypeEllipse;
+        plotSymbol.size = CGSizeMake(6, 6);
         plotSymbol.fill = [CPTFill fillWithColor:green];
     }
     
     else if ( ( [plot.identifier isEqual:@"T3"] || [plot.identifier isEqual:@"T32"]) && _touchPlot2Selected == YES && index == _index2selected)
     {
-        plotSymbol.symbolType = CPTPlotSymbolTypeDiamond;
-        plotSymbol.size = CGSizeMake(12, 12);
+        plotSymbol.symbolType = CPTPlotSymbolTypeEllipse;
+        plotSymbol.size = CGSizeMake(6, 6);
         plotSymbol.fill = [CPTFill fillWithColor:green];
     }
     
     else if ( ([plot.identifier isEqual:@"TSH"] || [plot.identifier isEqual:@"TSH2"] ) && _touchPlot3Selected == YES && index == _index3selected)
     {
-        plotSymbol.symbolType = CPTPlotSymbolTypeDiamond;
-        plotSymbol.size = CGSizeMake(12, 12);
+        plotSymbol.symbolType = CPTPlotSymbolTypeEllipse;
+        plotSymbol.size = CGSizeMake(6, 6);
         plotSymbol.fill = [CPTFill fillWithColor:green];
     }
     
     else if ([plot.identifier isEqual:@"T4h"] || [plot.identifier isEqual:@"T3h"] || [plot.identifier isEqual:@"TSHh"] )
     {
-        symbolLineStyle.lineColor = [CPTColor grayColor];
+        symbolLineStyle.lineColor = [CPTColor clearColor];
+
     }
     
     else
     {
-        plotSymbol.size = CGSizeMake(2.0f, 2.0f);
-        plot.plotSymbol = plotSymbol;
-        
-        if ( [plot.identifier isEqual:@"T4"] || [plot.identifier isEqual:@"T3"] || [plot.identifier isEqual:@"TSH"])
-        {
-              symbolLineStyle.lineColor = blue;
-        }
-        else
-        {
-              symbolLineStyle.lineColor = black;
-        }
+        symbolLineStyle.lineColor = [CPTColor clearColor];
+//        plotSymbol.size = CGSizeMake(2.0f, 2.0f);
+//        plot.plotSymbol = plotSymbol;
+//        
+//        if ( [plot.identifier isEqual:@"T4"] || [plot.identifier isEqual:@"T3"] || [plot.identifier isEqual:@"TSH"])
+//        {
+//              symbolLineStyle.lineColor = blue;
+//        }
+//        else
+//        {
+//              symbolLineStyle.lineColor = black;
+//        }
     }
     return plotSymbol;
 }
