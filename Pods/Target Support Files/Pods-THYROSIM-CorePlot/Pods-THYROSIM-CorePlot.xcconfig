@@ -1,0 +1,2 @@
+PODS_THYROSIM_COREPLOT_ALWAYS_SEARCH_USER_PATHS = YES
+PODS_THYROSIM_COREPLOT_OTHER_LDFLAGS = -framework "Accelerate" -framework "Foundation" -framework "QuartzCore" -framework "UIKit"
