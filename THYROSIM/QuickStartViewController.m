@@ -71,7 +71,12 @@
     UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:aRect2];
     [imageView2 setImage:infusion];
 
-    CGRect aRect3 = CGRectMake(90, 190, 20, 20);
+    CGRect aRect3;
+    if ([[UIScreen mainScreen] bounds].size.height == 56) {
+        aRect3 = CGRectMake(90, 220, 20, 20);
+    } else {
+        aRect3 = CGRectMake(90, 190, 20, 20);
+    }
     UIImageView *imageView3 = [[UIImageView alloc] initWithFrame:aRect3];
     [imageView3 setImage:trash];
     
